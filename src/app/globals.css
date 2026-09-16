@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fbf9f6;
+  --foreground: #052e26;
+  --color-brand-green: #052e26;
+  --color-brand-cream: #fbf9f6;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-green: var(--color-brand-green);
+  --color-brand-cream: var(--color-brand-cream);
+
+  --font-sans:
+    var(--font-jakarta), ui-sans-serif, system-ui, -apple-system, sans-serif;
+
+  --font-display: var(--font-playfair), Georgia, "Times New Roman", serif;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+input,
+textarea,
+select {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Prevent images from being dragged */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+/* Select styling */
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+@keyframes servicesSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(70px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
