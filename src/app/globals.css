@@ -31,14 +31,20 @@ body {
 
 @media (max-width: 639px) {
   .home-page-motion [style*="opacity"],
-  .about-page-motion [style*="opacity"] {
+  .about-page-motion [style*="opacity"],
+  .partners-page-motion [style*="opacity"],
+  .contact-page-motion [style*="opacity"],
+  .service-page-motion [style*="opacity"] {
     animation: none !important;
     opacity: 1 !important;
     transition: none !important;
   }
 
   .home-page-motion [style*="opacity"][style*="transform"],
-  .about-page-motion [style*="opacity"][style*="transform"] {
+  .about-page-motion [style*="opacity"][style*="transform"],
+  .partners-page-motion [style*="opacity"][style*="transform"],
+  .contact-page-motion [style*="opacity"][style*="transform"],
+  .service-page-motion [style*="opacity"][style*="transform"] {
     transform: none !important;
   }
 }

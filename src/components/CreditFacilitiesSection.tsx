@@ -126,11 +126,11 @@ export default function CreditFacilitiesSection() {
                         <div
                             key={facility.id}
                             className={`
-                                flex min-h-[628px] flex-col rounded-[12px]
-                                border border-[#D9D7D0] px-[36px] py-[36px]
+                                flex min-h-0 flex-col rounded-[12px]
+                                border border-[#D9D7D0] px-5 py-6 sm:px-[36px] sm:py-[36px] lg:min-h-[628px]
                                 shadow-[0_8px_18px_rgba(0,0,0,0.06)]
                                 ${isDark
-                                    ? "min-h-[644px] bg-[#0A271E] shadow-[0_10px_22px_rgba(0,0,0,0.16)]"
+                                    ? "lg:min-h-[644px] bg-[#0A271E] shadow-[0_10px_22px_rgba(0,0,0,0.16)]"
                                     : "bg-white"
                                 }
                             `}

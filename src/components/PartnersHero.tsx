@@ -82,7 +82,7 @@ export default function PartnersHero() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/partner.jpg "
+          src="/partner.jpg"
           alt="Partners"
           fill
           priority
@@ -96,7 +96,7 @@ export default function PartnersHero() {
       <Navbar />
 
       <motion.div
-        className="relative z-10 mx-auto h-[631px] max-w-[950px] px-4 pb-2 pt-55 text-center"
+        className="relative z-10 mx-auto min-h-[620px] max-w-[950px] px-4 pb-12 pt-40 text-center sm:min-h-[631px] sm:pb-2 sm:pt-55"
         initial="hidden"
         whileInView="visible"
         viewport={{
@@ -107,9 +107,9 @@ export default function PartnersHero() {
         {/* BADGE */}
         <motion.div
           variants={badgeVariants}
-          className="inline-flex items-center rounded-full bg-white px-4"
+          className="inline-flex max-w-full items-center rounded-full bg-white px-3 py-1 sm:px-4"
         >
-          <span className="font-sans text-[17px] font-bold tracking-wide text-[#052E26]">
+          <span className="font-sans text-[10px] font-bold leading-[1.2] tracking-[0.04em] text-[#052E26] sm:text-[17px] sm:tracking-wide">
             TRUSTED INSTITUTIONS &amp; SYNDICATE ALLIANCES
           </span>
         </motion.div>
@@ -117,7 +117,7 @@ export default function PartnersHero() {
         {/* HEADING */}
         <motion.h1
           variants={headingVariants}
-          className="font-display text-[44px] font-semibold text-[#FBF9F6] sm:text-[64px]"
+          className="mx-auto mt-4 max-w-[760px] font-display text-[38px] font-semibold leading-[1.05] text-[#FBF9F6] sm:mt-0 sm:text-[64px]"
         >
           Meet Our partners
         </motion.h1>
@@ -125,7 +125,7 @@ export default function PartnersHero() {
         {/* DESCRIPTION */}
         <motion.p
           variants={paragraphVariants}
-          className="mx-auto font-sans text-[20px] font-[500] leading-[1.65] text-white"
+          className="mx-auto mt-5 max-w-[720px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-0 sm:text-[20px] sm:leading-[1.65]"
         >
           Refer clients, we handle the rest. Earn commission on every
           successful disbursal on time, every time. Direct access to 45+
@@ -135,12 +135,12 @@ export default function PartnersHero() {
         {/* BUTTONS */}
         <motion.div
           variants={buttonsContainerVariants}
-          className="mt-9 flex flex-wrap items-center justify-center gap-5"
+          className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5"
         >
           <motion.a
             variants={buttonVariants}
             href="#approved-project-finance"
-            className="rounded-[5px] bg-white px-7 py-3.5 font-sans text-[17px] font-semibold text-[#0A271E] hover:opacity-90"
+            className="rounded-[5px] bg-white px-5 py-3 font-sans text-[14px] font-semibold text-[#0A271E] hover:opacity-90 sm:px-7 sm:py-3.5 sm:text-[17px]"
           >
             Approved Project Finance
           </motion.a>
@@ -148,7 +148,7 @@ export default function PartnersHero() {
           <motion.a
             variants={buttonVariants}
             href="#banking-partners"
-            className="inline-flex items-center gap-2 rounded-[5px] border border-white/25 bg-white/5 px-7 py-3.5 font-sans text-[17px] font-semibold text-[#FBF9F6] hover:bg-white/10"
+            className="inline-flex items-center justify-center gap-2 rounded-[5px] border border-white/25 bg-white/5 px-5 py-3 font-sans text-[14px] font-semibold text-[#FBF9F6] hover:bg-white/10 sm:px-7 sm:py-3.5 sm:text-[17px]"
           >
             Banking Partners
 

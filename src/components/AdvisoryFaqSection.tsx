@@ -39,12 +39,12 @@ export default function AdvisoryFaqSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
-      <div className="px-4 py-[60px] pb-[70px] text-center sm:px-6">
-        <h2 className="font-display text-[34px] font-[500] leading-[1.1] tracking-[-0.025em] text-[#000F09] sm:text-[44px]">
+      <div className="px-4 py-12 pb-14 text-center sm:px-6 sm:py-[60px] sm:pb-[70px]">
+        <h2 className="font-display text-[30px] font-[500] leading-[1.1] tracking-[-0.025em] text-[#000F09] sm:text-[44px]">
           Advisory Desk Question
         </h2>
 
-        <p className="mx-auto mt-[18px] max-w-[605px] font-sans text-[15px] font-[400] leading-[1.45] text-[#424845]">
+        <p className="mx-auto mt-4 max-w-[605px] font-sans text-[14px] font-[400] leading-[1.45] text-[#424845] sm:mt-[18px] sm:text-[15px]">
           Essential details regarding onboarding criteria, documentation
           prerequisites, and our
           <br className="hidden sm:block" />
@@ -69,14 +69,14 @@ export default function AdvisoryFaqSection() {
                     type="button"
                     onClick={() => toggle(index)}
                     aria-expanded={isOpen}
-                    className="flex min-h-[68px] w-full items-center justify-between gap-5 px-[19px] text-left transition-colors duration-200 hover:bg-[#fafaf8]"
+                    className="flex min-h-[64px] w-full items-center justify-between gap-3 px-4 text-left transition-colors duration-200 hover:bg-[#fafaf8] sm:min-h-[68px] sm:gap-5 sm:px-[19px]"
                   >
                     <div className="flex min-w-0 items-center gap-[10px]">
                       <span className="shrink-0 font-sans text-[11px] font-[600] leading-none text-[#765A23]">
                         {String(index + 1).padStart(2, "0")}.
                       </span>
 
-                      <span className="font-sans text-[14px] font-[600] leading-[1.3] text-[#000F09]">
+                      <span className="font-sans text-[13px] font-[600] leading-[1.3] text-[#000F09] sm:text-[14px]">
                         {faq.question}
                       </span>
                     </div>
@@ -97,7 +97,7 @@ export default function AdvisoryFaqSection() {
                     }}
                   >
                     <div className="overflow-hidden">
-                      <p className="px-[19px] pb-[20px] pl-[47px] pt-1 font-sans text-[13px] leading-[1.6] text-[#424845]">
+                      <p className="px-4 pb-4 pl-11 pt-1 font-sans text-[12px] leading-[1.6] text-[#424845] sm:px-[19px] sm:pb-[20px] sm:pl-[47px] sm:text-[13px]">
                         {faq.answer}
                       </p>
                     </div>

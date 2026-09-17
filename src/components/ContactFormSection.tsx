@@ -42,11 +42,11 @@ const INFO_CARDS = [
 
 export default function ContactFormSection() {
   return (
-    <section className="bg-white px-4 pt-20 sm:px-6 lg:px-[76px]">
+    <section className="bg-white px-4 pb-12 pt-14 sm:px-6 sm:pb-20 sm:pt-20 lg:px-[76px]">
       <div className="mx-auto max-w-[1280px] rounded-[28px] bg-[#FBF9F6] p-6 shadow-sm sm:p-10 lg:p-12">
-        <div className="grid grid-cols-1 lg:grid-cols-[469.33px_682.66px] lg:justify-between">
+        <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,469px)_minmax(0,683px)] lg:justify-between lg:gap-10">
           {/* LEFT: Contact info */}
-          <div className="w-[469.33px]">
+          <div className="w-full min-w-0">
             <div className="mb-3 flex items-center gap-2">
               <span className="h-[2px] w-[18px] bg-[#765A23]" />
               <span className="font-sans text-[11px] font-[600] uppercase tracking-[0.12em] text-[#765A23]">
@@ -100,8 +100,8 @@ export default function ContactFormSection() {
               )}
             </div>
 
-            <div className="mt-4 flex items-center justify-between gap-4 rounded-xl bg-brand-green px-5 py-4">
-              <div className="flex items-center gap-3">
+            <div className="mt-4 flex flex-col items-start gap-4 rounded-xl bg-brand-green px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-5">
+              <div className="flex min-w-0 items-start gap-3">
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10">
                   <MessageCircle
                     size={16}
@@ -111,11 +111,11 @@ export default function ContactFormSection() {
                 </div>
 
                 <div>
-                  <p className="font-sans text-[13px] font-bold text-brand-cream">
+                  <p className="font-sans text-[12px] font-bold leading-[1.25] text-brand-cream sm:text-[13px]">
                     Need Rapid Mandate Triage?
                   </p>
 
-                  <p className="font-sans text-[11px] text-brand-cream/65">
+                  <p className="font-sans text-[10px] leading-[1.35] text-brand-cream/65 sm:text-[11px]">
                     Connect instantly with our Desk via WhatsApp
                   </p>
                 </div>
@@ -125,7 +125,7 @@ export default function ContactFormSection() {
                 href="https://wa.me/919899037555"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="shrink-0 whitespace-nowrap rounded-full bg-[#C5A059] px-5 py-2.5 font-sans text-[12px] font-bold uppercase tracking-wide text-brand-green hover:opacity-90"
+                className="w-full rounded-full bg-[#C5A059] px-5 py-2.5 text-center font-sans text-[11px] font-bold uppercase tracking-wide text-brand-green hover:opacity-90 sm:w-auto sm:shrink-0 sm:whitespace-nowrap sm:text-[12px]"
               >
                 Chat Now
               </a>
@@ -133,13 +133,13 @@ export default function ContactFormSection() {
           </div>
 
           {/* RIGHT: Form */}
-          <div className="w-[682.66px] rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:p-8">
-            <div className="flex items-center justify-between">
-              <span className="font-sans text-[11px] font-[600] uppercase tracking-[0.12em] text-[#765A23]">
+          <div className="w-full min-w-0 rounded-2xl border border-black/5 bg-white p-5 shadow-sm sm:p-8">
+            <div className="flex flex-wrap items-start justify-between gap-2">
+              <span className="font-sans text-[10px] font-[600] uppercase tracking-[0.12em] text-[#765A23] sm:text-[11px]">
                 Mandate Appraisal
               </span>
 
-              <span className="flex items-center gap-1.5 font-sans text-[11px] font-medium text-brand-green/60">
+              <span className="flex items-center gap-1.5 font-sans text-[10px] font-medium text-brand-green/60 sm:text-[11px]">
                 <ShieldCheck size={13} />
                 100% Confidential
               </span>
@@ -261,7 +261,7 @@ export default function ContactFormSection() {
                 <ArrowRight size={16} />
               </button>
 
-              <p className="flex mt-2 items-center justify-center gap-1.5 font-sans text-[12px] text-[#424845]">
+              <p className="mt-2 flex items-center justify-center gap-1.5 text-center font-sans text-[11px] leading-[1.35] text-[#424845] sm:text-[12px]">
                 <Lock size={11} />
                 Protected by mutual Non-Disclosure Agreement (NDA). Zero spam or
                 retail broking.

@@ -101,14 +101,14 @@ const PROPERTY_PURCHASE_SECTION = {
 export default function PropertyPurchaseCard() {
     return (
         <section className="bg-[#FBF9F6] pb-14 px-4 py-[30px] sm:px-6 lg:px-[30px]">
-            <div className="relative mx-auto h-[600px] max-w-[1200px] overflow-hidden rounded-[10px] border border-[#E3E0DA] bg-white px-7 py-7 sm:px-9 lg:px-[42px] lg:py-[44px]">
+            <div className="relative mx-auto min-h-[600px] max-w-[1200px] overflow-hidden rounded-[10px] border border-[#E3E0DA] bg-white px-5 py-6 sm:px-9 sm:py-7 lg:h-[600px] lg:px-[42px] lg:py-[44px]">
 
                 <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[424.5px_1fr] lg:gap-[46px]">
 
                     {/* LEFT CONTENT */}
-                    <div className="relative h-[450px] w-[424.5px] shrink-0">
+                    <div className="relative h-auto w-full shrink-0 lg:h-[450px] lg:w-[424.5px]">
 
-                        <div className="relative h-[404px] w-[424.5px] rounded-[7px] border border-[#E3E0DA] bg-white px-[22px] py-[24px]">
+                        <div className="relative h-auto min-h-[404px] w-full rounded-[7px] border border-[#E3E0DA] bg-white px-4 py-5 sm:px-[22px] sm:py-[24px] lg:w-[424.5px]">
 
                             {/* TITLE */}
                             <h3 className="font-display text-[20px] font-[600] leading-[1.2] text-[#061812]">
@@ -132,7 +132,7 @@ export default function PropertyPurchaseCard() {
                                                 className="mt-[1px] shrink-0 text-[#B18A4A]"
                                             />
 
-                                            <p className="font-sans w-[346.39px] text-[12px] leading-[1.35] text-[#424845]">
+                                            <p className="min-w-0 font-sans text-[12px] leading-[1.35] text-[#424845]">
                                                 <span className="font-[700] text-[#061812]">
                                                     {point.title}:
                                                 </span>{" "}
@@ -197,7 +197,7 @@ export default function PropertyPurchaseCard() {
                                     return (
                                         <div
                                             key={feature.id}
-                                            className="min-h-[106px] w-[301.75px] rounded-[8px] border border-[#E4E0D9] bg-[#FBFAF7] px-[12px] py-[18px]"
+                                            className="min-h-[106px] w-full rounded-[8px] border border-[#E4E0D9] bg-[#FBFAF7] px-[12px] py-[18px]"
                                         >
                                             <div className="flex items-center gap-[7px]">
                                                 <Icon
@@ -261,7 +261,7 @@ export default function PropertyPurchaseCard() {
                                 PROPERTY_PURCHASE_SECTION.rightContent.cta
                                     .href
                             }
-                            className="mt-[32px] inline-flex items-center gap-[6px] font-sans text-[14px] font-[500] text-[#A88954] transition-opacity duration-200 hover:opacity-70"
+                            className="mt-[32px] inline-flex items-center gap-1 whitespace-nowrap font-sans text-[10px] font-[500] text-[#A88954] transition-opacity duration-200 hover:opacity-70 sm:gap-[6px] sm:text-[14px]"
                         >
                             {
                                 PROPERTY_PURCHASE_SECTION.rightContent.cta

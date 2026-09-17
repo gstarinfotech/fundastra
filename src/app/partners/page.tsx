@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export default function PartnersPage() {
   return (
-    <main className="flex-1">
+    <main className="partners-page-motion flex-1">
       <PartnersHero />
       <BanksGridSection />
       <ContactAdvisorySection />

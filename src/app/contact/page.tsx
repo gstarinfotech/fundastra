@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 
 export default function ContactPage() {
   return (
-    <main className="flex-1">
+    <main className="contact-page-motion flex-1">
       <ContactHero />
       <ContactFormSection />
       <AdvisoryFaqSection/>

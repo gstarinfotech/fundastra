@@ -86,7 +86,7 @@ export default function ServiceDetailCard({
 }: ServiceDetailCardProps) {
     return (
         <section className="bg-[#FBF9F6] pt-14 px-4 py-[16px] sm:px-6 lg:px-[30px]">
-            <div className="relative mx-auto max-w-[1200px] h-[710px] overflow-hidden rounded-[10px] border bg-white border-[#E3E0DA] px-7 py-7 sm:px-9 lg:px-[42px] lg:py-[44px]">
+            <div className="relative mx-auto min-h-[710px] max-w-[1200px] overflow-hidden rounded-[10px] border border-[#E3E0DA] bg-white px-5 py-6 sm:px-9 sm:py-7 lg:h-[710px] lg:px-[42px] lg:py-[44px]">
                 <div
                     className={`relative z-10 grid items-center gap-10 lg:gap-[46px] ${imagePosition === "left"
                             ? "lg:grid-cols-[424.5px_1fr]"
@@ -95,12 +95,12 @@ export default function ServiceDetailCard({
                 >
                     {/* IMAGE */}
                     <div
-                        className={`relative h-[400px] w-[424.5px] shrink-0 ${imagePosition === "left"
+                        className={`relative h-[280px] w-full shrink-0 sm:h-[400px] lg:w-[424.5px] ${imagePosition === "left"
                                 ? "lg:order-1"
                                 : "lg:order-2"
                             }`}
                     >
-                        <div className="relative h-[400px] w-[424.5px] overflow-hidden rounded-[7px] border border-[#DCD9D3] bg-[#EDEAE5] shadow-[0_8px_15px_rgba(0,0,0,0.18)]">
+                        <div className="relative h-full w-full overflow-hidden rounded-[7px] border border-[#DCD9D3] bg-[#EDEAE5] shadow-[0_8px_15px_rgba(0,0,0,0.18)] lg:w-[424.5px]">
                             <Image
                                 src={image}
                                 alt={imageTitle}
@@ -155,7 +155,7 @@ export default function ServiceDetailCard({
                                 return (
                                     <div
                                         key={feature.title}
-                                        className="min-h-[106px] w-[301.75px] rounded-[8px] border border-[#E4E0D9] bg-[#FBFAF7] px-[12px] py-[18px]"
+                                        className="min-h-[106px] w-full rounded-[8px] border border-[#E4E0D9] bg-[#FBFAF7] px-[12px] py-[18px]"
                                     >
                                         <div className="flex items-center gap-[7px]">
                                             <Icon
@@ -203,7 +203,7 @@ export default function ServiceDetailCard({
                         {/* CTA */}
                         <Link
                             href={ctaHref}
-                            className="mt-[32px] inline-flex items-center gap-[6px] font-sans text-[14px] font-[500] text-[#A88954] transition-opacity duration-200 hover:opacity-70"
+                            className="mt-[32px] inline-flex items-center gap-1 whitespace-nowrap font-sans text-[11px] font-[500] text-[#A88954] transition-opacity duration-200 hover:opacity-70 sm:gap-[6px] sm:text-[14px]"
                         >
                             {ctaText}
                             <ArrowRight
