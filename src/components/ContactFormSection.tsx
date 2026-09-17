@@ -10,6 +10,10 @@ import {
   ArrowRight,
   Lock,
 } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { submitLead } from "@/lib/leads";
+
+type Status = "idle" | "loading" | "success" | "error";
 
 const INFO_CARDS = [
   {
@@ -41,14 +45,70 @@ const INFO_CARDS = [
 ];
 
 export default function ContactFormSection() {
+  const [status, setStatus] = useState<Status>("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (
+    event: FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault();
+
+    setStatus("loading");
+    setErrorMessage("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await submitLead("contact_inquiry", {
+        fullName: String(
+          formData.get("fullName") ?? ""
+        ),
+
+        phone: String(
+          formData.get("phone") ?? ""
+        ),
+
+        email: String(
+          formData.get("email") ?? ""
+        ),
+
+        capitalRequirementType: String(
+          formData.get("capitalRequirementType") ?? ""
+        ),
+
+        facilityQuantum: String(
+          formData.get("facilityQuantum") ?? ""
+        ),
+
+        message: String(
+          formData.get("message") ?? ""
+        ),
+      });
+
+      setStatus("success");
+      form.reset();
+    } catch (error) {
+      setStatus("error");
+
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Something went wrong. Please try again."
+      );
+    }
+  };
+
   return (
     <section className="bg-white px-4 pb-12 pt-14 sm:px-6 sm:pb-20 sm:pt-20 lg:px-[76px]">
       <div className="mx-auto max-w-[1280px] rounded-[28px] bg-[#FBF9F6] p-6 shadow-sm sm:p-10 lg:p-12">
         <div className="grid min-w-0 grid-cols-1 gap-8 lg:grid-cols-[minmax(0,469px)_minmax(0,683px)] lg:justify-between lg:gap-10">
+
           {/* LEFT: Contact info */}
           <div className="w-full min-w-0">
             <div className="mb-3 flex items-center gap-2">
               <span className="h-[2px] w-[18px] bg-[#765A23]" />
+
               <span className="font-sans text-[11px] font-[600] uppercase tracking-[0.12em] text-[#765A23]">
                 Contact Info
               </span>
@@ -92,11 +152,12 @@ export default function ContactFormSection() {
                         {withDot && (
                           <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         )}
+
                         {line2}
                       </p>
                     </div>
                   </div>
-                ),
+                )
               )}
             </div>
 
@@ -156,117 +217,177 @@ export default function ContactFormSection() {
 
             <div className="my-5 border-t border-black/5" />
 
-            <form className="space-y-4">
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {status === "success" ? (
+              <div className="rounded-lg bg-emerald-50 px-4 py-10 text-center">
+                <p className="font-sans text-[15px] font-semibold text-emerald-700">
+                  Inquiry received.
+                </p>
+
+                <p className="mt-1 font-sans text-[13px] text-emerald-700/70">
+                  Our mandate committee will reach out within 24 hours.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={() => setStatus("idle")}
+                  className="mt-5 rounded-full bg-brand-green px-5 py-2 font-sans text-[12px] font-semibold text-white hover:opacity-90"
+                >
+                  Submit Another Inquiry
+                </button>
+              </div>
+            ) : (
+              <form
+                className="space-y-4"
+                onSubmit={handleSubmit}
+              >
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+                  {/* FULL NAME */}
+                  <div>
+                    <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
+                      Full Name <span className="text-red-500">*</span>
+                    </label>
+
+                    <input
+                      name="fullName"
+                      type="text"
+                      required
+                      placeholder="e.g. Vikramaditya Singhania"
+                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] outline-none focus:border-brand-green"
+                    />
+                  </div>
+
+                  {/* PHONE */}
+                  <div>
+                    <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
+                      Phone <span className="text-red-500">*</span>
+                    </label>
+
+                    <div className="flex overflow-hidden rounded-lg border border-black/10 bg-[#FBF9F6] focus-within:border-brand-green">
+                      <span className="flex items-center border-r border-black/10 px-3 font-sans text-[13px] text-brand-green/60">
+                        +91
+                      </span>
+
+                      <input
+                        name="phone"
+                        type="tel"
+                        required
+                        placeholder="98765 43210"
+                        className="w-full bg-transparent px-3 py-2.5 font-sans text-[13px] outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* EMAIL */}
                 <div>
                   <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                    Full Name <span className="text-red-500">*</span>
+                    Email Address <span className="text-red-500">*</span>
                   </label>
 
                   <input
-                    type="text"
-                    placeholder="e.g. Vikramaditya Singhania"
+                    name="email"
+                    type="email"
+                    required
+                    placeholder="e.g. v.singhania@asterlaprecision.com"
                     className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] outline-none focus:border-brand-green"
                   />
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                    Phone <span className="text-red-500">*</span>
-                  </label>
+                {/* REQUIREMENT + QUANTUM */}
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
 
-                  <div className="flex overflow-hidden rounded-lg border border-black/10 bg-[#FBF9F6] focus-within:border-brand-green">
-                    <span className="flex items-center border-r border-black/10 px-3 font-sans text-[13px] text-brand-green/60">
-                      +91
-                    </span>
+                  {/* CAPITAL REQUIREMENT */}
+                  <div>
+                    <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
+                      Capital Requirement Type{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
 
-                    <input
-                      type="tel"
-                      placeholder="98765 43210"
-                      className="w-full bg-transparent px-3 py-2.5 font-sans text-[13px] outline-none"
-                    />
+                    <select
+                      name="capitalRequirementType"
+                      required
+                      defaultValue=""
+                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
+                    >
+                      <option value="" disabled>
+                        Select facility type...
+                      </option>
+
+                      <option>SME Working Capital</option>
+                      <option>Structured Debt</option>
+                      <option>Equity Fundraising</option>
+                    </select>
+                  </div>
+
+                  {/* FACILITY QUANTUM */}
+                  <div>
+                    <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
+                      Desired Facility Quantum{" "}
+                      <span className="text-red-500">*</span>
+                    </label>
+
+                    <select
+                      name="facilityQuantum"
+                      required
+                      defaultValue=""
+                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
+                    >
+                      <option value="" disabled>
+                        Select expected quantum...
+                      </option>
+
+                      <option>₹5 Cr – ₹25 Cr</option>
+                      <option>₹25 Cr – ₹100 Cr</option>
+                      <option>₹100 Cr+</option>
+                    </select>
                   </div>
                 </div>
-              </div>
 
-              <div>
-                <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                  Email Address <span className="text-red-500">*</span>
-                </label>
-
-                <input
-                  type="email"
-                  placeholder="e.g. v.singhania@asterlaprecision.com"
-                  className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] outline-none focus:border-brand-green"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {/* MESSAGE */}
                 <div>
                   <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                    Capital Requirement Type{" "}
-                    <span className="text-red-500">*</span>
+                    Message / Business Context
                   </label>
 
-                  <select
-                    defaultValue=""
-                    className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
-                  >
-                    <option value="" disabled>
-                      Select facility type...
-                    </option>
-                    <option>SME Working Capital</option>
-                    <option>Structured Debt</option>
-                    <option>Equity Fundraising</option>
-                  </select>
+                  <textarea
+                    name="message"
+                    rows={4}
+                    placeholder="Briefly describe your company, current turnover, collateral profile, or target funding timeline..."
+                    className="w-full resize-none rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] outline-none focus:border-brand-green"
+                  />
                 </div>
 
-                <div>
-                  <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                    Desired Facility Quantum{" "}
-                    <span className="text-red-500">*</span>
-                  </label>
+                {/* SUBMIT */}
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="flex w-full items-center justify-center gap-2 rounded-lg tracking-[1px] bg-brand-green py-3.5 font-sans text-[14px] font-semibold text-[#FBF9F6] hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {status === "loading"
+                    ? "Sending..."
+                    : "Send Confidential Inquiry"}
 
-                  <select
-                    defaultValue=""
-                    className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
-                  >
-                    <option value="" disabled>
-                      Select expected quantum...
-                    </option>
-                    <option>₹5 Cr – ₹25 Cr</option>
-                    <option>₹25 Cr – ₹100 Cr</option>
-                    <option>₹100 Cr+</option>
-                  </select>
-                </div>
-              </div>
+                  {status !== "loading" && (
+                    <ArrowRight size={16} />
+                  )}
+                </button>
 
-              <div>
-                <label className="mb-1.5 block font-sans text-[12px] font-semibold text-brand-green">
-                  Message / Business Context
-                </label>
+                {/* ERROR */}
+                {status === "error" && (
+                  <p className="text-center font-sans text-[12px] text-red-600">
+                    {errorMessage}
+                  </p>
+                )}
 
-                <textarea
-                  rows={4}
-                  placeholder="Briefly describe your company, current turnover, collateral profile, or target funding timeline..."
-                  className="w-full resize-none rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] outline-none focus:border-brand-green"
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-lg tracking-[1px] bg-brand-green py-3.5 font-sans text-[14px] font-semibold text-[#FBF9F6] hover:opacity-90"
-              >
-                Send Confidential Inquiry
-                <ArrowRight size={16} />
-              </button>
-
-              <p className="mt-2 flex items-center justify-center gap-1.5 text-center font-sans text-[11px] leading-[1.35] text-[#424845] sm:text-[12px]">
-                <Lock size={11} />
-                Protected by mutual Non-Disclosure Agreement (NDA). Zero spam or
-                retail broking.
-              </p>
-            </form>
+                {/* NDA TEXT */}
+                <p className="mt-2 flex items-center justify-center gap-1.5 text-center font-sans text-[11px] leading-[1.35] text-[#424845] sm:text-[12px]">
+                  <Lock size={11} />
+                  Protected by mutual Non-Disclosure Agreement (NDA). Zero spam
+                  or retail broking.
+                </p>
+              </form>
+            )}
           </div>
         </div>
       </div>

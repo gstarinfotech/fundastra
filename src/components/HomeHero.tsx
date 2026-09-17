@@ -9,6 +9,10 @@ import TestimonialsSection from "./TestimonialsSection";
 import ContactAdvisorySection from "./ContactAdvisorySection";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
+import { useState, type FormEvent } from "react";
+import { submitLead } from "@/lib/leads";
+
+type TriageStatus = "idle" | "loading" | "success" | "error";
 
 function Reveal({
   children,
@@ -64,6 +68,31 @@ const heroItem = {
 };
 
 export default function HomeHero() {
+  const [triageStatus, setTriageStatus] = useState<TriageStatus>("idle");
+  const [triageError, setTriageError] = useState("");
+
+  const handleTriageSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setTriageStatus("loading");
+    setTriageError("");
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      await submitLead("home_triage", {
+        fullName: String(formData.get("fullName") ?? ""),
+        email: String(formData.get("contact") ?? ""),
+        capitalRoute: String(formData.get("capitalRoute") ?? ""),
+        targetTicket: String(formData.get("targetTicket") ?? ""),
+      });
+      setTriageStatus("success");
+      form.reset();
+    } catch (error) {
+      setTriageStatus("error");
+      setTriageError(error instanceof Error ? error.message : "Something went wrong.");
+    }
+  };
   return (
     <>
       <section
@@ -127,9 +156,7 @@ export default function HomeHero() {
             xl:pt-[195px]
           "
         >
-          {/* ===================================================
-              LEFT CONTENT
-          =================================================== */}
+
           <motion.div
             className="
               min-w-0
@@ -434,19 +461,42 @@ export default function HomeHero() {
             </p>
 
             {/* Form */}
-            <form
-              className="
+            {/* Form */}
+            {triageStatus === "success" ? (
+              <div
+                className="
+                  mt-5
+                  rounded-[5px]
+                  bg-emerald-50
+                  px-4
+                  py-8
+                  text-center
+
+                  sm:mt-[25px]
+                "
+              >
+                <p className="font-sans text-[12px] font-semibold text-emerald-700 sm:text-[14px]">
+                  Request received.
+                </p>
+                <p className="mt-1 font-sans text-[10px] text-emerald-700/70 sm:text-[12px]">
+                  Our desk will reach out shortly.
+                </p>
+              </div>
+            ) : (
+              <form
+                onSubmit={handleTriageSubmit}
+                className="
                 mt-5
                 space-y-3
 
                 sm:mt-[25px]
                 sm:space-y-[16px]
               "
-            >
-              {/* Full name */}
-              <div>
-                <label
-                  className="
+              >
+                {/* Full name */}
+                <div>
+                  <label
+                    className="
                     mb-1.5
                     block
                     font-sans
@@ -459,14 +509,16 @@ export default function HomeHero() {
                     sm:mb-[8px]
                     sm:text-[11px]
                   "
-                >
-                  FULL NAME
-                </label>
+                  >
+                    FULL NAME
+                  </label>
 
-                <input
-                  type="text"
-                  placeholder="e.g. Rahul Mehta"
-                  className="
+                  <input
+                    name="fullName"
+                    type="text"
+                    required
+                    placeholder="e.g. Rahul Mehta"
+                    className="
                     h-[37px]
                     w-full
                     rounded-[5px]
@@ -485,13 +537,13 @@ export default function HomeHero() {
                     sm:px-[15px]
                     sm:text-[13px]
                   "
-                />
-              </div>
+                  />
+                </div>
 
-              {/* Email / phone */}
-              <div>
-                <label
-                  className="
+                {/* Email / phone */}
+                <div>
+                  <label
+                    className="
                     mb-1.5
                     block
                     font-sans
@@ -504,14 +556,16 @@ export default function HomeHero() {
                     sm:mb-[8px]
                     sm:text-[11px]
                   "
-                >
-                  CORPORATE EMAIL / PHONE
-                </label>
+                  >
+                    CORPORATE EMAIL / PHONE
+                  </label>
 
-                <input
-                  type="text"
-                  placeholder="corporate@company.com / +91"
-                  className="
+                  <input
+                    name="contact"
+                    type="text"
+                    required
+                    placeholder="corporate@company.com / +91"
+                    className="
                     h-[37px]
                     w-full
                     rounded-[5px]
@@ -530,22 +584,22 @@ export default function HomeHero() {
                     sm:px-[15px]
                     sm:text-[13px]
                   "
-                />
-              </div>
+                  />
+                </div>
 
-              {/* Selects */}
-              <div
-                className="
+                {/* Selects */}
+                <div
+                  className="
                   grid
                   grid-cols-2
                   gap-2
 
                   sm:gap-[10px]
                 "
-              >
-                <div>
-                  <label
-                    className="
+                >
+                  <div>
+                    <label
+                      className="
                       mb-1.5
                       block
                       font-sans
@@ -558,13 +612,14 @@ export default function HomeHero() {
                       sm:mb-[8px]
                       sm:text-[11px]
                     "
-                  >
-                    CAPITAL ROUTE
-                  </label>
+                    >
+                      CAPITAL ROUTE
+                    </label>
 
-                  <select
-                    defaultValue="SME Funding"
-                    className="
+                    <select
+                      name="capitalRoute"
+                      defaultValue="SME Funding"
+                      className="
                       h-[37px]
                       w-full
                       rounded-[5px]
@@ -582,16 +637,16 @@ export default function HomeHero() {
                       sm:px-[13px]
                       sm:text-[13px]
                     "
-                  >
-                    <option>SME Funding</option>
-                    <option>Structured Debt</option>
-                    <option>Equity Fundraising</option>
-                  </select>
-                </div>
+                    >
+                      <option>SME Funding</option>
+                      <option>Structured Debt</option>
+                      <option>Equity Fundraising</option>
+                    </select>
+                  </div>
 
-                <div>
-                  <label
-                    className="
+                  <div>
+                    <label
+                      className="
                       mb-1.5
                       block
                       font-sans
@@ -604,13 +659,14 @@ export default function HomeHero() {
                       sm:mb-[8px]
                       sm:text-[11px]
                     "
-                  >
-                    TARGET TICKET
-                  </label>
+                    >
+                      TARGET TICKET
+                    </label>
 
-                  <select
-                    defaultValue="₹5 Cr – ₹25 Cr"
-                    className="
+                    <select
+                      name="targetTicket"
+                      defaultValue="₹5 Cr – ₹25 Cr"
+                      className="
                       h-[37px]
                       w-full
                       rounded-[5px]
@@ -628,18 +684,19 @@ export default function HomeHero() {
                       sm:px-[13px]
                       sm:text-[13px]
                     "
-                  >
-                    <option>₹5 Cr – ₹25 Cr</option>
-                    <option>₹25 Cr – ₹100 Cr</option>
-                    <option>₹100 Cr+</option>
-                  </select>
+                    >
+                      <option>₹5 Cr – ₹25 Cr</option>
+                      <option>₹25 Cr – ₹100 Cr</option>
+                      <option>₹100 Cr+</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={triageStatus === "loading"}
+                  className="
                   mt-1
                   flex
                   h-[43px]
@@ -655,17 +712,24 @@ export default function HomeHero() {
                   text-white
                   transition-opacity
                   hover:opacity-90
+                  disabled:opacity-60
 
                   sm:h-[48px]
                   sm:text-[15px]
                 "
-              >
-                Submit Request
-              </button>
+                >
+                  {triageStatus === "loading" ? "Submitting..." : "Submit Request"}
+                </button>
 
-              {/* NDA */}
-              <p
-                className="
+                {triageStatus === "error" && (
+                  <p className="text-center font-sans text-[10px] text-red-600 sm:text-[12px]">
+                    {triageError}
+                  </p>
+                )}
+
+                {/* NDA */}
+                <p
+                  className="
                   flex
                   items-center
                   justify-center
@@ -681,26 +745,27 @@ export default function HomeHero() {
                   sm:pt-[1px]
                   sm:text-[11px]
                 "
-              >
-                <svg
-                  width="9"
-                  height="11"
-                  viewBox="0 0 10 12"
-                  fill="none"
-                  aria-hidden="true"
-                  className="shrink-0"
                 >
-                  <path
-                    d="M2 5V3.5a3 3 0 116 0V5m-7 0h8a1 1 0 011 1v4.5a1 1 0 01-1 1H1a1 1 0 01-1-1V6a1 1 0 011-1z"
-                    stroke="currentColor"
-                    strokeWidth="1"
+                  <svg
+                    width="9"
+                    height="11"
+                    viewBox="0 0 10 12"
                     fill="none"
-                  />
-                </svg>
+                    aria-hidden="true"
+                    className="shrink-0"
+                  >
+                    <path
+                      d="M2 5V3.5a3 3 0 116 0V5m-7 0h8a1 1 0 011 1v4.5a1 1 0 01-1 1H1a1 1 0 01-1-1V6a1 1 0 011-1z"
+                      stroke="currentColor"
+                      strokeWidth="1"
+                      fill="none"
+                    />
+                  </svg>
 
-                Strictly confidential under NDA · Direct desk triage
-              </p>
-            </form>
+                  Strictly confidential under NDA · Direct desk triage
+                </p>
+              </form>
+            )}
           </motion.div>
         </div>
       </section>
