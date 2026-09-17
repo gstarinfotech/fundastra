@@ -81,7 +81,7 @@ const cardIn = {
 export default function AboutHero() {
   return (
     <section className="relative bg-white">
-      <div className="relative h-[560px] overflow-hidden sm:h-[673px]">
+      <div className="relative h-[620px] overflow-hidden sm:h-[673px]">
         <Image
           src="/about.png"
           alt="FUND ASTRA — institutional advisory skyline"
@@ -93,7 +93,7 @@ export default function AboutHero() {
 
         <Navbar />
 
-        <div className="relative z-10 mx-auto max-w-[900px] px-4 pt-48 text-center">
+        <div className="relative z-10 mx-auto max-w-[900px] px-4 pt-36 text-center sm:pt-48">
           <motion.div
             initial="hidden"
             animate="show"
@@ -110,7 +110,7 @@ export default function AboutHero() {
             animate="show"
             variants={textIn}
             transition={{ delay: 0.15 }}
-            className="font-display w-[921px] text-[39px] font-[600] leading-[1.2] tracking-[0.01em] text-[#FBF9F6] sm:text-[60px]"
+            className="mx-auto w-full max-w-[921px] font-display text-[34px] font-[600] leading-[1.1] tracking-[0.01em] text-[#FBF9F6] sm:text-[60px]"
           >
             Architecting Sovereign Capital
             <br />
@@ -123,7 +123,7 @@ export default function AboutHero() {
             animate="show"
             variants={textIn}
             transition={{ delay: 0.28 }}
-            className="mx-auto mt-8 max-w-[897px] font-sans text-[19px] font-[500] leading-[1.60] text-white"
+            className="mx-auto mt-6 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.55] text-white sm:mt-8 sm:text-[19px] sm:leading-[1.60]"
           >
             This is the corporate profile and institutional dossier of FUND
             ASTRA. We detail our fiduciary framework, syndicated capital
@@ -135,7 +135,7 @@ export default function AboutHero() {
       </div>
 
       <motion.div
-        className="relative z-10 mx-auto -mt-[110px] h-[280px] max-w-[1184px] px-4"
+        className="relative z-10 mx-auto -mt-16 h-auto max-w-[1184px] px-4 sm:-mt-[110px] sm:h-[280px]"
         initial="hidden"
         animate="show"
         variants={cardsContainer}
@@ -145,7 +145,7 @@ export default function AboutHero() {
             <motion.div
               key={m.label}
               variants={cardIn}
-              className="h-[268.13px] w-[295.5px] px-[27px] py-[32px]"
+              className="min-h-[240px] w-full px-5 py-6 sm:h-[268.13px] sm:min-h-0 sm:px-[27px] sm:py-[32px]"
             >
               <p className="font-sans text-[11px] font-[700] uppercase tracking-[0.11em] text-[#8C9791]">
                 {m.label}

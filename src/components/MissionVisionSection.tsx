@@ -72,7 +72,7 @@ export default function MissionVisionSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
-      <div className="px-4 pb-20 sm:px-6 lg:px-[76px]">
+      <div className="px-4 pb-12 sm:px-6 sm:pb-20 lg:px-[76px]">
         <div className="mx-auto max-w-[1080px]">
           <motion.div
             className="text-center"
@@ -113,7 +113,7 @@ export default function MissionVisionSection() {
                 return (
                   <motion.div
                     key={title}
-                    className="relative h-[507px] w-[592px] overflow-hidden rounded-2xl border border-black/5 bg-white p-8 shadow-sm"
+                    className="relative min-h-[420px] w-full overflow-hidden rounded-2xl border border-black/5 bg-white p-6 shadow-sm sm:min-h-[507px] sm:p-8"
                     variants={cardVariants}
                     initial="hidden"
                     whileInView="visible"
@@ -135,7 +135,7 @@ export default function MissionVisionSection() {
                       {title}
                     </h3>
 
-                    <p className="relative mt-4 w-[494px] font-sans text-[18px] leading-[1.7] text-[#424845]">
+                    <p className="relative mt-4 w-full font-sans text-[15px] leading-[1.65] text-[#424845] sm:text-[18px] sm:leading-[1.7]">
                       {description}
                     </p>
 

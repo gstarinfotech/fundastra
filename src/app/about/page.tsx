@@ -39,7 +39,7 @@ const ABOUT_FAQS = [
 
 export default function AboutPage() {
   return (
-    <main className="flex-1">
+    <main className="about-page-motion flex-1">
       <AboutHero />
       <InstitutionalDossierSection />
       <MissionVisionSection />

@@ -121,7 +121,7 @@ export default function AboutFounderSection() {
 
           {/* RIGHT CONTENT */}
           <motion.div
-            className="flex flex-col justify-center px-8 py-10 sm:px-12"
+            className="flex min-w-0 flex-col justify-center px-6 py-8 sm:px-12 sm:py-10"
             variants={contentVariants}
             initial="hidden"
             whileInView="visible"
@@ -168,7 +168,7 @@ export default function AboutFounderSection() {
 
             {/* STATS */}
             <motion.div
-              className="mt-6 flex gap-8 border-t border-black/5 pt-5"
+              className="mt-6 flex flex-wrap gap-x-6 gap-y-4 border-t border-black/5 pt-5 sm:gap-8"
               variants={statsContainerVariants}
               initial="hidden"
               whileInView="visible"

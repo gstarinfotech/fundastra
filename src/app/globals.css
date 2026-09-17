@@ -30,13 +30,15 @@ body {
 }
 
 @media (max-width: 639px) {
-  .home-page-motion [style*="opacity"] {
+  .home-page-motion [style*="opacity"],
+  .about-page-motion [style*="opacity"] {
     animation: none !important;
     opacity: 1 !important;
     transition: none !important;
   }
 
-  .home-page-motion [style*="opacity"][style*="transform"] {
+  .home-page-motion [style*="opacity"][style*="transform"],
+  .about-page-motion [style*="opacity"][style*="transform"] {
     transform: none !important;
   }
 }

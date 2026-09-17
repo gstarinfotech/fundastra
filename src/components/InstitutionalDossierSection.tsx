@@ -130,7 +130,7 @@ const captionVariants = {
 export default function InstitutionalDossierSection() {
   return (
     <section className="bg-white px-4 py-14 sm:px-6 lg:px-[76px]">
-      <div className="mx-auto grid max-w-[1280px] rounded-[2px] bg-[#FBF9F6] px-[36px] py-[44px] grid-cols-1 items-center gap-10 lg:grid-cols-2">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 rounded-[2px] bg-[#FBF9F6] px-5 py-7 sm:px-[36px] sm:py-[44px] lg:grid-cols-2 lg:gap-10">
         <motion.div
           variants={leftContentVariants}
           initial="hidden"
@@ -147,7 +147,7 @@ export default function InstitutionalDossierSection() {
           </motion.div>
 
           <motion.h2
-            className="font-display text-[30px] w-[584px] font-semibold leading-[1.2] text-brand-green sm:text-[40px]"
+            className="w-full max-w-[584px] font-display text-[30px] font-semibold leading-[1.2] text-brand-green sm:text-[40px]"
             variants={headingVariants}
           >
             Precision Advisory Built for Non-Dilutive &amp; Growth Scale
@@ -226,7 +226,7 @@ export default function InstitutionalDossierSection() {
             variants={cornerVariants}
           />
 
-          <div className="relative aspect-[4/3] w-full h-[542px] overflow-hidden rounded-2xl shadow-xl">
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl lg:h-[542px] lg:aspect-auto">
             <Image
               src="/contact-us.png"
               alt="FUND ASTRA institutional advisory council"
@@ -236,7 +236,7 @@ export default function InstitutionalDossierSection() {
           </div>
 
           <motion.div
-            className="absolute bottom-4 left-4 right-4 flex items-center justify-between rounded-xl bg-brand-green/95 px-5 py-3.5 backdrop-blur"
+            className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 rounded-xl bg-brand-green/95 px-4 py-3 backdrop-blur sm:bottom-4 sm:left-4 sm:right-4 sm:px-5 sm:py-3.5"
             variants={captionVariants}
           >
             <div>
