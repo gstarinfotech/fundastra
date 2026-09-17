@@ -137,7 +137,7 @@ export default function EMICalculator() {
           <div className="space-y-[22px]">
             {/* INVESTMENT PRINCIPAL */}
             <div className="rounded-[11px] border border-[#E9E7E2] bg-[#FBFAF8] p-[14px]">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
                 <div>
                   <h3 className="font-sans text-[17px] font-[600] text-[#14201C]">
                     Investment Principal
@@ -178,7 +178,7 @@ export default function EMICalculator() {
                 }}
               />
 
-              <div className="mt-[8px] flex items-center justify-between font-mono text-[13px] font-[500] text-[#424845CC]">
+              <div className="mt-[8px] flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px] font-[500] text-[#424845CC] sm:text-[13px]">
                 <span>₹10 Lakh</span>
 
                 <span className="font-semibold text-[13px] font=[600] text-[#765A23]">
@@ -191,7 +191,7 @@ export default function EMICalculator() {
 
             {/* TENURE */}
             <div className="rounded-[11px] border border-[#E9E7E2] bg-[#FBFAF8] p-[14px]">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
                 <div>
                   <h3 className="font-sans text-[17px] font-[600] text-[#14201C]">
                     Amortization Horizon
@@ -236,7 +236,7 @@ export default function EMICalculator() {
                 }}
               />
 
-              <div className="mt-[8px] flex items-center justify-between font-mono text-[13px] text-[#424845CC]">
+              <div className="mt-[8px] flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px] text-[#424845CC] sm:text-[13px]">
                 <span>1 Year (Bridge)</span>
 
                 <span className="font-semibold text-[13px] font=[600] text-[#765A23]">
@@ -269,7 +269,7 @@ export default function EMICalculator() {
 
             {/* INTEREST RATE */}
             <div className="rounded-[11px] border border-[#E9E7E2] bg-[#FBFAF8] p-[14px]">
-              <div className="flex items-start justify-between gap-4">
+              <div className="flex flex-col items-start justify-between gap-4 sm:flex-row">
                 <div>
                   <h3 className="font-sans text-[17px] font-[600] text-[#14201C]">
                     Indicative Coupon / Interest Rate
@@ -314,7 +314,7 @@ export default function EMICalculator() {
                 }}
               />
 
-              <div className="mt-[8px] flex items-center justify-between font-mono text-[13px] font-[500] text-[#777A76]">
+              <div className="mt-[8px] flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px] font-[500] text-[#777A76] sm:text-[13px]">
                 <span>5.0% (PSU Concessional)</span>
 
                 <span className="font-semibold text-[#765A23]">
@@ -329,34 +329,34 @@ export default function EMICalculator() {
           {/* RIGHT */}
           <div>
             {/* RESULT CARD */}
-            <div className="rounded-[12px] bg-[#003D33] p-[30px] text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)]">
-              <div className="flex items-center justify-between">
-                <span className="font-sans text-[11px] font-[700] tracking-[0.1em] text-[#F3D596]">
+            <div className="rounded-[12px] bg-[#003D33] p-5 text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] sm:p-[30px]">
+              <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
+                <span className="font-sans text-[9px] font-[700] leading-[1.2] tracking-[0.08em] text-[#F3D596] sm:text-[11px] sm:tracking-[0.1em]">
                   CAPITAL ADVISORY PROJECTION
                 </span>
 
-                <span className="font-sans text-[10px] font-[500] text-[#34D399]">
+                <span className="font-sans text-[9px] font-[500] text-[#34D399] sm:text-[10px]">
                   ● Live Formula
                 </span>
               </div>
 
-              <div className="mt-[13px] border-t border-white/10 pt-[15px]">
-                <p className="font-sans text-[11px] font-[700] text-[#FFDEA8CC]">
+              <div className="mt-3 border-t border-white/10 pt-3 sm:mt-[13px] sm:pt-[15px]">
+                <p className="font-sans text-[9px] font-[700] text-[#FFDEA8CC] sm:text-[11px]">
                   ESTIMATED PERIODIC OUTFLOW
                 </p>
 
-                <h2 className="mt-[8px] font-display text-[44px] font-[600] leading-none">
+                <h2 className="mt-2 font-display text-[34px] font-[600] leading-none tracking-[-0.02em] sm:mt-[8px] sm:text-[44px] sm:tracking-normal">
                   {formatCurrency(calculation.emi)}
                 </h2>
               </div>
 
-              <div className="mt-[18px] flex items-center justify-between font-sans text-[12px]">
-                <span className="text-white">
+              <div className="mt-4 flex items-start justify-between gap-3 font-sans text-[10px] leading-[1.25] sm:mt-[18px] sm:text-[12px] sm:leading-normal">
+                <span className="min-w-0 text-white">
                   <span className="mr-[4px] text-[#FFDEA8]">●</span>
                   Principal: {formatLakhs(principal)}
                 </span>
 
-                <span className="text-[#D2D8D4]">
+                <span className="min-w-0 text-[#D2D8D4]">
                   <span className="mr-[4px] text-[#FBF9F6]">●</span>
                   Interest: {formatLakhs(calculation.totalInterest)}
                 </span>
@@ -372,14 +372,14 @@ export default function EMICalculator() {
                 />
               </div>
 
-              <div className="mt-[28px] border-t border-white/10 pt-[15px]">
+              <div className="mt-5 border-t border-white/10 pt-3 sm:mt-[28px] sm:pt-[15px]">
                 <div className="flex items-start justify-between">
                   <div>
-                    <p className="font-sans text-[10px] font-[700] text-[#FFDEA8B2]">
+                    <p className="font-sans text-[9px] font-[700] text-[#FFDEA8B2] sm:text-[10px]">
                       TOTAL COMMITTED PAYOUT
                     </p>
 
-                    <p className="mt-[5px] text-[#FBF9F6] font-display text-[28px] font-[500]">
+                    <p className="mt-1 text-[#FBF9F6] font-display text-[22px] font-[500] leading-none sm:mt-[5px] sm:text-[28px]">
                       {formatCurrency(calculation.totalPayout)}
                     </p>
                   </div>
@@ -389,7 +389,7 @@ export default function EMICalculator() {
                       TAX ADVANTAGE
                     </p>
 
-                    <p className="mt-[8px] font-sans text-[13px] font-[600] text-[#34D399]">
+                    <p className="mt-1 font-sans text-[11px] font-[600] leading-[1.2] text-[#34D399] sm:mt-[8px] sm:text-[13px]">
                       Eligible 100%
                     </p>
                   </div>
@@ -399,10 +399,10 @@ export default function EMICalculator() {
               <button
                 type="button"
                 onClick={() => router.push("/contact")}
-                className="mt-[16px] flex h-[48px] w-full items-center justify-center gap-[8px] rounded-[6px] bg-[#F4D79B] font-sans text-[15px] font-[700] text-[#271900] transition-opacity hover:opacity-90"
+                className="mt-4 flex min-h-[44px] w-full items-center justify-center gap-1 rounded-[6px] bg-[#F4D79B] px-2 text-center font-sans text-[13px] font-[700] leading-[1.15] text-[#271900] transition-opacity hover:opacity-90 sm:mt-[16px] sm:h-[48px] sm:gap-[8px] sm:px-0 sm:text-[15px] sm:leading-normal"
               >
                 Discuss Terms with Advisory Desk
-                <ArrowRight size={20} strokeWidth={1.8} />
+                <ArrowRight className="h-4 w-4 shrink-0 sm:h-5 sm:w-5" strokeWidth={1.8} />
               </button>
             </div>
 
@@ -418,8 +418,8 @@ export default function EMICalculator() {
                 </span>
               </div>
 
-              <div className="mt-[15px] overflow-hidden rounded-[6px] border border-[#E8E7E2] bg-white">
-                <table className="w-full border-collapse">
+              <div className="mt-[15px] overflow-x-auto rounded-[6px] border border-[#E8E7E2] bg-white">
+                <table className="w-full min-w-[560px] border-collapse">
                   <thead>
                     <tr className="border-b border-[#E8E7E2]">
                       <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845]">
@@ -467,7 +467,7 @@ export default function EMICalculator() {
                 </table>
               </div>
 
-              <div className="mt-[10px] flex items-center justify-between">
+              <div className="mt-[10px] flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
                 <span className="font-sans text-[11px] font-[400] text-[#424845]">
                   ◉ First 6 amortization periods displayed
                 </span>

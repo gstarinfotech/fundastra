@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 const TESTIMONIALS = [
@@ -78,9 +78,20 @@ export default function TestimonialsSection() {
   const [activeIndex, setActiveIndex] = useState(VISIBLE_CARDS);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
 
-  const CARD_WIDTH = 389;
+  const [cardWidth, setCardWidth] = useState(389);
   const CARD_GAP = 32;
-  const SLIDE_DISTANCE = CARD_WIDTH + CARD_GAP;
+  const SLIDE_DISTANCE = cardWidth + CARD_GAP;
+
+  useEffect(() => {
+    const updateCardWidth = () => {
+      setCardWidth(Math.min(389, Math.max(0, window.innerWidth - 32)));
+    };
+
+    updateCardWidth();
+    window.addEventListener("resize", updateCardWidth);
+
+    return () => window.removeEventListener("resize", updateCardWidth);
+  }, []);
   const trackTestimonials = [
     ...TESTIMONIALS.slice(-VISIBLE_CARDS).map((testimonial, index) => ({
       ...testimonial,
@@ -248,7 +259,7 @@ export default function TestimonialsSection() {
             {trackTestimonials.map((testimonial) => (
               <div
                 key={testimonial.trackKey}
-                className="flex h-[334px] w-[389px] min-w-[389px] max-w-[389px] flex-shrink-0 flex-grow-0 flex-col rounded-[23px] border-[2px] border-[#858987] bg-[#FBF9F6] px-[33px] py-[34px]"
+                className="flex h-[334px] w-[calc(100vw-32px)] min-w-[calc(100vw-32px)] max-w-[389px] flex-shrink-0 flex-grow-0 flex-col rounded-[23px] border-[2px] border-[#858987] bg-[#FBF9F6] px-6 py-7 sm:w-[389px] sm:min-w-[389px] sm:px-[33px] sm:py-[34px]"
               >
                 <div className="flex items-center gap-[7px]">
                   {Array.from({ length: 5 }).map((_, index) => (
@@ -332,21 +343,21 @@ export default function TestimonialsSection() {
         </motion.div>
 
         <motion.div
-          className="mt-[48px] h-[156px] rounded-[8px] bg-[#F6F4F1] items-center pt-[45px]"
+          className="mt-8 h-auto min-h-[230px] rounded-[8px] bg-[#F6F4F1] px-3 py-6 sm:mt-[48px] sm:h-[156px] sm:min-h-0 sm:px-0 sm:pt-[45px]"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-center font-sans text-[11px] font-[700] uppercase tracking-[0.12em] text-[#424845]">
+          <p className="mx-auto max-w-[300px] text-center font-sans text-[10px] font-[700] uppercase leading-[1.35] tracking-[0.1em] text-[#424845] sm:max-w-none sm:text-[11px] sm:tracking-[0.12em]">
             Institutional Partner Consortium &amp; Credit Fund Networks
           </p>
 
-          <div className="mt-[20px] flex flex-wrap items-center justify-center gap-[22px]">
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-[22px]">
             {PARTNER_TYPES.map((item) => (
               <span
                 key={item}
-                className="whitespace-nowrap w-[173px] height-[42px] rounded-[4px] border border-[#E2E5E2] bg-white text-center py-2 font-sans text-[12px] font-[600] text-[#424845]"
+                className="flex min-h-[38px] min-w-0 items-center justify-center rounded-[4px] border border-[#E2E5E2] bg-white px-2 py-2 text-center font-sans text-[10px] font-[600] leading-[1.2] text-[#424845] sm:h-[42px] sm:w-[173px] sm:whitespace-nowrap sm:text-[12px]"
               >
                 {item}
               </span>

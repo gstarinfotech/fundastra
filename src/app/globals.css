@@ -29,6 +29,18 @@ body {
   user-select: none;
 }
 
+@media (max-width: 639px) {
+  .home-page-motion [style*="opacity"] {
+    animation: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+
+  .home-page-motion [style*="opacity"][style*="transform"] {
+    transform: none !important;
+  }
+}
+
 input,
 textarea,
 select {

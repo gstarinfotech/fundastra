@@ -33,17 +33,17 @@ const LEGAL_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#062F27] px-4 pb-[35px] pt-[58px] text-white sm:px-6 lg:px-[93px]">
+    <footer className="bg-[#062F27] px-4 pb-6 pt-9 text-white sm:px-6 sm:pb-[35px] sm:pt-[48px] lg:px-[93px]">
       <div className="mx-auto max-w-[1280px]">
         {/* TOP LINKS */}
-        <div className="grid grid-cols-1 gap-[38px] sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-[30px]">
           {/* ADVISORY */}
           <div>
             <p className="font-sans text-[10px] font-[600] uppercase tracking-[0.07em] text-white">
               Advisory Solutions
             </p>
 
-            <div className="mt-[16px] flex flex-col gap-[17px]">
+            <div className="mt-3 flex flex-col gap-3 sm:mt-[16px] sm:gap-[17px]">
               {ADVISORY_LINKS.map((link) => (
                 <Link
                   key={link.label}
@@ -62,7 +62,7 @@ export default function Footer() {
               Firm &amp; Perspectives
             </p>
 
-            <div className="mt-[16px] flex flex-col gap-[17px]">
+            <div className="mt-3 flex flex-col gap-3 sm:mt-[16px] sm:gap-[17px]">
               {FIRM_LINKS.map((link) => (
                 <Link
                   key={link.label}
@@ -81,7 +81,7 @@ export default function Footer() {
               Engagement &amp; Legal
             </p>
 
-            <div className="mt-[16px] flex flex-col gap-[17px]">
+            <div className="mt-3 flex flex-col gap-3 sm:mt-[16px] sm:gap-[17px]">
               {LEGAL_LINKS.map((link) => (
                 <Link
                   key={link.label}
@@ -96,10 +96,10 @@ export default function Footer() {
         </div>
 
         {/* DIVIDER */}
-        <div className="mt-[26px] border-t border-white/[0.10]" />
+        <div className="mt-6 border-t border-white/[0.10] sm:mt-[26px]" />
 
         {/* DISCLAIMER */}
-        <p className="mt-[40px] h-[115px] max-w-[717px] font-sans text-[12px] leading-[1.70] tracking-[0.002em] text-[#F6F4F1]">
+        <p className="mt-6 max-w-[717px] font-sans text-[11px] leading-[1.55] tracking-[0.002em] text-[#F6F4F1] sm:mt-[40px] sm:text-[12px] sm:leading-[1.70]">
           Financial products, structured credit lines, and syndication outcomes
           remain subject to borrower eligibility, formal underwriting
           documentation, credit committee assessments, and applicable statutory
@@ -109,13 +109,13 @@ export default function Footer() {
         </p>
 
         {/* BOTTOM */}
-        <div className="w-[1216px] flex flex-col gap-[15px] sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-sans text-[13px] font-[400] text-[#F6F4F1]">
+        <div className="mt-6 flex w-full flex-col gap-3 sm:mt-0 sm:flex-row sm:items-center sm:justify-between sm:gap-[15px]">
+          <p className="font-sans text-[11px] font-[400] leading-[1.4] text-[#F6F4F1] sm:text-[13px]">
             © 2025 FUND ASTRA. All rights reserved. Your Trusted Capital
             Advisory Partner.
           </p>
 
-          <div className="flex items-center gap-[20px]">
+          <div className="flex flex-wrap items-center gap-x-[20px] gap-y-[8px]">
             <Link
               href="/privacy-policy"
               className="font-sans text-[13px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100"

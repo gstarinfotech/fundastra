@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -40,6 +41,8 @@ export default function Navbar() {
 
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,6 +58,29 @@ export default function Navbar() {
     };
   }, []);
 
+  // Close mobile menu when route changes
+  useEffect(() => {
+    const closeMenu = window.setTimeout(() => {
+      setMobileOpen(false);
+      setMobileServicesOpen(false);
+    }, 0);
+
+    return () => window.clearTimeout(closeMenu);
+  }, [pathname]);
+
+  // Prevent background page from scrolling when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
   const isActive = (href: string) => {
     if (href === "/") {
       return pathname === "/";
@@ -65,6 +91,7 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Hidden SVG filter */}
       <svg
         className="pointer-events-none absolute h-0 w-0"
         aria-hidden="true"
@@ -102,44 +129,62 @@ export default function Navbar() {
         </defs>
       </svg>
 
+      {/* NAVBAR */}
       <header
         className="
           fixed
-          top-7
-          left-1/2
+          left-3
+          right-3
+          top-4
           z-[9999]
-          w-full
-          -translate-x-1/2
-          px-4
-          sm:px-5
-          lg:px-6
+
+          sm:left-5
+          sm:right-5
+          sm:top-5
+
+          lg:left-1/2
+          lg:right-auto
+          lg:top-7
+          lg:w-full
+          lg:max-w-[1440px]
+          lg:-translate-x-1/2
         "
       >
         <div
           className={`
             relative
             mx-auto
-            flex
-            h-[95px]
             w-full
-            max-w-[1385px]
-            items-center
-            rounded-[58px]
+            overflow-visible
+            rounded-[24px]
             border
-            px-[30px]
-            lg:px-[54px]
+            px-3
+            py-2.5
             transition-all
             duration-500
+
+            sm:rounded-[36px]
+            sm:px-4
+            sm:py-3
+
+            lg:rounded-[58px]
+            lg:px-8
+            lg:py-0
+
             ${scrolled
               ? "border-white/35 shadow-[0_15px_45px_rgba(0,0,0,0.10)]"
               : "border-black/[0.05] shadow-[0_10px_35px_rgba(0,0,0,0.06)]"
             }
+
+            lg:h-20
+            xl:px-[54px]
+            xl:h-[95px]
           `}
           style={{
             backgroundColor: "#FBF9F6E5",
           }}
         >
-
+          {/* Glass background */}
           <div
             className="
               pointer-events-none
@@ -147,7 +192,11 @@ export default function Navbar() {
               inset-0
               z-0
               overflow-hidden
-              rounded-[58px]
+              rounded-[24px]
+
+              sm:rounded-[36px]
+
+              lg:rounded-[58px]
             "
           >
             {/* Distorted background */}
@@ -168,6 +217,8 @@ export default function Navbar() {
 
             {/* Glass tint */}
             <div className="absolute inset-0 bg-white/[0.035]" />
+
+            {/* Reflection */}
             <div
               className="
                 absolute
@@ -213,10 +264,17 @@ export default function Navbar() {
             />
           </div>
 
-          <div className="relative z-10 flex w-full items-center justify-between">
+          {/* MAIN NAV CONTENT */}
+          <div className="relative z-10 flex min-w-0 w-full items-center justify-between gap-3">
+            {/* LOGO */}
             <Link
               href="/"
-              className="flex shrink-0 items-center"
+              className="
+                flex
+                min-w-0
+                shrink
+                items-center
+              "
             >
               <Image
                 src="/logo.png"
@@ -224,16 +282,32 @@ export default function Navbar() {
                 width={400}
                 height={75}
                 priority
-                className="h-[74px] w-auto object-contain"
+                className="
+                  h-[42px]
+                  w-auto
+                  max-w-[170px]
+                  object-contain
+
+                  sm:h-[50px]
+                  sm:max-w-[200px]
+
+                  lg:h-[62px]
+                  lg:max-w-[260px]
+                  xl:h-[74px]
+                  xl:max-w-[300px]
+                  2xl:max-w-none
+                "
               />
             </Link>
 
+            {/* DESKTOP NAVIGATION */}
             <nav
               className="
                 hidden
                 items-center
-                gap-[38px]
-                lg:flex
+                gap-[22px]
+                xl:flex
+                2xl:gap-[38px]
               "
             >
               {NAV_LINKS.map((item) => (
@@ -241,13 +315,14 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={`
-                    text-[19px]
+                    text-[16px]
                     font-semibold
                     tracking-[0.04em]
                     transition-all
                     duration-300
+
                     ${isActive(item.href)
-                      ? "text-[#000] font-bold"
+                      ? "font-bold text-[#000]"
                       : "text-[#052E26]/80 hover:text-[#052E26]"
                     }
                   `}
@@ -256,6 +331,7 @@ export default function Navbar() {
                 </Link>
               ))}
 
+              {/* DESKTOP SERVICES */}
               <div
                 className="relative"
                 onMouseEnter={() => setServicesOpen(true)}
@@ -267,11 +343,12 @@ export default function Navbar() {
                     flex
                     items-center
                     gap-1
-                    text-[19px]
+                    text-[16px]
                     font-semibold
                     tracking-[0.04em]
                     transition-all
                     duration-300
+
                     ${pathname.startsWith("/services")
                       ? "text-[#000]"
                       : "text-[#052E26]/80 hover:text-[#052E26]"
@@ -289,6 +366,7 @@ export default function Navbar() {
                     className={`
                       transition-transform
                       duration-300
+
                       ${servicesOpen ? "rotate-180" : ""}
                     `}
                   >
@@ -335,10 +413,11 @@ export default function Navbar() {
                             rounded-[13px]
                             px-4
                             py-3
-                            text-[19px]
+                            text-[16px]
                             font-medium
                             transition-all
                             duration-200
+
                             ${isActive(item.href)
                               ? "bg-[#052E26] text-white"
                               : "text-[#052E26]/70 hover:bg-[#052E26]/[0.07]"
@@ -353,18 +432,20 @@ export default function Navbar() {
                 )}
               </div>
 
+              {/* TRAILING LINKS */}
               {TRAILING_LINKS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   className={`
-                    text-[19px]
+                    text-[16px]
                     font-semibold
                     tracking-[0.04em]
                     transition-all
                     duration-300
+
                     ${isActive(item.href)
-                      ? "text-[#000] font-bold"
+                      ? "font-bold text-[#000]"
                       : "text-[#052E26]/80 hover:text-[#052E26]"
                     }
                   `}
@@ -374,6 +455,7 @@ export default function Navbar() {
               ))}
             </nav>
 
+            {/* DESKTOP CONTACT */}
             <Link
               href="/contact"
               className="
@@ -392,11 +474,259 @@ export default function Navbar() {
                 duration-300
                 hover:bg-[#073d32]
                 hover:shadow-[0_8px_25px_rgba(5,46,38,0.20)]
-                sm:flex
+
+                xl:flex
               "
             >
               CONTACT US
             </Link>
+
+            {/* MOBILE MENU BUTTON */}
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((prev) => !prev)}
+              className="
+                flex
+                h-[40px]
+                w-[40px]
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                bg-[#052E26]
+                text-white
+
+                sm:h-[44px]
+                sm:w-[44px]
+
+                xl:hidden
+              "
+            >
+              {mobileOpen ? (
+                /* CLOSE */
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 6L18 18M18 6L6 18"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              ) : (
+                /* HAMBURGER */
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 7H20M4 12H20M4 17H20"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* MOBILE MENU */}
+          <div
+            className={`
+              relative
+              z-10
+              overflow-hidden
+              transition-all
+              duration-300
+              xl:hidden
+
+              ${mobileOpen
+                ? "max-h-[650px] opacity-100"
+                : "max-h-0 opacity-0"
+              }
+            `}
+          >
+            <div className="mt-3 border-t border-[#052E26]/10 pb-1 pt-3 sm:mt-4 sm:pt-4">
+              {/* HOME + ABOUT */}
+              {NAV_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`
+                    flex
+                    min-h-[46px]
+                    items-center
+                    border-b
+                    border-[#052E26]/[0.07]
+                    font-sans
+                    text-[14px]
+                    font-semibold
+                    tracking-[0.04em]
+
+                    ${isActive(item.href)
+                      ? "text-[#000]"
+                      : "text-[#052E26]/80"
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              {/* MOBILE SERVICES */}
+              <div className="border-b border-[#052E26]/[0.07]">
+                <button
+                  type="button"
+                  onClick={() =>
+                    setMobileServicesOpen((prev) => !prev)
+                  }
+                  className="
+                    flex
+                    min-h-[46px]
+                    w-full
+                    items-center
+                    justify-between
+                    font-sans
+                    text-[14px]
+                    font-semibold
+                    tracking-[0.04em]
+                    text-[#052E26]/80
+                  "
+                >
+                  <span
+                    className={
+                      pathname.startsWith("/services")
+                        ? "font-bold text-[#000]"
+                        : ""
+                    }
+                  >
+                    SERVICES
+                  </span>
+
+                  <svg
+                    width="14"
+                    height="8"
+                    viewBox="0 0 10 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className={`
+                      transition-transform
+                      duration-300
+
+                      ${mobileServicesOpen
+                        ? "rotate-180"
+                        : ""
+                      }
+                    `}
+                  >
+                    <path
+                      d="M1 1L5 5L9 1"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                {/* MOBILE SERVICE ITEMS */}
+                <div
+                  className={`
+                    overflow-hidden
+                    transition-all
+                    duration-300
+
+                    ${mobileServicesOpen
+                      ? "max-h-[220px] pb-2 opacity-100"
+                      : "max-h-0 opacity-0"
+                    }
+                  `}
+                >
+                  {SERVICES_LINKS.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={`
+                        flex
+                        min-h-[40px]
+                        items-center
+                        rounded-[8px]
+                        px-4
+                        font-sans
+                        text-[13px]
+                        font-medium
+
+                        ${isActive(item.href)
+                          ? "bg-[#052E26] text-white"
+                          : "text-[#052E26]/70"
+                        }
+                      `}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              {/* PARTNERS + BLOGS */}
+              {TRAILING_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className={`
+                    flex
+                    min-h-[46px]
+                    items-center
+                    border-b
+                    border-[#052E26]/[0.07]
+                    font-sans
+                    text-[14px]
+                    font-semibold
+                    tracking-[0.04em]
+
+                    ${isActive(item.href)
+                      ? "font-bold text-[#000]"
+                      : "text-[#052E26]/80"
+                    }
+                  `}
+                >
+                  {item.label}
+                </Link>
+              ))}
+
+              {/* MOBILE CONTACT */}
+              <Link
+                href="/contact"
+                className="
+                  mt-3
+                  flex
+                  h-[46px]
+                  w-full
+                  items-center
+                  justify-center
+                  rounded-full
+                  bg-[#052E26]
+                  font-sans
+                  text-[13px]
+                  font-semibold
+                  tracking-[0.04em]
+                  text-white
+                  sm:mt-4
+                "
+              >
+                CONTACT US
+              </Link>
+            </div>
           </div>
         </div>
       </header>

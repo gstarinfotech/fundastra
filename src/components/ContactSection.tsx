@@ -23,7 +23,7 @@ const cardContainer = {
 
 export default function ContactSection() {
   return (
-    <section className="relative overflow-hidden bg-[#052E26] px-4 py-[70px] lg:mt-[20px] sm:px-6 lg:px-[72px] lg:pt-[130px]">
+    <section className="relative overflow-hidden bg-[#052E26] px-4 py-[42px] sm:px-6 sm:py-[56px] lg:mt-[20px] lg:px-[72px] lg:pt-[90px]">
       {/* TOP CONTENT */}
       <motion.div
         className="mx-auto flex max-w-[1200px] flex-col items-center text-center"
@@ -35,7 +35,7 @@ export default function ContactSection() {
         {/* HEADING */}
         <motion.h2
           variants={fadeUp}
-          className="font-display text-[32px] font-[500] leading-[1.05] tracking-[-0.025em] text-white sm:text-[44px]"
+          className="max-w-[620px] font-display text-[28px] font-[500] leading-[1.08] tracking-[-0.025em] text-white sm:text-[40px]"
         >
           Ready to Accelerate Your Business Growth?
         </motion.h2>
@@ -43,7 +43,7 @@ export default function ContactSection() {
         {/* SUBTEXT */}
         <motion.p
           variants={fadeUp}
-          className="mt-[8px] font-sans text-[10px] font-[400] leading-[29.25px] text-white sm:text-[18px]"
+          className="mt-[8px] font-sans text-[12px] font-[400] leading-[1.5] text-white sm:text-[17px]"
         >
           Let&apos;s explore what disciplined capital thinking can unlock.
         </motion.p>
@@ -55,7 +55,7 @@ export default function ContactSection() {
         whileInView={{ opacity: 1, y: 0, scale: 1 }}
         viewport={{ once: true, amount: 0.15 }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto mt-[48px] grid max-w-[1140px] overflow-hidden rounded-[30px] border border-white/20 bg-[#FBF9F6] lg:grid-cols-[1fr_1fr]"
+        className="mx-auto mt-[30px] grid max-w-[1140px] overflow-hidden rounded-[22px] border border-white/20 bg-[#FBF9F6] sm:mt-[40px] sm:rounded-[28px] lg:grid-cols-[1fr_1fr]"
       >
         {/* LEFT FORM */}
         <motion.div
@@ -63,7 +63,7 @@ export default function ContactSection() {
           whileInView="show"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardContainer}
-          className="px-[34px] py-[38px] sm:px-[40px] sm:py-[42px] lg:px-[40px] lg:py-[40px]"
+          className="px-5 py-6 sm:px-[40px] sm:py-[34px] lg:px-[40px] lg:py-[40px]"
         >
           {/* BADGE */}
           <motion.div
@@ -78,7 +78,7 @@ export default function ContactSection() {
           {/* TITLE */}
           <motion.h3
             variants={fadeUp}
-            className="font-display text-[52px] font-[500] leading-[1.05] tracking-[-0.015em] text-[#052E26] sm:text-[36px]"
+            className="font-display text-[38px] font-[500] leading-[1.05] tracking-[-0.015em] text-[#052E26] sm:text-[36px]"
           >
             Get in Touch
           </motion.h3>
@@ -86,7 +86,7 @@ export default function ContactSection() {
           {/* DESCRIPTION */}
           <motion.p
             variants={fadeUp}
-            className="mt-[12px] max-w-[390px] font-sans text-[16px] font-[300] leading-[1.65] text-[#414645]"
+            className="mt-[10px] max-w-[390px] font-sans text-[14px] font-[300] leading-[1.5] text-[#414645] sm:text-[16px]"
           >
             Have a question or feedback?
             <br />
@@ -182,7 +182,7 @@ export default function ContactSection() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="relative min-h-[430px] overflow-hidden lg:min-h-full"
+          className="relative min-h-[260px] overflow-hidden sm:min-h-[340px] lg:min-h-full"
         >
           <Image
             src="/contact-us.png"

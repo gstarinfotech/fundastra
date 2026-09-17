@@ -130,6 +130,23 @@ export default function GrowthCapitalSection() {
         .stage-4 {
           animation-delay: 850ms;
         }
+
+        @media (max-width: 639px) {
+          .growth-stage-visible {
+            animation: none;
+            opacity: 1;
+          }
+
+          .growth-stage-hidden {
+            opacity: 1;
+          }
+
+          .growth-chart-path {
+            stroke-dasharray: none !important;
+            stroke-dashoffset: 0 !important;
+            transition: none !important;
+          }
+        }
       `}</style>
 
       <div className="mx-auto max-w-[1184px]">
@@ -137,14 +154,14 @@ export default function GrowthCapitalSection() {
         <div className="flex justify-center">
           <Link
             href="/services"
-            className="inline-flex h-[42px] items-center justify-center gap-[10px] bg-[#072E26] px-[18px] font-sans text-[16px] font-[600] uppercase tracking-[0.01em] text-white shadow-[0_2px_5px_rgba(0,0,0,0.08)] transition-opacity hover:opacity-90"
+            className="inline-flex min-h-[42px] max-w-full items-center justify-center gap-[10px] bg-[#072E26] px-[14px] py-2 text-center font-sans text-[11px] font-[600] uppercase leading-[1.2] tracking-[0.01em] text-white shadow-[0_2px_5px_rgba(0,0,0,0.08)] transition-opacity hover:opacity-90 sm:px-[18px] sm:text-[16px]"
           >
             Scaling Through Structured Capital
           </Link>
         </div>
 
         {/* ARC HEADER */}
-        <div className="mt-[70px] border-b border-[#E6E2DB] pb-[12px]">
+        <div className="mt-10 border-b border-[#E6E2DB] pb-[12px] sm:mt-[70px]">
           <div className="flex flex-col gap-[15px] lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-center gap-[7px]">
               <span className="h-[2px] w-[8px] bg-[#B88618]" />
@@ -153,7 +170,7 @@ export default function GrowthCapitalSection() {
               </span>
             </div>
 
-            <div className="flex flex-wrap items-center justify-end gap-[20px] font-sans text-[11px] font-[500] text-[#6B716E]">
+            <div className="hidden flex-wrap items-center justify-end gap-[20px] font-sans text-[11px] font-[500] text-[#6B716E] sm:flex">
               <span>Stage 01: Inception</span>
               <span className="text-[#5F6863]">→</span>
               <span>Stage 02: Expansion</span>
@@ -168,7 +185,7 @@ export default function GrowthCapitalSection() {
         </div>
 
         {/* CHART */}
-        <div className="relative z-0 mt-[75px] h-[215px] w-full">
+        <div className="relative z-0 mt-[30px] h-[215px] w-full sm:mt-[75px]">
           {/* GRID LINES */}
           <div className="absolute left-0 right-0 top-[32px] border-t border-dashed border-[#E8E4DD]" />
           <div className="absolute left-0 right-0 top-[93px] border-t border-dashed border-[#E8E4DD]" />
@@ -200,9 +217,10 @@ export default function GrowthCapitalSection() {
             <path
               d="
                 M 20 154
-                C 150 143, 270 117, 365 101
-                C 480 82, 570 67, 625 55
-                C 760 29, 850 15, 1005 6
+                C 40 154, 58 154, 76 154
+                C 170 145, 255 112, 324 101
+                C 420 85, 520 65, 594 55
+                C 750 34, 900 10, 1005 6
                 C 1020 5, 1035 4, 1050 4
                 L 1050 154
                 L 20 154
@@ -214,11 +232,13 @@ export default function GrowthCapitalSection() {
             {/* ONE CONTINUOUS CURVE */}
             <path
               ref={linePathRef}
+              className="growth-chart-path"
               d="
                 M 20 154
-                C 150 143, 270 117, 365 101
-                C 480 82, 570 67, 625 55
-                C 760 29, 850 15, 1005 6
+                C 40 154, 58 154, 76 154
+                C 170 145, 255 112, 324 101
+                C 420 85, 520 65, 594 55
+                C 750 34, 900 10, 1005 6
                 C 1020 5, 1035 4, 1050 4
               "
               fill="none"
@@ -242,7 +262,7 @@ export default function GrowthCapitalSection() {
           <div className="absolute bottom-0 left-[7%] top-[154px] border-l border-dashed border-[#D8D3C8]" />
 
           {/* STAGE 1 NAME */}
-          <div className="absolute left-[7%] top-[98px] z-20 -translate-x-1/2">
+          <div className="absolute left-[7%] top-[98px] z-20 hidden -translate-x-1/2 sm:block">
             <div
               className={
                 isVisible
@@ -250,7 +270,7 @@ export default function GrowthCapitalSection() {
                   : "growth-stage-hidden"
               }
             >
-              <div className="whitespace-nowrap rounded-[2px] bg-[#003D33] px-[12px] py-[7px] shadow-[0_5px_12px_rgba(0,0,0,0.10)]">
+              <div className="max-w-[34vw] rounded-[2px] bg-[#003D33] px-[8px] py-[6px] text-center shadow-[0_5px_12px_rgba(0,0,0,0.10)] sm:max-w-none sm:whitespace-nowrap sm:px-[12px] sm:py-[7px]">
                 <span className="font-sans text-[10px] font-[500] text-white">
                   Seed &amp; Working Capital
                 </span>
@@ -272,7 +292,7 @@ export default function GrowthCapitalSection() {
           <div className="absolute bottom-0 left-[30%] top-[101px] border-l border-dashed border-[#D8D3C8]" />
 
           {/* STAGE 2 NAME */}
-          <div className="absolute left-[30%] top-[43px] z-20 -translate-x-1/2">
+          <div className="absolute left-[30%] top-[43px] z-20 hidden -translate-x-1/2 sm:block">
             <div
               className={
                 isVisible
@@ -280,7 +300,7 @@ export default function GrowthCapitalSection() {
                   : "growth-stage-hidden"
               }
             >
-              <div className="whitespace-nowrap rounded-[2px] bg-[#003D33] px-[13px] py-[7px] shadow-[0_5px_12px_rgba(0,0,0,0.10)]">
+              <div className="max-w-[34vw] rounded-[2px] bg-[#003D33] px-[8px] py-[6px] text-center shadow-[0_5px_12px_rgba(0,0,0,0.10)] sm:max-w-none sm:whitespace-nowrap sm:px-[13px] sm:py-[7px]">
                 <span className="font-sans text-[10px] font-[500] text-white">
                   Multi-Lender Syndication
                 </span>
@@ -302,7 +322,7 @@ export default function GrowthCapitalSection() {
           <div className="absolute bottom-0 left-[55%] top-[55px] border-l border-dashed border-[#D8D3C8]" />
 
           {/* STAGE 3 NAME */}
-          <div className="absolute left-[55%] top-[-2px] z-20 -translate-x-1/2">
+          <div className="absolute left-[55%] top-[-2px] z-20 hidden -translate-x-1/2 sm:block">
             <div
               className={
                 isVisible
@@ -310,7 +330,7 @@ export default function GrowthCapitalSection() {
                   : "growth-stage-hidden"
               }
             >
-              <div className="whitespace-nowrap rounded-[2px] bg-[#003D33] px-[13px] py-[7px] shadow-[0_5px_12px_rgba(0,0,0,0.10)]">
+              <div className="max-w-[34vw] rounded-[2px] bg-[#003D33] px-[8px] py-[6px] text-center shadow-[0_5px_12px_rgba(0,0,0,0.10)] sm:max-w-none sm:whitespace-nowrap sm:px-[13px] sm:py-[7px]">
                 <span className="font-sans text-[10px] font-[500] text-white">
                   Structured Debt &amp; Mezzanine
                 </span>
@@ -332,7 +352,7 @@ export default function GrowthCapitalSection() {
           <div className="absolute bottom-0 right-[7%] top-[6px] border-l border-dashed border-[#D8D3C8]" />
 
           {/* STAGE 4 NAME */}
-          <div className="absolute right-[7%] top-[-44px] z-20 translate-x-1/2">
+          <div className="absolute right-0 top-[-36px] z-20 hidden translate-x-0 sm:block sm:right-[7%] sm:top-[-44px] sm:translate-x-1/2">
             <div
               className={
                 isVisible
@@ -340,7 +360,7 @@ export default function GrowthCapitalSection() {
                   : "growth-stage-hidden"
               }
             >
-              <div className="flex items-center whitespace-nowrap rounded-[2px] bg-[#003D33] px-[13px] py-[7px] shadow-[0_5px_12px_rgba(0,0,0,0.10)]">
+              <div className="flex max-w-[42vw] items-center rounded-[2px] bg-[#003D33] px-[8px] py-[6px] shadow-[0_5px_12px_rgba(0,0,0,0.10)] sm:max-w-none sm:whitespace-nowrap sm:px-[13px] sm:py-[7px]">
                 <span className="mr-[6px] text-[9px] text-[#B08316]">▮</span>
 
                 <span className="font-sans text-[10px] font-[500] text-white">
