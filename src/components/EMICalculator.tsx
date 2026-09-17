@@ -69,7 +69,7 @@ export default function EMICalculator() {
   const interestProgress = ((interestRate - 5) / (20 - 5)) * 100;
 
   return (
-    <section className="bg-[#FBF9F6] px-4 py-[60px] sm:px-6 lg:px-[78px]">
+    <section className="bg-[#FBF9F6] px-4 py-7 sm:px-6 sm:py-[60px] lg:px-[78px]">
       {/* SLIDER STYLE */}
       <style jsx>{`
         .calculator-range {

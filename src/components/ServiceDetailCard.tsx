@@ -85,7 +85,7 @@ export default function ServiceDetailCard({
     imagePosition = "right",
 }: ServiceDetailCardProps) {
     return (
-        <section className="bg-[#FBF9F6] pt-14 px-4 py-[16px] sm:px-6 lg:px-[30px]">
+        <section className="bg-[#FBF9F6] px-4 py-4 sm:px-6 sm:py-[16px] lg:px-[30px] lg:pt-14">
             <div className="relative mx-auto min-h-[710px] max-w-[1200px] overflow-hidden rounded-[10px] border border-[#E3E0DA] bg-white px-5 py-6 sm:px-9 sm:py-7 lg:h-[710px] lg:px-[42px] lg:py-[44px]">
                 <div
                     className={`relative z-10 grid items-center gap-10 lg:gap-[46px] ${imagePosition === "left"

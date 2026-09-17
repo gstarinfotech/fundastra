@@ -943,7 +943,7 @@ export default function ServicePage() {
                 <Navbar />
 
                 <motion.div
-                    className="relative z-10 mx-auto flex min-h-[700px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-28 pt-36 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px]"
+                    className="relative z-10 mx-auto flex min-h-[700px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-28 pt-28 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px]"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{
@@ -1051,7 +1051,7 @@ export default function ServicePage() {
             <Reveal>
                 <section
                     id="sub-services"
-                    className="mb-4 bg-white px-4 pb-8 pt-10 text-center sm:px-6 sm:pb-[30px] sm:pt-[60px]"
+                    className="mb-0 bg-white px-4 pb-5 pt-10 text-center sm:mb-4 sm:px-6 sm:pb-[30px] sm:pt-[60px]"
                 >
                     <div className="mx-auto max-w-[1000px]">
                         <p className="mx-auto w-full max-w-[320px] rounded-[8px] bg-[#052E26] px-3 py-1.5 font-sans text-[10px] font-[700] uppercase leading-[1.15] tracking-[0.08em] text-[#FBF9F6] sm:max-w-[420px] sm:py-1 sm:text-[18px] sm:tracking-[1px]">
@@ -1106,7 +1106,7 @@ export default function ServicePage() {
 
             {/* FACILITY BENCHMARK HEADING */}
             <Reveal>
-                <section className="bg-white px-6 py-[45px]">
+                <section className="bg-white px-4 py-7 sm:px-6 sm:py-[45px]">
                     <div className="mx-auto max-w-[1000px] text-center">
                             <div className="inline-flex max-w-full items-center justify-center rounded-[7px] bg-[#052E26] px-3 py-2 text-center sm:px-[14px] sm:py-[5px]">
                             <span className="font-sans text-[10px] font-[700] uppercase leading-[1.15] tracking-[0.04em] text-white sm:text-[16px] sm:leading-none">
@@ -1126,7 +1126,7 @@ export default function ServicePage() {
             </Reveal>
 
             {/* FACILITY SPECIFICATION TABLE */}
-            <section className="bg-[#FBF9F6] px-4 py-[58px] sm:px-6 lg:px-[110px]">
+            <section className="bg-[#FBF9F6] px-4 py-6 sm:px-6 sm:py-[58px] lg:px-[110px]">
                 <div className="mx-auto w-full max-w-[1200px]">
                     <motion.div
                         initial="hidden"

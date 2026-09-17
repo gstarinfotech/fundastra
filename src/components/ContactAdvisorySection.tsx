@@ -6,7 +6,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function ContactAdvisorySection() {
   return (
-    <section className="bg-[#F6F4F1] px-4 py-[55px] sm:px-6 lg:px-[90px] lg:py-[58px]">
+    <section className="bg-[#F6F4F1] px-4 py-7 sm:px-6 sm:py-[55px] lg:px-[90px] lg:py-[58px]">
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-[1.08fr_0.92fr]">
         {/* LEFT */}
         <div className="flex flex-col justify-between px-[28px] py-[28px] sm:px-[36px] sm:py-[16px]">

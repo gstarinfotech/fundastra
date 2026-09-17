@@ -62,7 +62,7 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
 
   return (
     <section className="bg-white">
-      <div className="border-b border-black/5 bg-white px-4 py-16 text-center sm:px-6">
+      <div className="border-b border-black/5 bg-white px-4 py-10 text-center sm:px-6 sm:py-16">
         <motion.div
           variants={headingVariants}
           initial="hidden"
@@ -80,7 +80,7 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
         </motion.div>
       </div>
 
-      <div className="bg-[#FAF8F5] px-4 py-14 sm:px-6 lg:px-[76px]">
+      <div className="bg-[#FAF8F5] px-4 py-7 sm:px-6 sm:py-14 lg:px-[76px]">
         <motion.div
           className="mx-auto max-w-[1213px] space-y-4"
           variants={faqContainerVariants}

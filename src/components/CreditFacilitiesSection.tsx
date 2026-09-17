@@ -116,7 +116,7 @@ const CREDIT_FACILITIES = [
 
 export default function CreditFacilitiesSection() {
     return (
-        <section className="bg-[#FBF9F6] pt-10 px-4 py-[16px] sm:px-6 lg:px-[17px]">
+        <section className="bg-[#FBF9F6] px-4 py-4 sm:px-6 sm:py-[16px] sm:pt-10 lg:px-[17px]">
             <div className="mx-auto grid max-w-[1200px] gap-[28px] lg:grid-cols-2">
 
                 {CREDIT_FACILITIES.map((facility) => {

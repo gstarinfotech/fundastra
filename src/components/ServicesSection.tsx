@@ -105,7 +105,7 @@ export default function ServicesSection() {
   const oldService = SERVICES[previousIndex];
 
   return (
-    <section className="overflow-hidden bg-[#FBF9F6] px-4 py-[60px] sm:px-6 sm:py-[70px] lg:px-[76px] lg:py-[85px]">
+    <section className="overflow-hidden bg-[#FBF9F6] px-4 py-8 sm:px-6 sm:py-[70px] lg:px-[76px] lg:py-[85px]">
       {/* SLIDE ANIMATION */}
       <style jsx>{`
         @keyframes servicesCardInFromRight {
@@ -166,7 +166,7 @@ export default function ServicesSection() {
       `}</style>
 
       {/* TABS */}
-      <div className="mx-auto mb-[50px] grid w-full max-w-full rounded-[15px] border-2 border-[#e4e7e5] bg-white p-[5px] sm:mb-[60px] lg:mb-[80px] lg:flex lg:w-fit lg:overflow-x-auto">
+      <div className="mx-auto mb-6 grid w-full max-w-full rounded-[15px] border-2 border-[#e4e7e5] bg-white p-[5px] sm:mb-[60px] lg:mb-[80px] lg:flex lg:w-fit lg:overflow-x-auto">
         <div className="grid w-full grid-cols-3 items-center lg:flex lg:w-max">
           {SERVICES.map((service, index) => (
             <button

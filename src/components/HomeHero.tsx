@@ -817,7 +817,7 @@ export default function HomeHero() {
         className="
           bg-white
           px-4
-          py-10
+          py-6
 
           sm:px-8
           sm:py-[50px]

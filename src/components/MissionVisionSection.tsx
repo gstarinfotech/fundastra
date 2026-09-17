@@ -72,7 +72,7 @@ export default function MissionVisionSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
-      <div className="px-4 pb-12 sm:px-6 sm:pb-20 lg:px-[76px]">
+      <div className="px-4 pb-6 sm:px-6 sm:pb-20 lg:px-[76px]">
         <div className="mx-auto max-w-[1080px]">
           <motion.div
             className="text-center"
@@ -102,7 +102,7 @@ export default function MissionVisionSection() {
       </div>
 
       {/* CARDS AREA */}
-      <div className="bg-[#FAF8F5] px-4 py-15 sm:px-6 lg:px-[76px]">
+      <div className="bg-[#FAF8F5] px-4 py-8 sm:px-6 sm:py-15 lg:px-[76px]">
         <div className="mx-auto max-w-[1216px]">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {CARDS.map(
