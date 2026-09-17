@@ -1,8 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
+
+const MotionLink = motion(Link);
 
 const badgeVariants = {
   hidden: {
@@ -117,7 +120,7 @@ export default function PartnersHero() {
         {/* HEADING */}
         <motion.h1
           variants={headingVariants}
-          className="mx-auto mt-4 max-w-[760px] font-display text-[38px] font-semibold leading-[1.05] text-[#FBF9F6] sm:mt-0 sm:text-[64px]"
+          className="mx-auto mt-4 max-w-[760px] font-display text-[38px] font-semibold leading-[1.05] text-[#FBF9F6] sm:mt-0 sm:text-[64px] lg:mt-4"
         >
           Meet Our partners
         </motion.h1>
@@ -125,7 +128,7 @@ export default function PartnersHero() {
         {/* DESCRIPTION */}
         <motion.p
           variants={paragraphVariants}
-          className="mx-auto mt-5 max-w-[720px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-0 sm:text-[20px] sm:leading-[1.65]"
+          className="mx-auto mt-5 max-w-[720px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-0 sm:text-[20px] sm:leading-[1.65] lg:mt-4"
         >
           Refer clients, we handle the rest. Earn commission on every
           successful disbursal on time, every time. Direct access to 45+
@@ -135,15 +138,15 @@ export default function PartnersHero() {
         {/* BUTTONS */}
         <motion.div
           variants={buttonsContainerVariants}
-          className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5"
+          className="mt-7 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-5 lg:mt-12"
         >
-          <motion.a
+          <MotionLink
             variants={buttonVariants}
-            href="#approved-project-finance"
+            href="/contact"
             className="rounded-[5px] bg-white px-5 py-3 font-sans text-[14px] font-semibold text-[#0A271E] hover:opacity-90 sm:px-7 sm:py-3.5 sm:text-[17px]"
           >
-            Approved Project Finance
-          </motion.a>
+            Discuss Your Capital Needs
+          </MotionLink>
 
           <motion.a
             variants={buttonVariants}

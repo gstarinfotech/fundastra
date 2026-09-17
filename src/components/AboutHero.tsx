@@ -135,7 +135,7 @@ export default function AboutHero() {
       </div>
 
       <motion.div
-        className="relative z-10 mx-auto -mt-16 h-auto max-w-[1184px] px-4 sm:-mt-[110px] sm:h-[280px]"
+        className="relative z-10 mx-auto -mt-16 h-auto max-w-[1184px] px-4 sm:-mt-[110px] sm:h-[280px] lg:-mt-[82px]"
         initial="hidden"
         animate="show"
         variants={cardsContainer}
