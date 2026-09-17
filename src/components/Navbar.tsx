@@ -265,7 +265,7 @@ export default function Navbar() {
           </div>
 
           {/* MAIN NAV CONTENT */}
-          <div className="relative z-10 flex min-w-0 w-full items-center justify-between gap-3">
+          <div className="relative z-10 flex min-h-full min-w-0 w-full items-center justify-between gap-3">
             {/* LOGO */}
             <Link
               href="/"

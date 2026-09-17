@@ -419,22 +419,28 @@ export default function EMICalculator() {
               </div>
 
               <div className="mt-[15px] overflow-x-auto rounded-[6px] border border-[#E8E7E2] bg-white">
-                <table className="w-full min-w-[560px] border-collapse">
+                <table className="w-full min-w-[480px] border-collapse sm:min-w-0 sm:table-fixed">
+                  <colgroup>
+                    <col className="w-[18%]" />
+                    <col className="w-[27%]" />
+                    <col className="w-[27%]" />
+                    <col className="w-[28%]" />
+                  </colgroup>
                   <thead>
                     <tr className="border-b border-[#E8E7E2]">
-                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845]">
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
                         PERIOD
                       </th>
 
-                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845]">
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
                         PAYMENT
                       </th>
 
-                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845]">
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
                         INTEREST
                       </th>
 
-                      <th className="px-[10px] py-[12px] text-right font-sans text-[10px] font-[700] text-[#424845]">
+                      <th className="px-[10px] py-[12px] text-right font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
                         REMAINING BALANCE
                       </th>
                     </tr>
@@ -446,19 +452,19 @@ export default function EMICalculator() {
                         key={row.period}
                         className="border-b border-[#EEEDEA] last:border-0"
                       >
-                        <td className="px-[8px] py-[8px] font-sans text-[12px] font-[500] text-[#000F09]">
+                        <td className="px-[8px] py-[8px] font-sans text-[12px] font-[500] text-[#000F09] sm:px-1 sm:py-2 sm:text-[10px]">
                           {row.period}
                         </td>
 
-                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#765A23]">
+                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#765A23] sm:px-1 sm:py-2 sm:text-[10px]">
                           {formatCurrency(row.payment)}
                         </td>
 
-                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#424845]">
+                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#424845] sm:px-1 sm:py-2 sm:text-[10px]">
                           {formatCurrency(row.interest)}
                         </td>
 
-                        <td className="whitespace-nowrap px-[8px] py-[8px] text-right font-mono text-[12px] font-[500] text-[#000F09]">
+                        <td className="whitespace-nowrap px-[8px] py-[8px] text-right font-mono text-[12px] font-[500] text-[#000F09] sm:whitespace-normal sm:px-1 sm:py-2 sm:text-[10px]">
                           {formatCurrency(row.balance)}
                         </td>
                       </tr>
