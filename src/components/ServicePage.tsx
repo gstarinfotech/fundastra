@@ -1014,7 +1014,7 @@ export default function ServicePage() {
                             once: true,
                             amount: 0.25,
                         }}
-                        className="grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4"
+                        className="relative -top-8 grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:top-0 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4"
                     >
                         {data.heroMetrics.map((m) => (
                             <motion.div
