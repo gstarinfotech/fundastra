@@ -1,4 +1,7 @@
+"use client";
+
 import { Flag, Eye } from "lucide-react";
+import { motion } from "framer-motion";
 
 const CARDS = [
   {
@@ -19,13 +22,65 @@ const CARDS = [
   },
 ];
 
+const headingVariants = {
+  hidden: {
+    opacity: 0,
+    x: 90,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const leftCardVariants = {
+  hidden: {
+    opacity: 0,
+    x: -90,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const rightCardVariants = {
+  hidden: {
+    opacity: 0,
+    x: 90,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      delay: 0.12,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
 export default function MissionVisionSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
       <div className="px-4 pb-20 sm:px-6 lg:px-[76px]">
         <div className="mx-auto max-w-[1080px]">
-          <div className="text-center">
+          <motion.div
+            className="text-center"
+            variants={headingVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.25 }}
+          >
             <div className="mb-4 inline-flex items-center gap-2">
               <span className="h-1.5 w-1.5 rounded-full bg-[#765A23]" />
 
@@ -42,7 +97,7 @@ export default function MissionVisionSection() {
               Anchoring Indian enterprise potential with institutional integrity
               and future-proof capital channels.
             </p>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -51,42 +106,51 @@ export default function MissionVisionSection() {
         <div className="mx-auto max-w-[1216px]">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             {CARDS.map(
-              ({ icon: Icon, eyebrow, title, description, bullet }) => (
-                <div
-                  key={title}
-                  className="relative h-[507px] w-[592px] overflow-hidden rounded-2xl border border-black/5 bg-white p-8 shadow-sm"
-                >
-                  <div className="relative mt-2 flex h-[48px] w-[48px] items-center justify-center rounded-lg bg-[#0A271E]">
-                    <Icon
-                      size={25}
-                      className="text-[#FFD794]"
-                      strokeWidth={1.8}
-                    />
-                  </div>
+              ({ icon: Icon, eyebrow, title, description, bullet }, index) => {
+                const cardVariants =
+                  index === 0 ? leftCardVariants : rightCardVariants;
 
-                  <p className="relative mt-5 font-sans text-[11px] font-[700] uppercase tracking-[0.14em] text-[#765A23]">
-                    {eyebrow}
-                  </p>
-
-                  <h3 className="relative mt-2 font-display text-[32px] font-[600] text-[#000F09]">
-                    {title}
-                  </h3>
-
-                  <p className="relative mt-4 w-[494px] font-sans text-[18px] leading-[1.7] text-[#424845]">
-                    {description}
-                  </p>
-
-                  <div className="relative mt-5 border-t border-black/5 pt-5">
-                    <div className="mt-2 flex items-center gap-2">
-                      <span className="h-1.5 w-1.5 rounded-full bg-[#765A23]" />
-
-                      <span className="font-sans text-[17px] font-[600] text-[#000F09]">
-                        {bullet}
-                      </span>
+                return (
+                  <motion.div
+                    key={title}
+                    className="relative h-[507px] w-[592px] overflow-hidden rounded-2xl border border-black/5 bg-white p-8 shadow-sm"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                  >
+                    <div className="relative mt-2 flex h-[48px] w-[48px] items-center justify-center rounded-lg bg-[#0A271E]">
+                      <Icon
+                        size={25}
+                        className="text-[#FFD794]"
+                        strokeWidth={1.8}
+                      />
                     </div>
-                  </div>
-                </div>
-              ),
+
+                    <p className="relative mt-5 font-sans text-[11px] font-[700] uppercase tracking-[0.14em] text-[#765A23]">
+                      {eyebrow}
+                    </p>
+
+                    <h3 className="relative mt-2 font-display text-[32px] font-[600] text-[#000F09]">
+                      {title}
+                    </h3>
+
+                    <p className="relative mt-4 w-[494px] font-sans text-[18px] leading-[1.7] text-[#424845]">
+                      {description}
+                    </p>
+
+                    <div className="relative mt-5 border-t border-black/5 pt-5">
+                      <div className="mt-2 flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-[#765A23]" />
+
+                        <span className="font-sans text-[17px] font-[600] text-[#000F09]">
+                          {bullet}
+                        </span>
+                      </div>
+                    </div>
+                  </motion.div>
+                );
+              },
             )}
           </div>
         </div>

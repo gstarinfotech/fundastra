@@ -1,103 +1,203 @@
+"use client";
+
 import Image from "next/image";
 import { CheckCircle2, Landmark } from "lucide-react";
+import { motion } from "framer-motion";
 
 const STATS = [
   { icon: CheckCircle2, value: "20+ Years", label: "Combined Track Record" },
   { icon: Landmark, value: "₹2,400+ Cr", label: "Closed Transactions" },
 ];
 
+const headingVariants = {
+  hidden: {
+    opacity: 0,
+    x: -90,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const imageVariants = {
+  hidden: { opacity: 0, x: -90 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const contentVariants = {
+  hidden: { opacity: 0, x: 90 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.9,
+      delay: 0.12,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const statsContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.35,
+    },
+  },
+};
+
+const statVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
 export default function AboutFounderSection() {
   return (
     <section className="bg-[#052E26] px-4 py-20 sm:px-6 lg:px-[76px]">
       <div className="mx-auto max-w-[1216px]">
-        <div className="text-center">
-          <div className="mb-2 inline-flex items-center rounded-[6px] bg-white px-2">
-            <span className="font-sans text-[20px] font-bold uppercase tracking-wide text-[#072E26]">
+        {/* HEADING */}
+        <motion.div
+          className="text-center"
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.25 }}
+        >
+          <div className="mb-3 flex items-center justify-center gap-2">
+            <span className="h-[2px] w-[18px] bg-[#B08316]" />
+            <span className="font-sans text-[11px] font-[600] uppercase tracking-[0.12em] text-[#B08316]">
               Executive Stewardship
             </span>
           </div>
 
-          <h2 className="font-display text-[34px] font-[500] text-[#FBF9F6] sm:text-[43px]">
+          <h2 className="font-display text-[36px] font-[600] tracking-[-0.02em] text-white sm:text-[44px]">
             About the Founder
           </h2>
 
-          <p className="mx-auto mt-1 max-w-[717px] font-sans text-[18px] leading-[1.6] text-[#FBF9F6]">
-            Seasoned fiduciary leaders combining institutional treasury
-            discipline with proactive syndication execution.
+          <p className="mx-auto mt-4 max-w-[720px] font-sans text-[14px] leading-[1.7] text-white/65 sm:text-[15px]">
+            Fund Astra is led by experienced capital professionals with a
+            strong track record across structured finance, corporate funding,
+            and institutional capital mandates.
           </p>
-        </div>
+        </motion.div>
 
+        {/* MAIN CARD */}
         <div className="mt-12 grid grid-cols-1 overflow-hidden rounded-[20px] bg-white shadow-2xl lg:grid-cols-2">
-          <div className="relative min-h-[340px] lg:min-h-0">
+          {/* LEFT IMAGE */}
+          <motion.div
+            className="relative min-h-[340px] lg:min-h-0"
+            variants={imageVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <Image
               src="/about-founder.png"
               alt="FUND ASTRA founding partners closing a mandate"
               fill
               className="object-cover"
             />
-          </div>
+          </motion.div>
 
-          <div className="flex flex-col justify-center px-8 py-10 sm:px-12">
-            <div className="mb-5 inline-flex w-fit items-center border-[#d4b77f] border-1 rounded-full bg-[#FFDEA84D] px-3.5 py-1.5">
-              <span className="font-sans text-[11px] font-[700] uppercase tracking-[0.1em] text-[#765A23]">
-                Founding Partners &amp; Managing Directors
+          {/* RIGHT CONTENT */}
+          <motion.div
+            className="flex flex-col justify-center px-8 py-10 sm:px-12"
+            variants={contentVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-[2px] w-[18px] bg-[#B08316]" />
+              <span className="font-sans text-[11px] font-[600] uppercase tracking-[0.12em] text-[#B08316]">
+                Founding Partners & Managing Directors
               </span>
             </div>
 
-            <h3 className="font-display text-[32px] font-[600] text-[#000F09]">
+            <h3 className="font-display text-[30px] font-[600] leading-[1.15] text-[#052E26]">
               Amit Sindhi
             </h3>
-            <p className="font-sans text-[17px] font-[500] text-[#765A23]">
+
+            <p className="mt-2 font-sans text-[12px] font-[600] uppercase tracking-[0.08em] text-[#765A23]">
               Founders, Fund Astra
             </p>
 
-            <p className="mt-3 w-[463px] font-sans text-[15px] font-[400] leading-[1.7] text-[#424845]">
-              With more than 20 years of collective institutional leadership
-              spanning premier investment banking desks, corporate treasury
-              syndication, and private credit structuring, Vikram Singh and
-              Rahul Mehra have steered high-stakes debt architecture across top
-              Indian conglomerates and high-growth ventures.
+            <p className="mt-5 font-sans text-[14px] leading-[1.75] text-[#424845]">
+              With more than 20 years of combined experience across corporate
+              finance, structured debt, and institutional capital, the
+              leadership team brings a disciplined approach to complex funding
+              mandates. Fund Astra works closely with promoters, management
+              teams, and capital partners to structure practical solutions
+              aligned with business objectives.
             </p>
 
-            <p className="mt-4 w-[463px] font-sans text-[15px] font-[400] leading-[1.7] text-[#424845]">
-              Prior to establishing Fund Astra, the founding leadership
-              spearheaded multi-hundred-crore structured credit facilities,
-              export-import working capital syndications, and private placement
-              notes across industrial manufacturing, logistics, tech-enabled
-              enterprise services, and healthcare domains.
+            <p className="mt-4 font-sans text-[14px] leading-[1.75] text-[#424845]">
+              Prior to establishing Fund Astra, the team built experience
+              across banking, private credit, and corporate finance, developing
+              strong relationships across lenders, investors, and strategic
+              capital providers.
             </p>
 
-            <blockquote className="mt-6 border-l-[3px] border-[#765A23] bg-[#FAF9F6] px-5 py-4">
-              <p className="font-display text-[20px] font-[400] italic leading-[1.5] text-[#000F09]">
-                &ldquo;Capital is not merely balance sheet fuel—it is the
-                strategic architecture that dictates an enterprise&apos;s
-                sovereignty.&rdquo;
-              </p>
-              <cite className="mt-2 block font-sans text-[11px] not-italic text-[#424845]">
-                — Vikram Singh &amp; Rahul Mehra
-              </cite>
+            <blockquote className="mt-5 border-l-[2px] border-[#B08316] pl-4 font-display text-[16px] italic leading-[1.55] text-[#052E26]">
+              “Capital is not merely balance sheet fuel. It is a strategic
+              decision that shapes the next stage of a business.”
+              <span className="mt-2 block font-sans text-[11px] not-italic font-[600] uppercase tracking-[0.08em] text-[#765A23]">
+                — Vikram Singh & Rahul Mehra
+              </span>
             </blockquote>
 
-            <div className="mt-6 flex gap-8 border-t border-black/5 pt-5">
+            {/* STATS */}
+            <motion.div
+              className="mt-6 flex gap-8 border-t border-black/5 pt-5"
+              variants={statsContainerVariants}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+            >
               {STATS.map(({ icon: Icon, value, label }) => (
-                <div key={label} className="flex items-center gap-3">
+                <motion.div
+                  key={label}
+                  className="flex items-start gap-3"
+                  variants={statVariants}
+                >
                   <Icon
-                    size={25}
-                    className="shrink-0 text-[#765A23]"
-                    strokeWidth={1.6}
+                    size={18}
+                    strokeWidth={1.7}
+                    className="mt-[2px] shrink-0 text-[#B08316]"
                   />
+
                   <div>
-                    <p className="font-sans text-[17px] font-bold text-[#000F09]">
+                    <p className="font-display text-[18px] font-[600] leading-none text-[#052E26]">
                       {value}
                     </p>
-                    <p className="font-sans text-[13px] text-[#424845]">
+                    <p className="mt-1 font-sans text-[10px] font-[600] uppercase tracking-[0.06em] text-[#6B716E]">
                       {label}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

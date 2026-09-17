@@ -130,7 +130,7 @@ export default function HomeHero() {
               </a>
 
               <a
-                href="/services"
+                href="/services/sme-funding"
                 className="inline-flex items-center gap-[8px] py-4 font-sans text-[18px] font-semibold leading-none text-white transition-opacity hover:opacity-80"
               >
                 Explore Our Services

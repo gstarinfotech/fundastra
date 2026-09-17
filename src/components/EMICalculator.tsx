@@ -6,9 +6,6 @@ import { useMemo, useState } from "react";
 export default function EMICalculator() {
   const [principal, setPrincipal] = useState(5000000);
   const [tenure, setTenure] = useState(15);
-  const [frequency, setFrequency] = useState<
-    "Monthly" | "Quarterly" | "Semi-Annual"
-  >("Monthly");
   const [interestRate, setInterestRate] = useState(8.5);
 
   const calculation = useMemo(() => {
@@ -19,7 +16,7 @@ export default function EMICalculator() {
       monthlyRate === 0
         ? principal / months
         : (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) /
-          (Math.pow(1 + monthlyRate, months) - 1);
+        (Math.pow(1 + monthlyRate, months) - 1);
 
     const totalPayout = emi * months;
     const totalInterest = totalPayout - principal;
@@ -259,22 +256,12 @@ export default function EMICalculator() {
               </p>
 
               <div className="mt-[11px] flex w-fit overflow-hidden rounded-[8px] border border-[#E5E5E1] bg-white p-[5px]">
-                {(["Monthly", "Quarterly", "Semi-Annual"] as const).map(
-                  (item) => (
-                    <button
-                      key={item}
-                      type="button"
-                      onClick={() => setFrequency(item)}
-                      className={`rounded-[10px] px-[18px] py-[9px] font-sans text-[13px] font-[600] transition-all ${
-                        frequency === item
-                          ? "bg-[#052E26] text-white"
-                          : "text-[#454946]"
-                      }`}
-                    >
-                      {item}
-                    </button>
-                  ),
-                )}
+                <button
+                  type="button"
+                  className="rounded-[10px] bg-[#052E26] px-[18px] py-[9px] font-sans text-[13px] font-[600] text-white"
+                >
+                  Monthly
+                </button>
               </div>
             </div>
 

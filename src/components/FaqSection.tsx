@@ -2,6 +2,7 @@
 
 import { ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 type FAQ = {
   question: string;
@@ -10,6 +11,46 @@ type FAQ = {
 
 type FaqSectionProps = {
   faqs: FAQ[];
+};
+
+const headingVariants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.8,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
+};
+
+const faqContainerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const faqVariants = {
+  hidden: {
+    opacity: 0,
+    y: 55,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  },
 };
 
 export default function FaqSection({ faqs }: FaqSectionProps) {
@@ -22,24 +63,38 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
   return (
     <section className="bg-white">
       <div className="border-b border-black/5 bg-white px-4 py-16 text-center sm:px-6">
-        <h2 className="font-display text-[34px] font-semibold text-[#000F09] sm:text-[44px]">
-          Frequently Asked Questions
-        </h2>
+        <motion.div
+          variants={headingVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+        >
+          <h2 className="font-display text-[34px] font-semibold text-[#000F09] sm:text-[44px]">
+            Frequently Asked Questions
+          </h2>
 
-        <p className="mx-auto mt-3 max-w-[560px] font-sans text-[18px] leading-[1.6] text-[#424845]">
-          Direct answers regarding our advisory scope, ticket parameters,
-          regulatory frameworks, and appraisal velocities.
-        </p>
+          <p className="mx-auto mt-3 max-w-[560px] font-sans text-[18px] leading-[1.6] text-[#424845]">
+            Direct answers regarding our advisory scope, ticket parameters,
+            regulatory frameworks, and appraisal velocities.
+          </p>
+        </motion.div>
       </div>
 
       <div className="bg-[#FAF8F5] px-4 py-14 sm:px-6 lg:px-[76px]">
-        <div className="mx-auto max-w-[1213px] space-y-4">
+        <motion.div
+          className="mx-auto max-w-[1213px] space-y-4"
+          variants={faqContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+        >
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
 
             return (
-              <div
+              <motion.div
                 key={index}
+                variants={faqVariants}
                 className="overflow-hidden rounded-[8px] border border-black/5 bg-white shadow-sm"
               >
                 <button
@@ -77,10 +132,10 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

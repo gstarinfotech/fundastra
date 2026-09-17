@@ -37,7 +37,7 @@ export default function ContactSection() {
           variants={fadeUp}
           className="font-display text-[32px] font-[500] leading-[1.05] tracking-[-0.025em] text-white sm:text-[44px]"
         >
-          Have a Transaction in Mind?
+          Ready to Accelerate Your Business Growth?
         </motion.h2>
 
         {/* SUBTEXT */}
