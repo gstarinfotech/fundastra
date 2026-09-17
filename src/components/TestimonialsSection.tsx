@@ -51,7 +51,7 @@ const PARTNER_TYPES = [
 ];
 
 const VISIBLE_CARDS = 3;
-const MAX_INDEX = TESTIMONIALS.length - VISIBLE_CARDS;
+const TOTAL_TESTIMONIALS = TESTIMONIALS.length;
 
 /* Animation helpers */
 const fadeUp = {
@@ -99,28 +99,76 @@ export default function TestimonialsSection() {
   ];
 
   const goPrevious = () => {
-    setActiveIndex((current) => current - 1);
-  };
+    const firstOriginalIndex = VISIBLE_CARDS;
+    const lastOriginalIndex =
+      VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
 
-  const goNext = () => {
-    setActiveIndex((current) => current + 1);
-  };
-
-  const handleTransitionEnd = () => {
-    if (activeIndex === TESTIMONIALS.length + VISIBLE_CARDS) {
+    // If we are already in the cloned cards on the left,
+    // jump back to the real last card without moving further left.
+    if (activeIndex <= firstOriginalIndex - 1) {
       setTransitionEnabled(false);
-      setActiveIndex(VISIBLE_CARDS);
+      setActiveIndex(lastOriginalIndex);
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
           setTransitionEnabled(true);
         });
       });
+
+      return;
     }
 
-    if (activeIndex === VISIBLE_CARDS - 1) {
+    setActiveIndex((current) => current - 1);
+  };
+
+  const goNext = () => {
+    const firstOriginalIndex = VISIBLE_CARDS;
+    const lastOriginalIndex =
+      VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
+    const firstCloneAfterIndex = lastOriginalIndex + 1;
+
+    // If we are already in the cloned cards on the right,
+    // jump back to the real first card without moving further right.
+    if (activeIndex >= firstCloneAfterIndex) {
       setTransitionEnabled(false);
-      setActiveIndex(TESTIMONIALS.length + VISIBLE_CARDS - 1);
+      setActiveIndex(firstOriginalIndex);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true);
+        });
+      });
+
+      return;
+    }
+
+    setActiveIndex((current) => current + 1);
+  };
+
+  const handleTransitionEnd = () => {
+    const firstOriginalIndex = VISIBLE_CARDS;
+    const lastOriginalIndex =
+      VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
+    const firstCloneAfterIndex = lastOriginalIndex + 1;
+
+    // Reached the first cloned card after the last real testimonial.
+    if (activeIndex >= firstCloneAfterIndex) {
+      setTransitionEnabled(false);
+      setActiveIndex(firstOriginalIndex);
+
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          setTransitionEnabled(true);
+        });
+      });
+
+      return;
+    }
+
+    // Reached the last cloned card before the first real testimonial.
+    if (activeIndex <= firstOriginalIndex - 1) {
+      setTransitionEnabled(false);
+      setActiveIndex(lastOriginalIndex);
 
       requestAnimationFrame(() => {
         requestAnimationFrame(() => {
@@ -131,10 +179,12 @@ export default function TestimonialsSection() {
   };
 
   const activeDot =
-    (((activeIndex - VISIBLE_CARDS) % (MAX_INDEX + 1)) + (MAX_INDEX + 1)) %
-    (MAX_INDEX + 1);
+    ((activeIndex - VISIBLE_CARDS) % TOTAL_TESTIMONIALS +
+      TOTAL_TESTIMONIALS) %
+    TOTAL_TESTIMONIALS;
 
   const goToDot = (index: number) => {
+    setTransitionEnabled(true);
     setActiveIndex(VISIBLE_CARDS + index);
   };
 
@@ -187,8 +237,8 @@ export default function TestimonialsSection() {
           <div
             onTransitionEnd={handleTransitionEnd}
             className={`flex flex-nowrap gap-[32px] ${transitionEnabled
-                ? "transition-transform duration-500 ease-in-out"
-                : ""
+              ? "transition-transform duration-500 ease-in-out"
+              : ""
               }`}
             style={{
               transform: `translate3d(-${activeIndex * SLIDE_DISTANCE
@@ -259,7 +309,7 @@ export default function TestimonialsSection() {
           </button>
 
           <div className="flex items-center gap-[7px]">
-            {Array.from({ length: MAX_INDEX + 1 }).map((_, index) => (
+            {Array.from({ length: TOTAL_TESTIMONIALS }).map((_, index) => (
               <button
                 key={index}
                 type="button"

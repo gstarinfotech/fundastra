@@ -2,11 +2,13 @@
 
 import { ArrowRight } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function EMICalculator() {
   const [principal, setPrincipal] = useState(5000000);
   const [tenure, setTenure] = useState(15);
   const [interestRate, setInterestRate] = useState(8.5);
+  const router = useRouter();
 
   const calculation = useMemo(() => {
     const monthlyRate = interestRate / 100 / 12;
@@ -396,6 +398,7 @@ export default function EMICalculator() {
 
               <button
                 type="button"
+                onClick={() => router.push("/contact")}
                 className="mt-[16px] flex h-[48px] w-full items-center justify-center gap-[8px] rounded-[6px] bg-[#F4D79B] font-sans text-[15px] font-[700] text-[#271900] transition-opacity hover:opacity-90"
               >
                 Discuss Terms with Advisory Desk

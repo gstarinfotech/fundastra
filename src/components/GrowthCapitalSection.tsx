@@ -139,8 +139,7 @@ export default function GrowthCapitalSection() {
             href="/services"
             className="inline-flex h-[42px] items-center justify-center gap-[10px] bg-[#072E26] px-[18px] font-sans text-[16px] font-[600] uppercase tracking-[0.01em] text-white shadow-[0_2px_5px_rgba(0,0,0,0.08)] transition-opacity hover:opacity-90"
           >
-            Explore Growth Capital
-            <ArrowRight size={18} strokeWidth={1.8} />
+            Scaling Through Structured Capital
           </Link>
         </div>
 

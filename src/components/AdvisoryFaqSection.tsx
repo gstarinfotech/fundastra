@@ -29,15 +29,6 @@ const FAQS = [
   },
 ];
 
-const PARTNER_TYPES = [
-  "Tier-1 PSU Banks",
-  "Private Sector Banks",
-  "Specialized NBFCs",
-  "Private Credit Funds (AIFs)",
-  "Single Family Offices",
-  "Mezzanine Desks",
-];
-
 export default function AdvisoryFaqSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -114,27 +105,6 @@ export default function AdvisoryFaqSection() {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-white px-4 py-[53px] sm:px-6 lg:px-[85px]">
-        <div className="mx-auto max-w-[1213px]">
-          <div className="h-[156px] rounded-[8px] bg-[#F6F4F1] pt-[45px]">
-            <p className="text-center font-sans text-[11px] font-[700] uppercase tracking-[0.12em] text-[#424845]">
-              Institutional Partner Consortium &amp; Credit Fund Networks
-            </p>
-
-            <div className="mt-[20px] flex flex-wrap items-center justify-center gap-[22px]">
-              {PARTNER_TYPES.map((item) => (
-                <span
-                  key={item}
-                  className="h-[42px] w-[173px] whitespace-nowrap rounded-[4px] border border-[#E2E5E2] bg-white py-2 text-center font-sans text-[12px] font-[600] text-[#424845]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
           </div>
         </div>
       </div>

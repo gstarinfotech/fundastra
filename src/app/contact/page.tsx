@@ -10,7 +10,6 @@ export default function ContactPage() {
       <ContactHero />
       <ContactFormSection />
       <AdvisoryFaqSection/>
-      <ContactAdvisorySection />
       <Footer />
     </main>
   );
