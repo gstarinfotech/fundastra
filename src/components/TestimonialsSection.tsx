@@ -74,7 +74,6 @@ const headingContainer = {
 };
 
 export default function TestimonialsSection() {
-  // Start from the real first position inside the cloned track.
   const [activeIndex, setActiveIndex] = useState(VISIBLE_CARDS);
   const [transitionEnabled, setTransitionEnabled] = useState(true);
 
