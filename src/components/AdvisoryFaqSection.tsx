@@ -76,7 +76,7 @@ export default function AdvisoryFaqSection() {
                         {String(index + 1).padStart(2, "0")}.
                       </span>
 
-                      <span className="font-sans text-[13px] font-[600] leading-[1.3] text-[#000F09] sm:text-[14px]">
+                      <span className="font-sans text-[12px] font-[600] leading-[1.3] text-[#000F09] sm:text-[14px]">
                         {faq.question}
                       </span>
                     </div>
