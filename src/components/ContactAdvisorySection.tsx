@@ -9,7 +9,7 @@ export default function ContactAdvisorySection() {
     <section className="bg-[#F6F4F1] px-4 py-7 sm:px-6 sm:py-[55px] lg:px-[90px] lg:py-[58px]">
       <div className="mx-auto grid max-w-[1280px] grid-cols-1 lg:grid-cols-[1.08fr_0.92fr]">
         {/* LEFT */}
-        <div className="flex flex-col justify-between px-[28px] py-[28px] sm:px-[36px] sm:py-[16px]">
+        <div className="flex flex-col justify-between px-[28px] pt-[8px] pb-[28px] sm:px-[36px] sm:py-[16px]">
           {/* LOGO */}
           <div>
             <Image
@@ -88,6 +88,7 @@ export default function ContactAdvisorySection() {
               </span>
             </div>
           </div>
+
           <Link
             href="/contact"
             className="mx-auto mt-6 flex h-[52px] w-full max-w-[384px] items-center justify-center gap-[10px] rounded-[3px] bg-[#FBF9F6] px-3 text-center font-sans text-[13px] font-[600] leading-[1.2] text-[#122620] transition-opacity duration-200 hover:opacity-90 sm:mt-[30px] sm:h-[56px] sm:gap-[16px] sm:px-4 sm:text-[17px] sm:leading-normal"

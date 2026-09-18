@@ -29,18 +29,18 @@ export default function BanksGridSection() {
   return (
     <section
       id="banking-partners"
-      className="bg-white px-4 py-20 sm:px-6 lg:px-[76px]"
+      className="bg-white px-4 py-8 sm:px-6 sm:py-20 lg:px-[76px]"
     >
       {/* INNER COLOURED AREA */}
-      <div className="mx-auto max-w-[1280px] bg-brand-cream px-4 py-8 sm:px-10 sm:py-14">
+      <div className="mx-auto max-w-[1280px] bg-brand-cream px-4 py-6 sm:px-10 sm:py-14">
         {/* HEADING */}
-        <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div className="flex flex-col gap-1.5 sm:flex-row sm:items-end sm:justify-between sm:gap-2">
           <div>
             <p className="font-sans text-[12px] font-[600] uppercase tracking-[0.14em] text-[#C5A059]">
               Tier-1 Institutional Network
             </p>
 
-            <h2 className="mt-1 font-display text-[28px] font-[700] text-[#05130E] sm:text-[30px]">
+            <h2 className="mt-1 font-display text-[28px] font-[700] leading-[1.15] text-[#05130E] sm:text-[30px] sm:leading-normal">
               Scheduled Commercial &amp; Private Banks
             </h2>
           </div>
@@ -51,10 +51,10 @@ export default function BanksGridSection() {
         </div>
 
         {/* BORDER UNDER HEADING */}
-        <div className="mt-5 border-b border-[#DED8CE]" />
+        <div className="mt-4 border-b border-[#DED8CE] sm:mt-5" />
 
         {/* BANK CARDS */}
-        <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 grid grid-cols-1 gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
           {BANKS.map((bank) => (
             <div
               key={bank.name}
@@ -82,7 +82,7 @@ export default function BanksGridSection() {
         </div>
 
         {/* BOTTOM CTA */}
-        <div className="mt-10 flex flex-col items-start justify-between gap-5 rounded-2xl bg-brand-green px-8 py-7 sm:flex-row sm:items-center">
+        <div className="mt-7 flex flex-col items-start justify-between gap-4 rounded-2xl bg-brand-green px-6 py-6 sm:mt-10 sm:flex-row sm:items-center sm:gap-5 sm:px-8 sm:py-7">
           <div>
             <p className="font-display text-[20px] font-bold leading-[1.2] text-white sm:text-[24px]">
               Looking for syndication in a private credit fund or NBFC desk?

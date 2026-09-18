@@ -129,16 +129,17 @@ const captionVariants = {
 
 export default function InstitutionalDossierSection() {
   return (
-    <section className="bg-white px-4 py-14 sm:px-6 lg:px-[76px]">
-      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-8 rounded-[2px] bg-[#FBF9F6] px-5 py-7 sm:px-[36px] sm:py-[44px] lg:grid-cols-2 lg:gap-10">
+    <section className="bg-white px-4 py-7 sm:px-6 sm:py-14 lg:px-[76px]">
+      <div className="mx-auto grid max-w-[1280px] grid-cols-1 items-center gap-6 rounded-[2px] bg-[#FBF9F6] px-5 py-5 sm:gap-8 sm:px-[36px] sm:py-[44px] lg:grid-cols-2 lg:gap-10">
         <motion.div
           variants={leftContentVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
         >
+          {/* BADGE */}
           <motion.div
-            className="mb-5 inline-flex items-center rounded-[5px] bg-brand-green px-4 py-1"
+            className="mb-4 inline-flex items-center rounded-[5px] bg-brand-green px-4 py-1 sm:mb-5"
             variants={leftContentVariants}
           >
             <span className="font-sans text-[17px] font-[700] uppercase tracking-wide text-brand-cream">
@@ -146,6 +147,7 @@ export default function InstitutionalDossierSection() {
             </span>
           </motion.div>
 
+          {/* HEADING */}
           <motion.h2
             className="w-full max-w-[584px] font-display text-[30px] font-semibold leading-[1.2] text-brand-green sm:text-[40px]"
             variants={headingVariants}
@@ -153,20 +155,23 @@ export default function InstitutionalDossierSection() {
             Precision Advisory Built for Non-Dilutive &amp; Growth Scale
           </motion.h2>
 
+          {/* PARAGRAPHS */}
           <motion.p
-            className="mt-6 font-sans text-[15px] font-[400] leading-[1.5] text-[#424845]"
+            className="mt-4 font-sans text-[15px] font-[400] leading-[1.5] text-[#424845] sm:mt-6"
             variants={paragraphVariants}
           >
             Founded to eliminate fragmentation and opacity in Indian enterprise
             funding,{" "}
-            <span className="font-semibold text-brand-green">FUND ASTRA</span>{" "}
+            <span className="font-semibold text-brand-green">
+              FUND ASTRA
+            </span>{" "}
             operates as a boutique capital advisory and mandate syndication
             powerhouse. We represent corporate promoters, CFO offices, and
             mid-market boards in structuring resilient balance-sheet solutions.
           </motion.p>
 
           <motion.p
-            className="mt-4 font-sans text-[15px] leading-[1.5] text-[#424845]"
+            className="mt-3 font-sans text-[15px] leading-[1.5] text-[#424845] sm:mt-4"
             variants={paragraphVariants}
           >
             Our core advisory desk orchestrates three fundamental liquidity
@@ -176,12 +181,13 @@ export default function InstitutionalDossierSection() {
             syndication.
           </motion.p>
 
+          {/* FEATURES */}
           <motion.div
-            className="mt-8 space-y-4"
+            className="mt-6 space-y-3 sm:mt-8 sm:space-y-4"
             variants={featuresContainerVariants}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
+            viewport={{ once: true, amount: 0.05 }}
           >
             {FEATURES.map(({ icon: Icon, title, description }) => (
               <motion.div
@@ -201,6 +207,7 @@ export default function InstitutionalDossierSection() {
                   <p className="font-sans text-[17px] font-bold text-[#000F09]">
                     {title}
                   </p>
+
                   <p className="mt-1 font-sans text-[13px] font-[400] leading-[1.55] text-[#424845]">
                     {description}
                   </p>
@@ -210,6 +217,7 @@ export default function InstitutionalDossierSection() {
           </motion.div>
         </motion.div>
 
+        {/* IMAGE */}
         <motion.div
           className="relative"
           variants={imageVariants}
@@ -221,6 +229,7 @@ export default function InstitutionalDossierSection() {
             className="pointer-events-none absolute -right-3 -top-3 h-10 w-10 border-r-2 border-t-2 border-[#B08316]"
             variants={cornerVariants}
           />
+
           <motion.span
             className="pointer-events-none absolute -bottom-3 -left-3 h-10 w-10 border-b-2 border-l-2 border-[#B08316]"
             variants={cornerVariants}
@@ -235,6 +244,7 @@ export default function InstitutionalDossierSection() {
             />
           </div>
 
+          {/* CAPTION */}
           <motion.div
             className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-3 rounded-xl bg-brand-green/95 px-4 py-3 backdrop-blur sm:bottom-4 sm:left-4 sm:right-4 sm:px-5 sm:py-3.5"
             variants={captionVariants}
@@ -243,6 +253,7 @@ export default function InstitutionalDossierSection() {
               <p className="font-sans text-[10px] font-[700] uppercase tracking-wider text-[#DAD8D5]">
                 Executive Governance
               </p>
+
               <p className="mt-0.5 font-sans text-[17px] font-[600] text-white">
                 Institutional Advisory Council &amp; Mandate Committee
               </p>
@@ -264,7 +275,11 @@ export default function InstitutionalDossierSection() {
                 stroke="currentColor"
                 strokeWidth="1.3"
               />
-              <path d="M2 7.5h14" stroke="currentColor" strokeWidth="1.3" />
+              <path
+                d="M2 7.5h14"
+                stroke="currentColor"
+                strokeWidth="1.3"
+              />
             </svg>
           </motion.div>
         </motion.div>

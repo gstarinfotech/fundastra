@@ -62,27 +62,27 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
 
   return (
     <section className="bg-white">
-      <div className="border-b border-black/5 bg-white px-4 py-10 text-center sm:px-6 sm:py-16">
+      <div className="border-b border-black/5 bg-white px-4 py-7 text-center sm:px-6 sm:py-16">
         <motion.div
           variants={headingVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
         >
-          <h2 className="font-display text-[34px] font-semibold text-[#000F09] sm:text-[44px]">
+          <h2 className="font-display text-[28px] font-semibold leading-[1.15] text-[#000F09] sm:text-[44px]">
             Frequently Asked Questions
           </h2>
 
-          <p className="mx-auto mt-3 max-w-[560px] font-sans text-[18px] leading-[1.6] text-[#424845]">
+          <p className="mx-auto mt-2 max-w-[560px] px-2 font-sans text-[12px] leading-[1.5] text-[#424845] sm:mt-3 sm:px-0 sm:text-[18px] sm:leading-[1.6]">
             Direct answers regarding our advisory scope, ticket parameters,
             regulatory frameworks, and appraisal velocities.
           </p>
         </motion.div>
       </div>
 
-      <div className="bg-[#FAF8F5] px-4 py-7 sm:px-6 sm:py-14 lg:px-[76px]">
+      <div className="bg-[#FAF8F5] px-4 py-5 sm:px-6 sm:py-14 lg:px-[76px]">
         <motion.div
-          className="mx-auto max-w-[1213px] space-y-4"
+          className="mx-auto max-w-[1213px] space-y-2.5 sm:space-y-4"
           variants={faqContainerVariants}
           initial="hidden"
           whileInView="visible"
@@ -101,21 +101,21 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
                   type="button"
                   onClick={() => toggle(index)}
                   aria-expanded={isOpen}
-                  className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left hover:bg-black/[0.02]"
+                  className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left hover:bg-black/[0.02] sm:gap-4 sm:px-6 sm:py-5"
                 >
-                  <span className="flex items-start gap-3">
-                    <span className="font-sans text-[14px] font-[700] text-[#765A23]">
+                  <span className="flex min-w-0 items-start gap-2.5 sm:gap-3">
+                    <span className="shrink-0 font-sans text-[11px] font-[700] text-[#765A23] sm:text-[14px]">
                       {String(index + 1).padStart(2, "0")}.
                     </span>
 
-                    <span className="font-sans text-[17px] font-[600] text-[#000F09]">
+                    <span className="font-sans text-[13px] font-[600] leading-[1.35] text-[#000F09] sm:text-[17px] sm:leading-normal">
                       {faq.question}
                     </span>
                   </span>
 
                   <ChevronDown
-                    size={18}
-                    className={`shrink-0 text-[#765A23] transition-transform duration-300 ${isOpen ? "rotate-180" : ""
+                    size={16}
+                    className={`shrink-0 text-[#765A23] transition-transform duration-300 sm:size-[18px] ${isOpen ? "rotate-180" : ""
                       }`}
                   />
                 </button>
@@ -127,7 +127,7 @@ export default function FaqSection({ faqs }: FaqSectionProps) {
                   }}
                 >
                   <div className="overflow-hidden">
-                    <p className="px-6 pb-4 pt-1 pl-[60px] font-sans text-[14px] leading-[1.65] text-brand-green/65">
+                    <p className="px-4 pb-3 pt-0.5 pl-[42px] font-sans text-[11px] leading-[1.5] text-brand-green/65 sm:px-6 sm:pb-4 sm:pt-1 sm:pl-[60px] sm:text-[14px] sm:leading-[1.65]">
                       {faq.answer}
                     </p>
                   </div>

@@ -59,7 +59,10 @@ const fadeUp = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
@@ -91,6 +94,7 @@ export default function TestimonialsSection() {
 
     return () => window.removeEventListener("resize", updateCardWidth);
   }, []);
+
   const trackTestimonials = [
     ...TESTIMONIALS.slice(-VISIBLE_CARDS).map((testimonial, index) => ({
       ...testimonial,
@@ -113,8 +117,6 @@ export default function TestimonialsSection() {
     const lastOriginalIndex =
       VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
 
-    // If we are already in the cloned cards on the left,
-    // jump back to the real last card without moving further left.
     if (activeIndex <= firstOriginalIndex - 1) {
       setTransitionEnabled(false);
       setActiveIndex(lastOriginalIndex);
@@ -137,8 +139,6 @@ export default function TestimonialsSection() {
       VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
     const firstCloneAfterIndex = lastOriginalIndex + 1;
 
-    // If we are already in the cloned cards on the right,
-    // jump back to the real first card without moving further right.
     if (activeIndex >= firstCloneAfterIndex) {
       setTransitionEnabled(false);
       setActiveIndex(firstOriginalIndex);
@@ -161,7 +161,6 @@ export default function TestimonialsSection() {
       VISIBLE_CARDS + TOTAL_TESTIMONIALS - 1;
     const firstCloneAfterIndex = lastOriginalIndex + 1;
 
-    // Reached the first cloned card after the last real testimonial.
     if (activeIndex >= firstCloneAfterIndex) {
       setTransitionEnabled(false);
       setActiveIndex(firstOriginalIndex);
@@ -175,7 +174,6 @@ export default function TestimonialsSection() {
       return;
     }
 
-    // Reached the last cloned card before the first real testimonial.
     if (activeIndex <= firstOriginalIndex - 1) {
       setTransitionEnabled(false);
       setActiveIndex(lastOriginalIndex);
@@ -199,7 +197,7 @@ export default function TestimonialsSection() {
   };
 
   return (
-    <section className="bg-[#072E26] px-4 py-[45px] sm:px-6 lg:px-[69px] lg:py-[58px]">
+    <section className="bg-[#072E26] px-4 py-[34px] sm:px-6 sm:py-[45px] lg:px-[69px] lg:py-[58px]">
       <div className="mx-auto max-w-[1231px]">
         {/* HEADING */}
         <motion.div
@@ -211,23 +209,23 @@ export default function TestimonialsSection() {
         >
           <motion.div
             variants={fadeUp}
-            className="mb-[13px] inline-flex items-center rounded-[7px] bg-white px-[10px] py-[5px]"
+            className="mb-[9px] inline-flex items-center rounded-[7px] bg-white px-[10px] py-[5px] sm:mb-[13px]"
           >
-            <span className="font-sans text-[20px] font-[700] uppercase leading-none tracking-[0.02em] text-[#072E26]">
+            <span className="font-sans text-[16px] font-[700] uppercase leading-none tracking-[0.02em] text-[#072E26] sm:text-[20px]">
               Testimonials
             </span>
           </motion.div>
 
           <motion.h2
             variants={fadeUp}
-            className="font-display text-[32px] font-[500] leading-[1.08] tracking-[-0.025em] text-[#FBF9F6] sm:text-[43px]"
+            className="font-display text-[29px] font-[500] leading-[1.08] tracking-[-0.025em] text-[#FBF9F6] sm:text-[43px]"
           >
             Everyone&apos;s Funding needs are different
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
-            className="mx-auto mt-[10px] max-w-[720px] font-sans text-[18px] font-[400] leading-[1.5] text-[#FBF9F6]"
+            className="mx-auto mt-[7px] max-w-[340px] font-sans text-[14px] font-[400] leading-[1.5] text-[#FBF9F6] sm:mt-[10px] sm:max-w-[720px] sm:text-[18px] sm:leading-[1.5]"
           >
             The best way to showcase our commitment is through the experiences
             and stories of
@@ -238,17 +236,21 @@ export default function TestimonialsSection() {
 
         {/* TESTIMONIAL CARDS */}
         <motion.div
-          className="mt-[45px] w-full overflow-hidden"
+          className="mt-[28px] w-full overflow-hidden sm:mt-[45px]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.15 }}
-          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.7,
+            delay: 0.15,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <div
             onTransitionEnd={handleTransitionEnd}
             className={`flex flex-nowrap gap-[32px] ${transitionEnabled
-              ? "transition-transform duration-500 ease-in-out"
-              : ""
+                ? "transition-transform duration-500 ease-in-out"
+                : ""
               }`}
             style={{
               transform: `translate3d(-${activeIndex * SLIDE_DISTANCE
@@ -303,11 +305,15 @@ export default function TestimonialsSection() {
 
         {/* SLIDER CONTROLS */}
         <motion.div
-          className="mt-[45px] flex items-center justify-center gap-[20px]"
+          className="mt-[27px] flex items-center justify-center gap-[16px] sm:mt-[45px] sm:gap-[20px]"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.6,
+            delay: 0.25,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <button
             type="button"
@@ -325,7 +331,9 @@ export default function TestimonialsSection() {
                 type="button"
                 onClick={() => goToDot(index)}
                 aria-label={`Go to position ${index + 1}`}
-                className={`h-[10px] w-[10px] rounded-full transition-all duration-300 ${activeDot === index ? "bg-white" : "bg-[#718680]"
+                className={`h-[10px] w-[10px] rounded-full transition-all duration-300 ${activeDot === index
+                    ? "bg-white"
+                    : "bg-[#718680]"
                   }`}
               />
             ))}
@@ -341,18 +349,23 @@ export default function TestimonialsSection() {
           </button>
         </motion.div>
 
+        {/* PARTNER CONSORTIUM */}
         <motion.div
-          className="mt-8 h-auto min-h-[230px] rounded-[8px] bg-[#F6F4F1] px-3 py-6 sm:mt-[48px] sm:h-[156px] sm:min-h-0 sm:px-0 sm:pt-[45px]"
+          className="mt-6 h-auto min-h-[230px] rounded-[8px] bg-[#F6F4F1] px-3 py-6 sm:mt-[48px] sm:h-[156px] sm:min-h-0 sm:px-0 sm:pt-[45px]"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
-          transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 0.6,
+            delay: 0.15,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <p className="mx-auto max-w-[300px] text-center font-sans text-[10px] font-[700] uppercase leading-[1.35] tracking-[0.1em] text-[#424845] sm:max-w-none sm:text-[11px] sm:tracking-[0.12em]">
             Institutional Partner Consortium &amp; Credit Fund Networks
           </p>
 
-          <div className="mt-5 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-[22px]">
+          <div className="mt-5 grid grid-cols-2 gap-2 sm:mt-5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-[22px]">
             {PARTNER_TYPES.map((item) => (
               <span
                 key={item}

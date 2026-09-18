@@ -39,12 +39,12 @@ export default function AdvisoryFaqSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
-      <div className="px-4 py-12 pb-14 text-center sm:px-6 sm:py-[60px] sm:pb-[70px]">
+      <div className="px-4 pb-8 text-center sm:px-6 sm:pt-8 sm:pb-[70px]">
         <h2 className="font-display text-[30px] font-[500] leading-[1.1] tracking-[-0.025em] text-[#000F09] sm:text-[44px]">
           Advisory Desk Question
         </h2>
 
-        <p className="mx-auto mt-4 max-w-[605px] font-sans text-[14px] font-[400] leading-[1.45] text-[#424845] sm:mt-[18px] sm:text-[15px]">
+        <p className="mx-auto mt-2.5 max-w-[605px] font-sans text-[14px] font-[400] leading-[1.45] text-[#424845] sm:mt-[18px] sm:text-[15px]">
           Essential details regarding onboarding criteria, documentation
           prerequisites, and our
           <br className="hidden sm:block" />
@@ -53,9 +53,9 @@ export default function AdvisoryFaqSection() {
       </div>
 
       {/* QUESTIONS AREA */}
-      <div className="bg-[#FAF8F5] px-4 py-[32px] sm:px-6 lg:px-[85px] lg:py-[38px]">
+      <div className="bg-[#FAF8F5] px-4 py-6 sm:px-6 sm:py-[32px] lg:px-[85px] lg:py-[38px]">
         <div className="mx-auto max-w-[1213px]">
-          <div className="flex flex-col gap-[14px]">
+          <div className="flex flex-col gap-2.5 sm:gap-[14px]">
             {FAQS.map((faq, index) => {
               const isOpen = openIndex === index;
 
@@ -69,7 +69,7 @@ export default function AdvisoryFaqSection() {
                     type="button"
                     onClick={() => toggle(index)}
                     aria-expanded={isOpen}
-                    className="flex min-h-[64px] w-full items-center justify-between gap-3 px-4 text-left transition-colors duration-200 hover:bg-[#fafaf8] sm:min-h-[68px] sm:gap-5 sm:px-[19px]"
+                    className="flex min-h-[60px] w-full items-center justify-between gap-3 px-4 text-left transition-colors duration-200 hover:bg-[#fafaf8] sm:min-h-[68px] sm:gap-5 sm:px-[19px]"
                   >
                     <div className="flex min-w-0 items-center gap-[10px]">
                       <span className="shrink-0 font-sans text-[11px] font-[600] leading-none text-[#765A23]">

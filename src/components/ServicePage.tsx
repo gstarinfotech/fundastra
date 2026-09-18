@@ -1525,7 +1525,7 @@ export default function ServicePage() {
         <main className="service-page-motion bg-[#FBF9F6]">
 
             {/* HERO */}
-            <section className="relative min-h-[700px] overflow-hidden sm:min-h-[802px]">
+            <section className="relative min-h-[620px] overflow-hidden sm:min-h-[802px]">
                 <div className="absolute inset-0">
                     <Image
                         src={data.image}
@@ -1543,7 +1543,7 @@ export default function ServicePage() {
                 <Navbar />
 
                 <motion.div
-                    className="relative z-10 mx-auto flex min-h-[700px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-28 pt-28 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px]"
+                    className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px]"
                     initial="hidden"
                     whileInView="visible"
                     viewport={{
@@ -1555,7 +1555,7 @@ export default function ServicePage() {
                     {/* EYEBROW */}
                     <motion.div
                         variants={smallBoxVariants}
-                        className="mb-4 inline-flex items-center rounded-full bg-white px-[19px] sm:mb-[26px]"
+                        className="mb-3 inline-flex items-center rounded-full bg-white px-[19px] sm:mb-[26px]"
                     >
                         <span className="font-sans text-[17px] font-[800] tracking-[0.06em] text-[#052E26]">
                             {data.eyebrow}
@@ -1573,7 +1573,7 @@ export default function ServicePage() {
                     {/* DESCRIPTION */}
                     <motion.p
                         variants={smallBoxVariants}
-                        className="mt-3 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-[28px] sm:text-[20px]"
+                        className="mt-2 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-[28px] sm:text-[20px]"
                     >
                         {data.description}
                     </motion.p>
@@ -1581,7 +1581,7 @@ export default function ServicePage() {
                     {/* BUTTONS */}
                     <motion.div
                         variants={staggerContainer}
-                        className="mt-5 flex w-full flex-col items-stretch justify-center gap-2 sm:mt-[38px] sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-[12px]"
+                        className="mt-4 flex w-full flex-col items-stretch justify-center gap-2 sm:mt-[38px] sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-[12px]"
                     >
                         <motion.div variants={smallBoxVariants}>
                             <Link
@@ -1605,7 +1605,7 @@ export default function ServicePage() {
                 </motion.div>
 
                 {/* STATS */}
-                <div className="relative z-10 mx-auto -mt-20 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px]">
+                <div className="relative z-10 mx-auto -mt-12 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px]">
                     <motion.div
                         variants={staggerContainer}
                         initial="hidden"
@@ -1614,7 +1614,7 @@ export default function ServicePage() {
                             once: true,
                             amount: 0.25,
                         }}
-                        className="relative -top-8 grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:top-0 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4"
+                        className="relative -top-4 grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:top-0 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4"
                     >
                         {data.heroMetrics.map((m) => (
                             <motion.div
@@ -1838,10 +1838,10 @@ export default function ServicePage() {
             </section>
 
             {/* MANDATE FORM */}
-            <section className="bg-[#052E26] px-4 py-[80px] sm:px-6 lg:px-[12px]">
+            <section className="bg-[#052E26] px-4 py-8 sm:px-6 sm:py-[80px] lg:px-[12px]">
                 <Reveal>
-                    <div className="mx-auto w-full max-w-[1200px] overflow-hidden rounded-[20px] bg-white px-[48px] py-[48px] lg:px-[58px] lg:py-[45px]">
-                        <div className="grid items-start lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-[50px]">
+                    <div className="mx-auto w-full max-w-[1200px] overflow-hidden rounded-[20px] bg-white px-5 py-6 sm:px-[48px] sm:py-[48px] lg:px-[58px] lg:py-[45px]">
+                        <div className="grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-[50px]">
 
                             {/* LEFT CONTENT */}
                             <motion.div
@@ -1856,7 +1856,7 @@ export default function ServicePage() {
                             >
                                 <motion.div
                                     variants={smallBoxVariants}
-                                    className="mb-[16px] inline-flex items-center gap-[7px]"
+                                    className="mb-3 inline-flex items-center gap-[7px] sm:mb-[16px]"
                                 >
                                     <span className="font-sans text-[16px] text-[#A88954]">
                                         ♧
@@ -1876,19 +1876,19 @@ export default function ServicePage() {
 
                                 <motion.p
                                     variants={smallBoxVariants}
-                                    className="mt-[14px] max-w-[419.83px] font-sans text-[13px] font-[400] leading-[1.55] text-[#424845]"
+                                    className="mt-3 max-w-[419.83px] font-sans text-[13px] font-[400] leading-[1.55] text-[#424845] sm:mt-[14px]"
                                 >
                                     {data.mandate.description}
                                 </motion.p>
 
                                 <motion.div
                                     variants={smallBoxVariants}
-                                    className="mt-[12px] h-px w-full max-w-[390px] bg-[#E3E0DA]"
+                                    className="mt-[10px] h-px w-full max-w-[390px] bg-[#E3E0DA] sm:mt-[12px]"
                                 />
 
                                 <motion.div
                                     variants={staggerContainer}
-                                    className="mt-[28px] w-full max-w-[389px] space-y-[16px]"
+                                    className="mt-5 w-full max-w-[389px] space-y-3 sm:mt-[28px] sm:space-y-[16px]"
                                 >
                                     {data.mandate.benefits.map((benefit) => (
                                         <motion.div
@@ -1914,12 +1914,12 @@ export default function ServicePage() {
 
                                 <motion.div
                                     variants={smallBoxVariants}
-                                    className="mt-[26px] h-px w-full max-w-[390px] bg-[#E3E0DA]"
+                                    className="mt-5 h-px w-full max-w-[390px] bg-[#E3E0DA] sm:mt-[26px]"
                                 />
 
                                 <motion.div
                                     variants={smallBoxVariants}
-                                    className="mt-[25px]"
+                                    className="mt-5 sm:mt-[25px]"
                                 >
                                     <p className="font-sans text-[10px] font-[700] uppercase tracking-[0.14em] text-[#A88954]">
                                         {data.mandate.contact.eyebrow}
@@ -1992,13 +1992,11 @@ export default function ServicePage() {
                                             defaultValue={data.mandate.subService.options[0]}
                                             className="h-[46px] w-full appearance-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none focus:border-[#A88954]"
                                         >
-                                            {data.mandate.subService.options.map(
-                                                (option) => (
-                                                    <option key={option} value={option}>
-                                                        {option}
-                                                    </option>
-                                                ),
-                                            )}
+                                            {data.mandate.subService.options.map((option) => (
+                                                <option key={option} value={option}>
+                                                    {option}
+                                                </option>
+                                            ))}
                                         </select>
                                     </motion.div>
 
@@ -2011,8 +2009,7 @@ export default function ServicePage() {
                                             className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
                                         >
                                             {data.mandate.capitalRequirement.label}
-                                            {data.mandate.capitalRequirement.required &&
-                                                " *"}
+                                            {data.mandate.capitalRequirement.required && " *"}
                                         </label>
 
                                         <select
@@ -2036,7 +2033,7 @@ export default function ServicePage() {
 
                                 <motion.div
                                     variants={smallBoxVariants}
-                                    className="mt-[14px] w-full"
+                                    className="mt-3 w-full sm:mt-[14px]"
                                 >
                                     <label
                                         htmlFor="businessOverview"
@@ -2044,22 +2041,21 @@ export default function ServicePage() {
                                     >
                                         {data.mandate.overview.label}
                                         {data.mandate.overview.required && " *"}
-                                        {!data.mandate.overview.required &&
-                                            " (Optional)"}
+                                        {!data.mandate.overview.required && " (Optional)"}
                                     </label>
 
                                     <textarea
                                         id="businessOverview"
                                         name="businessOverview"
                                         placeholder={data.mandate.overview.placeholder}
-                                        className="h-[94px] w-full resize-none rounded-[8px] border border-[#DEDAD3] bg-[#E6E2DC] px-[12px] py-[10px] font-sans text-[14px] leading-[1.4] text-[#27483d] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
+                                        className="h-[94px] w-full resize-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] py-[10px] font-sans text-[14px] leading-[1.4] text-[#27483d] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
                                     />
                                 </motion.div>
 
                                 <motion.button
                                     variants={smallBoxVariants}
                                     type="button"
-                                    className="mt-[25px] flex h-[45px] w-full items-center justify-center rounded-[8px] border border-[#A88954] bg-[#052E26] font-sans text-[14px] font-[600] text-white shadow-[0_6px_12px_rgba(0,0,0,0.12)] transition-opacity duration-200 hover:opacity-90"
+                                    className="mt-5 flex h-[45px] w-full items-center justify-center rounded-[8px] border border-[#A88954] bg-[#052E26] font-sans text-[14px] font-[600] text-white shadow-[0_6px_12px_rgba(0,0,0,0.12)] transition-opacity duration-200 hover:opacity-90 sm:mt-[25px]"
                                 >
                                     {data.mandate.submitButton}
 
@@ -2070,7 +2066,7 @@ export default function ServicePage() {
 
                                 <motion.p
                                     variants={smallBoxVariants}
-                                    className="mt-[12px] text-center font-sans text-[11px] font-[400] text-[#424845]"
+                                    className="mt-[10px] text-center font-sans text-[11px] font-[400] text-[#424845] sm:mt-[12px]"
                                 >
                                     {data.mandate.disclaimer}
                                 </motion.p>
@@ -2080,17 +2076,17 @@ export default function ServicePage() {
                     </div>
                 </Reveal>
             </section>
-
+            
             {/* FAQ */}
             <Reveal>
                 <FaqSection faqs={data.faqs} />
             </Reveal>
 
             {/* PARTNER CONSORTIUM */}
-            <div className="bg-white px-4 py-[53px] sm:px-6 lg:px-[85px]">
+            <div className="bg-white px-4 py-8 sm:px-6 sm:py-[53px] lg:px-[85px]">
                 <Reveal>
                     <div className="mx-auto max-w-[1213px]">
-                        <div className="min-h-[230px] rounded-[8px] bg-[#F6F4F1] px-3 py-6 sm:h-[156px] sm:min-h-0 sm:px-0 sm:pt-[45px]">
+                        <div className="min-h-[210px] rounded-[8px] bg-[#F6F4F1] px-3 py-5 sm:h-[156px] sm:min-h-0 sm:px-0 sm:pt-[45px]">
                             <p className="mx-auto max-w-[300px] text-center font-sans text-[10px] font-[700] uppercase leading-[1.35] tracking-[0.1em] text-[#424845] sm:max-w-none sm:text-[11px] sm:tracking-[0.12em]">
                                 Institutional Partner Consortium &amp; Credit Fund Networks
                             </p>
@@ -2103,7 +2099,7 @@ export default function ServicePage() {
                                     once: true,
                                     amount: 0.3,
                                 }}
-                                className="mt-5 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-[22px]"
+                                className="mt-4 grid grid-cols-2 gap-2 sm:mt-5 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-[22px]"
                             >
                                 {PARTNER_TYPES.map((item) => (
                                     <motion.span

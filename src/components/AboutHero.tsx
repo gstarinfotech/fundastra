@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import { motion } from "framer-motion";
@@ -45,7 +46,10 @@ const badgeIn = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
@@ -54,7 +58,10 @@ const textIn = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
@@ -74,14 +81,17 @@ const cardIn = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] as const },
+    transition: {
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
   },
 };
 
 export default function AboutHero() {
   return (
     <section className="relative bg-white">
-      <div className="relative h-[620px] overflow-hidden sm:h-[673px]">
+      <div className="relative h-[570px] overflow-hidden sm:h-[673px]">
         <Image
           src="/about.png"
           alt="FUND ASTRA — institutional advisory skyline"
@@ -89,28 +99,31 @@ export default function AboutHero() {
           priority
           className="object-cover"
         />
+
         <div className="absolute inset-0 bg-brand-green/55" />
 
         <Navbar />
 
-        <div className="relative z-10 mx-auto max-w-[900px] px-4 pt-36 text-center sm:pt-48">
+        <div className="relative z-10 mx-auto max-w-[900px] px-4 pt-32 text-center sm:pt-48">
+          {/* BADGE */}
           <motion.div
             initial="hidden"
             animate="show"
             variants={badgeIn}
-            className="mb-7 inline-flex items-center rounded-full bg-white px-4"
+            className="mb-5 inline-flex items-center rounded-full bg-white px-4 py-1.5 sm:mb-7 sm:px-4"
           >
-            <span className="font-sans text-[17px] font-[800] tracking-wide text-[#052E26]">
+            <span className="font-sans text-[13px] font-[800] tracking-wide text-[#052E26] sm:text-[17px]">
               COMPANY PROFILE
             </span>
           </motion.div>
 
+          {/* HEADING */}
           <motion.h1
             initial="hidden"
             animate="show"
             variants={textIn}
             transition={{ delay: 0.15 }}
-            className="mx-auto w-full max-w-[921px] font-display text-[34px] font-[600] leading-[1.1] tracking-[0.01em] text-[#FBF9F6] sm:text-[60px]"
+            className="mx-auto w-full max-w-[921px] font-display text-[32px] font-[600] leading-[1.08] tracking-[0.01em] text-[#FBF9F6] sm:text-[60px]"
           >
             Architecting Sovereign Capital
             <br />
@@ -118,12 +131,13 @@ export default function AboutHero() {
             <span className="italic font-medium">Ambitious Enterprises</span>
           </motion.h1>
 
+          {/* DESCRIPTION */}
           <motion.p
             initial="hidden"
             animate="show"
             variants={textIn}
             transition={{ delay: 0.28 }}
-            className="mx-auto mt-6 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.55] text-white sm:mt-8 sm:text-[19px] sm:leading-[1.60]"
+            className="mx-auto mt-5 max-w-[897px] font-sans text-[13px] font-[500] leading-[1.5] text-white sm:mt-8 sm:text-[19px] sm:leading-[1.60]"
           >
             This is the corporate profile and institutional dossier of FUND
             ASTRA. We detail our fiduciary framework, syndicated capital
@@ -135,7 +149,7 @@ export default function AboutHero() {
       </div>
 
       <motion.div
-        className="relative z-10 mx-auto -mt-16 h-auto max-w-[1184px] px-4 sm:-mt-[110px] sm:h-[280px] lg:-mt-[82px]"
+        className="relative z-10 mx-auto -mt-20 h-auto max-w-[1184px] px-4 sm:-mt-[110px] sm:h-[280px] lg:-mt-[82px]"
         initial="hidden"
         animate="show"
         variants={cardsContainer}
@@ -145,13 +159,13 @@ export default function AboutHero() {
             <motion.div
               key={m.label}
               variants={cardIn}
-              className="min-h-[240px] w-full px-5 py-6 sm:h-[268.13px] sm:min-h-0 sm:px-[27px] sm:py-[32px]"
+              className="min-h-[215px] w-full px-5 py-5 sm:h-[268.13px] sm:min-h-0 sm:px-[27px] sm:py-[32px]"
             >
               <p className="font-sans text-[11px] font-[700] uppercase tracking-[0.11em] text-[#8C9791]">
                 {m.label}
               </p>
 
-              <div className="mt-[14px] flex items-baseline font-display text-[50px] font-[700] leading-none text-brand-green">
+              <div className="mt-[10px] flex items-baseline font-display text-[50px] font-[700] leading-none text-brand-green">
                 {m.value}
 
                 {m.suffix && (
@@ -167,13 +181,13 @@ export default function AboutHero() {
                 )}
               </div>
 
-              <div className="my-[20px] border-t border-[#E2DED6]" />
+              <div className="my-[15px] border-t border-[#E2DED6] sm:my-[20px]" />
 
-              <p className="font-sans pt-2 text-[12px] font-[600] uppercase text-[#0A271E]">
+              <p className="font-sans pt-1 text-[12px] font-[600] uppercase text-[#0A271E] sm:pt-2">
                 {m.title}
               </p>
 
-              <p className="mt-[6px] font-sans text-[13px] font-[400] leading-[1.5] text-[#5F6863]">
+              <p className="mt-[5px] font-sans text-[13px] font-[400] leading-[1.5] text-[#5F6863]">
                 {m.description}
               </p>
             </motion.div>

@@ -236,14 +236,18 @@ export default function EMICalculator() {
                 }}
               />
 
-              <div className="mt-[8px] flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px] text-[#424845CC] sm:text-[13px]">
-                <span>1 Year (Bridge)</span>
+              <div className="mt-[8px] flex flex-nowrap items-center justify-between gap-1 whitespace-nowrap font-mono text-[10px] text-[#424845CC] sm:gap-x-2 sm:text-[13px]">
+                <span>
+                  1 Year <span className="hidden sm:inline">(Bridge)</span>
+                </span>
 
-                <span className="font-semibold text-[13px] font=[600] text-[#765A23]">
+                <span className="font-semibold text-[10px] font=[600] text-[#765A23] sm:text-[13px]">
                   {tenure} Years
                 </span>
 
-                <span>30 Years (Long Term)</span>
+                <span>
+                  30 Years <span className="hidden sm:inline">(Long Term)</span>
+                </span>
               </div>
             </div>
 
@@ -314,14 +318,18 @@ export default function EMICalculator() {
                 }}
               />
 
-              <div className="mt-[8px] flex flex-wrap items-center justify-between gap-x-2 gap-y-1 font-mono text-[11px] font-[500] text-[#777A76] sm:text-[13px]">
-                <span>5.0% (PSU Concessional)</span>
+              <div className="mt-[8px] flex flex-nowrap items-center justify-between gap-1 whitespace-nowrap font-mono text-[10px] font-[500] text-[#777A76] sm:gap-x-2 sm:text-[13px]">
+                <span>
+                  5.0% <span className="hidden sm:inline">(PSU Concessional)</span>
+                </span>
 
                 <span className="font-semibold text-[#765A23]">
                   {interestRate.toFixed(1)}% Base
                 </span>
 
-                <span>20.0% (Mezzanine)</span>
+                <span>
+                  20.0% <span className="hidden sm:inline">(Mezzanine)</span>
+                </span>
               </div>
             </div>
           </div>
