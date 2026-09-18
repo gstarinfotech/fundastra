@@ -461,7 +461,6 @@ export default function HomeHero() {
             </p>
 
             {/* Form */}
-            {/* Form */}
             {triageStatus === "success" ? (
               <div
                 className="
@@ -620,23 +619,23 @@ export default function HomeHero() {
                       name="capitalRoute"
                       defaultValue="SME Funding"
                       className="
-                      h-[37px]
-                      w-full
-                      rounded-[5px]
-                      border
-                      border-[#d7dcda]
-                      bg-white
-                      px-2
-                      font-sans
-                      text-[9px]
-                      text-[#a8b0ae]
-                      outline-none
-                      focus:border-[#073d34]
+    h-[37px]
+    w-full
+    rounded-[5px]
+    border
+    border-[#d7dcda]
+    bg-white
+    px-2
+    font-sans
+    text-[9px]
+    text-[#061812]
+    outline-none
+    focus:border-[#073d34]
 
-                      sm:h-[42px]
-                      sm:px-[13px]
-                      sm:text-[13px]
-                    "
+    sm:h-[42px]
+    sm:px-[13px]
+    sm:text-[13px]
+  "
                     >
                       <option>SME Funding</option>
                       <option>Structured Debt</option>
@@ -667,23 +666,23 @@ export default function HomeHero() {
                       name="targetTicket"
                       defaultValue="₹5 Cr – ₹25 Cr"
                       className="
-                      h-[37px]
-                      w-full
-                      rounded-[5px]
-                      border
-                      border-[#d7dcda]
-                      bg-white
-                      px-2
-                      font-sans
-                      text-[9px]
-                      text-[#a8b0ae]
-                      outline-none
-                      focus:border-[#073d34]
+    h-[37px]
+    w-full
+    rounded-[5px]
+    border
+    border-[#d7dcda]
+    bg-white
+    px-2
+    font-sans
+    text-[9px]
+    text-[#061812]
+    outline-none
+    focus:border-[#073d34]
 
-                      sm:h-[42px]
-                      sm:px-[13px]
-                      sm:text-[13px]
-                    "
+    sm:h-[42px]
+    sm:px-[13px]
+    sm:text-[13px]
+  "
                     >
                       <option>₹5 Cr – ₹25 Cr</option>
                       <option>₹25 Cr – ₹100 Cr</option>

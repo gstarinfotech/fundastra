@@ -1736,7 +1736,7 @@ export default function ServicePage() {
                             amount: 0.12,
                         }}
                         variants={staggerContainer}
-                        className="w-full overflow-x-auto rounded-[10px] border border-[#E2DED7] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
+                        className="w-full overflow-x-auto overflow-y-hidden rounded-[10px] border border-[#E2DED7] bg-white shadow-[0_1px_2px_rgba(0,0,0,0.03)]"
                     >
                         {/* HEADER */}
                         <div className="grid min-w-[900px] grid-cols-[1.65fr_1fr_1.05fr_1fr_1fr_1.55fr_.48fr] bg-[#052E26]">
@@ -1758,8 +1758,8 @@ export default function ServicePage() {
                                 key={row.title}
                                 variants={smallBoxVariants}
                                 className={`grid min-w-[900px] grid-cols-[1.65fr_1fr_1.05fr_1fr_1fr_1.55fr_.48fr] ${index !== data.facilityBenchmarkRows.length - 1
-                                        ? "border-b border-[#E5E1DB]"
-                                        : ""
+                                    ? "border-b border-[#E5E1DB]"
+                                    : ""
                                     }`}
                             >
                                 <div className="flex min-h-[78px] items-center gap-[10px] px-[16px]">
@@ -1787,12 +1787,12 @@ export default function ServicePage() {
                                 <div className="flex items-center px-[20px]">
                                     <span
                                         className={`inline-flex max-w-full rounded-[2px] border px-[8px] py-[4px] font-sans text-[9px] font-[500] leading-[1.26] ${row.collateralType === "green"
-                                                ? "border-[#9BDCC5] bg-[#EEFAF5] text-[#14785A]"
-                                                : row.collateralType === "blue"
-                                                    ? "border-[#BDD3F6] bg-[#F1F6FE] text-[#315E9D]"
-                                                    : row.collateralType === "orange"
-                                                        ? "border-[#E7B984] bg-[#FFF7EC] text-[#9A5A16]"
-                                                        : "border-[#EBCF78] bg-[#FFF9E8] text-[#9A711C]"
+                                            ? "border-[#9BDCC5] bg-[#EEFAF5] text-[#14785A]"
+                                            : row.collateralType === "blue"
+                                                ? "border-[#BDD3F6] bg-[#F1F6FE] text-[#315E9D]"
+                                                : row.collateralType === "orange"
+                                                    ? "border-[#E7B984] bg-[#FFF7EC] text-[#9A5A16]"
+                                                    : "border-[#EBCF78] bg-[#FFF9E8] text-[#9A711C]"
                                             }`}
                                     >
                                         {row.collateral}
@@ -1808,8 +1808,8 @@ export default function ServicePage() {
                                 <div className="flex items-center px-[16px]">
                                     <span
                                         className={`font-sans text-[12px] leading-[1.35] ${row.turnaroundHighlight
-                                                ? "font-[700] text-[#087C5A]"
-                                                : "font-[500] text-[#1B1C1A]"
+                                            ? "font-[700] text-[#087C5A]"
+                                            : "font-[500] text-[#1B1C1A]"
                                             }`}
                                     >
                                         {row.turnaround}
@@ -2121,10 +2121,7 @@ export default function ServicePage() {
             </div>
 
             {/* CONTACT */}
-            <Reveal>
-                <ContactAdvisorySection />
-            </Reveal>
-
+            <ContactAdvisorySection />
             {/* FOOTER */}
             <Footer />
 
