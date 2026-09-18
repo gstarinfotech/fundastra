@@ -72,7 +72,7 @@ export default function MissionVisionSection() {
   return (
     <section className="bg-white">
       {/* HEADING AREA */}
-      <div className="-mt-7 px-4 pb-6 sm:mt-0 sm:px-6 sm:pb-20 lg:px-[76px]">
+      <div className="mt-6 px-4 pb-6 sm:mt-0 sm:px-6 sm:pb-20 lg:px-[76px]">
         <div className="mx-auto max-w-[1080px]">
           <motion.div
             className="text-center"
