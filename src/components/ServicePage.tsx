@@ -510,71 +510,290 @@ const SME_DATA: ServiceData = {
 
 const STRUCTURED_DEBT_DATA: ServiceData = {
     eyebrow: "COMPANY PROFILE",
-    title: "Structured Debt for Complex Capital Needs.", // TODO
+    title: "Structured Debt for Complex Capital Needs.",
     description:
-        "Bespoke structured debt instruments — mezzanine, convertible, and asset-backed — engineered for situations plain-vanilla bank debt can't serve.", // TODO
-    image: "/smefunding.jpg", // TODO: replace image
+        "Customized debt solutions engineered beyond conventional bank lending — high-ticket funding, debt consolidation, and multi-lender syndication structured around your balance sheet, not a standard template.",
+    image: "/smefunding.jpg",
 
     heroMetrics: [
-        { label: "Structures Closed", value: "40", suffix: "+" },
-        { label: "Lender & Fund Network", value: "60", suffix: "+" },
-        { label: "Avg. Deal Size", value: "₹80", suffix: "+", unit: "Cr" },
-        { label: "Execution Velocity", value: "10", suffix: "", unit: "Wks" },
+        { label: "Structures Closed", value: "60", suffix: "+" },
+        { label: "Lender & Fund Network", value: "70", suffix: "+" },
+        { label: "Avg. Deal Size", value: "₹65", suffix: "+", unit: "Cr" },
+        { label: "Execution Velocity", value: "6", suffix: "", unit: "Wks" },
     ],
 
     subServices: {
-        eyebrow: "dedicated structured debt facilities",
-        title: "Bespoke Debt for Special Situations.", // TODO
+        eyebrow: "6 dedicated structured debt facilities",
+        title: "Debt Architecture Built Around Your Balance Sheet.",
         description:
-            "From mezzanine tranches to asset-backed notes — structures that match your cash-flow and risk profile.", // TODO
+            "From bespoke covenant design to large-ticket syndication, consolidation, and bridge liquidity — structures engineered to match your cash-flow reality, not a standard template.",
     },
 
     detailCards: [
         {
-            key: "mezzanine",
-            eyebrow: "SUBORDINATED CAPITAL",
-            title: "Mezzanine Debt", // TODO
+            key: "customized-debt",
+            eyebrow: "BESPOKE CREDIT ARCHITECTURE",
+            title: "Customized Debt Solutions",
             description:
-                "Placeholder description — replace with your actual mezzanine debt product copy.",
+                "Purpose-built debt structures — tailored covenants, moratoriums, and repayment cadences — designed around your specific cash-flow cycle, collateral mix, and growth trajectory rather than a one-size-fits-all bank product.",
             features: [
-                { icon: "percent", title: "Flexible Coupon Structures", description: "Placeholder feature copy." },
-                { icon: "clock", title: "Bullet & Amortizing Options", description: "Placeholder feature copy." },
-                { icon: "shield", title: "Subordinated to Senior Debt", description: "Placeholder feature copy." },
-                { icon: "sparkles", title: "Equity Kicker Optionality", description: "Placeholder feature copy." },
+                {
+                    icon: "percent",
+                    title: "Tailored Covenant Design",
+                    description:
+                        "Interest resets, moratoriums, and repayment cadences structured to match your actual operating cycle, not a generic template.",
+                },
+                {
+                    icon: "file",
+                    title: "Blended Collateral Structuring",
+                    description:
+                        "Combine property, receivables, inventory, and promoter guarantees into a single optimized credit facility.",
+                },
+                {
+                    icon: "shield",
+                    title: "Risk-Calibrated Pricing",
+                    description:
+                        "Pricing benchmarked to your credit profile and structure complexity, not a flat institutional rate card.",
+                },
+                {
+                    icon: "clock",
+                    title: "Phased Drawdown Schedules",
+                    description:
+                        "Capital released in tranches aligned to project milestones or working capital cycles, reducing idle interest cost.",
+                },
             ],
             metrics: [
-                { label: "Ticket Scale", value: "₹10 Cr to ₹100 Cr" },
-                { label: "Tenor", value: "3 to 7 Years" },
-                { label: "Security", value: "Subordinated / Unsecured" },
-                { label: "Turnaround", value: "6 – 10 Weeks", highlight: true },
+                { label: "Ticket Scale", value: "₹5 Cr to ₹75 Cr" },
+                { label: "Structuring Timeline", value: "4 to 8 Weeks" },
+                { label: "Collateral Mix", value: "Property / Receivables / Mixed" },
+                { label: "Turnaround Cycle", value: "20 – 30 Business Days", highlight: true },
             ],
-            image: "/service1-1.webp", // TODO
-            imageEyebrow: "SPECIAL SITUATIONS DESK",
-            imageTitle: "Placeholder Image Title", // TODO
-            ctaText: "Discuss Your Mezzanine Requirement",
+            image: "/service1-1.webp",
+            imageEyebrow: "BESPOKE STRUCTURING DESK",
+            imageTitle: "Debt Architecture Engineered Around Your Cash Flow",
+            ctaText: "Discuss Your Customized Debt Requirement",
             ctaHref: "/contact",
         },
         {
-            key: "convertible-notes",
-            eyebrow: "HYBRID INSTRUMENTS",
-            title: "Convertible Structured Notes", // TODO
-            description: "Placeholder description — replace with your actual convertible notes copy.",
+            key: "high-ticket",
+            eyebrow: "LARGE-TICKET INSTITUTIONAL FUNDING",
+            title: "High-Ticket Business Funding",
+            description:
+                "Large-ticket capital mobilization for enterprises executing major expansion, acquisition, or capital-intensive projects — structured through institutional lenders capable of underwriting significant exposure.",
             features: [
-                { icon: "file", title: "Custom Conversion Triggers", description: "Placeholder feature copy." },
-                { icon: "shield", title: "Downside Protection Clauses", description: "Placeholder feature copy." },
-                { icon: "clock", title: "Staggered Tranche Releases", description: "Placeholder feature copy." },
-                { icon: "sparkles", title: "Investor-Aligned Pricing", description: "Placeholder feature copy." },
+                {
+                    icon: "dollar",
+                    title: "Single-Desk Large Exposure",
+                    description:
+                        "Access lenders with the balance sheet capacity to underwrite single-ticket exposures upward of ₹50 Cr.",
+                },
+                {
+                    icon: "shield",
+                    title: "Consortium-Grade Underwriting",
+                    description:
+                        "Institutional-grade credit appraisal matching the rigor of consortium lending, even for bilateral facilities.",
+                },
+                {
+                    icon: "file",
+                    title: "Project & Expansion Financing",
+                    description:
+                        "Structured term debt aligned to capex timelines, greenfield or brownfield expansion, and acquisition financing.",
+                },
+                {
+                    icon: "clock",
+                    title: "Extended Repayment Horizons",
+                    description:
+                        "Tenors structured up to 10–12 years to match long-gestation, capital-intensive projects.",
+                },
             ],
             metrics: [
-                { label: "Ticket Scale", value: "₹15 Cr to ₹150 Cr" },
-                { label: "Tenor", value: "2 to 5 Years" },
-                { label: "Instrument", value: "CCDs / CCPS" },
-                { label: "Turnaround", value: "8 – 12 Weeks", highlight: true },
+                { label: "Ticket Scale", value: "₹25 Cr to ₹250 Cr+" },
+                { label: "Repayment Tenor", value: "Up to 12 Years" },
+                { label: "Security Profile", value: "Project Assets / Corp. Guarantee" },
+                { label: "Turnaround Cycle", value: "6 – 10 Weeks", highlight: true },
             ],
-            image: "/service1-2.png", // TODO
-            imageEyebrow: "HYBRID CAPITAL DESK",
-            imageTitle: "Placeholder Image Title", // TODO
-            ctaText: "Discuss Your Convertible Notes Requirement",
+            image: "/unsecured-business.jpg",
+            imageEyebrow: "LARGE EXPOSURE DESK",
+            imageTitle: "Capital Mobilization for Expansion & Acquisition-Scale Mandates",
+            ctaText: "Discuss Your High-Ticket Funding Requirement",
+            ctaHref: "/contact",
+            imagePosition: "left",
+        },
+        {
+            key: "debt-consolidation",
+            eyebrow: "BALANCE SHEET OPTIMIZATION",
+            title: "Debt Consolidation",
+            description:
+                "Simplify a fragmented borrowing history — multiple term loans, working capital lines, and unsecured facilities — into a single, lower-cost, better-structured credit facility that eases repayment pressure and improves covenant headroom.",
+            features: [
+                {
+                    icon: "check",
+                    title: "Multi-Facility Refinancing",
+                    description:
+                        "Consolidate term loans, OD/CC lines, and unsecured debt raised across different lenders into one facility.",
+                },
+                {
+                    icon: "percent",
+                    title: "Blended Rate Reduction",
+                    description:
+                        "Replace higher-cost legacy borrowings with a single facility priced closer to institutional benchmarks.",
+                },
+                {
+                    icon: "clock",
+                    title: "Simplified Repayment Calendar",
+                    description:
+                        "One consolidated EMI schedule in place of multiple overlapping repayment obligations across lenders.",
+                },
+                {
+                    icon: "shield",
+                    title: "Improved Covenant Headroom",
+                    description:
+                        "Restructured leverage ratios and DSCR profile that free up capacity for future working capital or growth debt.",
+                },
+            ],
+            metrics: [
+                { label: "Ticket Scale", value: "₹5 Cr to ₹60 Cr" },
+                { label: "Facilities Consolidated", value: "2 to 8+ Existing Lines" },
+                { label: "Rate Improvement", value: "Up to 250–350 bps" },
+                { label: "Turnaround Cycle", value: "15 – 25 Business Days", highlight: true },
+            ],
+            image: "/service1-2.png",
+            imageEyebrow: "BALANCE SHEET CLEAN-UP",
+            imageTitle: "One Facility, One Rate, One Repayment Calendar",
+            ctaText: "Discuss Your Debt Consolidation Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "syndicated-debt",
+            eyebrow: "MULTI-LENDER MANDATE EXECUTION",
+            title: "Multiple-Lender / Syndicated Debt",
+            description:
+                "For funding requirements that exceed a single institution's exposure appetite, we structure and lead multi-lender syndicates — coordinating documentation, security sharing, and pari-passu arrangements across the consortium.",
+            features: [
+                {
+                    icon: "link",
+                    title: "Lead Arranger Coordination",
+                    description:
+                        "We structure the facility and coordinate the consortium, so you deal with a single point of contact, not five banks.",
+                },
+                {
+                    icon: "file",
+                    title: "Pari-Passu Security Structuring",
+                    description:
+                        "Shared or first/second-charge security arrangements documented and negotiated across all participating lenders.",
+                },
+                {
+                    icon: "shield",
+                    title: "Standardized Documentation",
+                    description:
+                        "Common loan agreement and inter-creditor terms that avoid conflicting covenants across lenders.",
+                },
+                {
+                    icon: "percent-circle",
+                    title: "Competitive Syndicate Pricing",
+                    description:
+                        "Multiple lenders competing within the syndicate structure typically improves overall blended pricing.",
+                },
+            ],
+            metrics: [
+                { label: "Ticket Scale", value: "₹50 Cr to ₹300 Cr+" },
+                { label: "Syndicate Size", value: "3 to 8+ Lenders" },
+                { label: "Security Type", value: "Pari-Passu / Structured Charge" },
+                { label: "Turnaround Cycle", value: "8 – 14 Weeks", highlight: true },
+            ],
+            image: "/service1-3.png",
+            imageEyebrow: "CONSORTIUM LEAD DESK",
+            imageTitle: "One Facility, Multiple Lenders, Single Point of Coordination",
+            ctaText: "Discuss Your Syndicated Debt Requirement",
+            ctaHref: "/contact",
+            imagePosition: "left",
+        },
+        {
+            key: "bridge-financing",
+            eyebrow: "SHORT-TERM INTERIM LIQUIDITY",
+            title: "Bridge Financing",
+            description:
+                "Fast, short-tenor debt to bridge the gap ahead of an anticipated liquidity event — an incoming equity round, asset sale, or refinancing — so time-sensitive opportunities aren't lost waiting on a longer-cycle facility.",
+            features: [
+                {
+                    icon: "clock",
+                    title: "Rapid Interim Disbursal",
+                    description:
+                        "Capital released quickly against a clearly defined, near-term repayment or takeout event.",
+                },
+                {
+                    icon: "link",
+                    title: "Takeout-Linked Structuring",
+                    description:
+                        "Facility structured to be repaid from a specific expected inflow — equity close, asset sale, or refinance.",
+                },
+                {
+                    icon: "shield",
+                    title: "Flexible Interim Security",
+                    description:
+                        "Security accepted against receivables, promoter shares, or interim charge on assets pending permanent financing.",
+                },
+                {
+                    icon: "percent",
+                    title: "Short-Tenor Pricing",
+                    description:
+                        "Pricing structured for tenors of 6–18 months, reflecting the interim nature of the facility.",
+                },
+            ],
+            metrics: [
+                { label: "Ticket Scale", value: "₹5 Cr to ₹50 Cr" },
+                { label: "Tenor", value: "6 to 18 Months" },
+                { label: "Repayment Source", value: "Defined Takeout Event" },
+                { label: "Turnaround Cycle", value: "3 – 5 Weeks", highlight: true },
+            ],
+            image: "/bridge-financing.jpg",
+            imageEyebrow: "INTERIM LIQUIDITY DESK",
+            imageTitle: "Bridging the Gap Ahead of Your Next Capital Event",
+            ctaText: "Discuss Your Bridge Financing Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "acquisition-financing",
+            eyebrow: "M&A & BUYOUT DEBT",
+            title: "Acquisition Financing",
+            description:
+                "Structured debt to fund the acquisition of a target business, promoter buyout, or controlling stake — combining senior debt with the acquired entity's own cash flows and assets to fund the transaction.",
+            features: [
+                {
+                    icon: "file",
+                    title: "Target Cash-Flow Underwriting",
+                    description:
+                        "Facility sized against the combined post-acquisition cash flow of acquirer and target, not acquirer alone.",
+                },
+                {
+                    icon: "shield",
+                    title: "Target Asset Security",
+                    description:
+                        "Security structured over the acquired entity's assets alongside acquirer collateral where required.",
+                },
+                {
+                    icon: "clock",
+                    title: "Deal-Timeline Aligned Drawdown",
+                    description:
+                        "Funds released in coordination with signing and closing milestones of the underlying transaction.",
+                },
+                {
+                    icon: "percent-circle",
+                    title: "Layered Debt Structuring",
+                    description:
+                        "Senior and subordinated tranches combined where required to optimize overall cost of acquisition capital.",
+                },
+            ],
+            metrics: [
+                { label: "Ticket Scale", value: "₹20 Cr to ₹200 Cr" },
+                { label: "Tenor", value: "4 to 8 Years" },
+                { label: "Security Profile", value: "Target + Acquirer Assets" },
+                { label: "Turnaround Cycle", value: "8 – 12 Weeks", highlight: true },
+            ],
+            image: "/acc-financing.png",
+            imageEyebrow: "M&A FINANCING DESK",
+            imageTitle: "Funding Buyouts and Controlling-Stake Acquisitions",
+            ctaText: "Discuss Your Acquisition Financing Requirement",
             ctaHref: "/contact",
             imagePosition: "left",
         },
@@ -582,19 +801,42 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
 
     faqs: [
         {
-            question: "What is structured debt?", // TODO
-            answer: "Placeholder answer — replace with your actual FAQ content.",
+            question: "What kinds of structured debt does Fund Astra arrange?",
+            answer:
+                "We structure customized debt solutions, high-ticket institutional funding, debt consolidation, multi-lender syndicated debt, bridge financing, and acquisition financing for mid-market and large enterprises.",
         },
         {
-            question: "Who is structured debt suited for?", // TODO
-            answer: "Placeholder answer — replace with your actual FAQ content.",
+            question: "When does structured debt make more sense than standard bank lending?",
+            answer:
+                "Structured debt is suited to situations standard bank products don't fit well — large tickets, blended collateral, multiple existing facilities, time-sensitive bridge needs, or repayment cycles that don't match a conventional term loan.",
+        },
+        {
+            question: "How large a facility can be arranged through syndication?",
+            answer:
+                "Through multi-lender syndication we structure facilities upward of ₹50 Cr, scaled to ₹300 Cr and beyond depending on the underlying asset base and cash flow strength.",
+        },
+        {
+            question: "What documentation is required to assess a structured debt mandate?",
+            answer:
+                "Initial assessment typically requires audited financials, existing loan and repayment schedules, banking statements, and details of the collateral or security being offered.",
+        },
+        {
+            question: "Can existing loans from multiple lenders be consolidated into one facility?",
+            answer:
+                "Yes. Debt consolidation is one of our core structured debt practices, combining fragmented borrowings into a single facility with a simplified repayment schedule.",
+        },
+        {
+            question: "How quickly can bridge financing be arranged?",
+            answer:
+                "Bridge facilities are structured for speed — typical turnaround is 3 to 5 weeks, given the facility is repaid from a clearly defined takeout event.",
         },
     ],
 
     facilityBenchmark: {
         eyebrow: "FACILITY SPECIFICATION BENCHMARKS",
-        title: "Structured Debt at a Glance", // TODO
-        description: "Placeholder benchmark description — replace with real content.",
+        title: "Structured Debt at a Glance",
+        description:
+            "Compare structured borrowing vehicles across ticket size, security requirements, tenure, and typical execution timelines.",
     },
 
     facilityBenchmarkColumns: [
@@ -610,34 +852,84 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
     facilityBenchmarkRows: [
         {
             icon: "◈",
-            title: "Mezzanine Debt",
-            subtitle: "Subordinated growth capital",
-            ticketSize: "₹10 Cr – ₹100 Cr",
-            collateral: "Subordinated / Unsecured",
-            collateralType: "orange",
-            tenure: "3 to 7 Years",
-            turnaround: "6–10 Weeks",
-            metric: "Cash Flow Coverage",
+            title: "Customized Debt Solutions",
+            subtitle: "Bespoke covenant & collateral structuring",
+            ticketSize: "₹5 Cr – ₹75 Cr",
+            collateral: "Blended / Mixed Security",
+            collateralType: "blue",
+            tenure: "3 to 8 Years",
+            turnaround: "20–30 Business Days",
+            metric: "Cash Flow & Collateral Mix",
             action: "Inquire",
         },
         {
-            icon: "◇",
-            title: "Convertible Structured Notes",
-            subtitle: "Hybrid debt-equity instruments",
-            ticketSize: "₹15 Cr – ₹150 Cr",
-            collateral: "Convertible / Structured",
+            icon: "◆",
+            title: "High-Ticket Business Funding",
+            subtitle: "Large-exposure institutional lending",
+            ticketSize: "₹25 Cr – ₹250 Cr+",
+            collateral: "Project Assets / Corp. Guarantee",
+            collateralType: "gold",
+            tenure: "Up to 12 Years",
+            turnaround: "6–10 Weeks",
+            metric: "Project Viability & DSCR",
+            action: "Inquire",
+        },
+        {
+            icon: "⟲",
+            title: "Debt Consolidation",
+            subtitle: "Multi-facility refinancing",
+            ticketSize: "₹5 Cr – ₹60 Cr",
+            collateral: "Existing Facility Security",
+            collateralType: "green",
+            tenure: "3 to 7 Years",
+            turnaround: "15–25 Business Days",
+            metric: "Blended Rate & DSCR Improvement",
+            action: "Inquire",
+        },
+        {
+            icon: "⛓",
+            title: "Multiple-Lender / Syndicated Debt",
+            subtitle: "Consortium-led large mandates",
+            ticketSize: "₹50 Cr – ₹300 Cr+",
+            collateral: "Pari-Passu / Structured Charge",
+            collateralType: "orange",
+            tenure: "5 to 10 Years",
+            turnaround: "8–14 Weeks",
+            metric: "Consortium Coverage Ratio",
+            action: "Inquire",
+        },
+        {
+            icon: "⏱",
+            title: "Bridge Financing",
+            subtitle: "Short-term interim liquidity",
+            ticketSize: "₹5 Cr – ₹50 Cr",
+            collateral: "Receivables / Shares / Interim Charge",
+            collateralType: "gold",
+            tenure: "6 to 18 Months",
+            turnaround: "3–5 Weeks",
+            turnaroundHighlight: true,
+            metric: "Defined Takeout Event",
+            action: "Inquire",
+        },
+        {
+            icon: "⚭",
+            title: "Acquisition Financing",
+            subtitle: "M&A & buyout debt",
+            ticketSize: "₹20 Cr – ₹200 Cr",
+            collateral: "Target + Acquirer Assets",
             collateralType: "blue",
-            tenure: "2 to 5 Years",
+            tenure: "4 to 8 Years",
             turnaround: "8–12 Weeks",
-            metric: "Valuation & Conversion Terms",
+            metric: "Combined Post-Deal Cash Flow",
             action: "Inquire",
         },
     ],
 
     mandate: {
         eyebrow: "TRANSPARENT INSTITUTIONAL APPRAISAL",
-        title: "Structure Your Debt Mandate", // TODO
-        description: "Placeholder mandate description — replace with real content.",
+        title: "Structure Your Debt Mandate",
+        description:
+            "Submit your enterprise's debt parameters to Fund Astra's senior credit desk. We evaluate existing leverage, structure the optimal facility — bespoke, large-ticket, consolidated, syndicated, bridge, or acquisition-linked — and coordinate execution across our institutional lender network.",
         benefits: [
             { title: "100% Non-Disclosure Guaranteed", description: "Protected under bilateral confidentiality." },
             { title: "No Upfront Processing Retainer", description: "Success-aligned institutional advisory." },
@@ -645,7 +937,7 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
         ],
         contact: {
             eyebrow: "DIRECT SYNDICATE LEADS",
-            email: "structured.debt@fundastra.com", // TODO
+            email: "debt.mandates@fundastra.com",
             locations: "Mumbai BKC • Connaught Place, New Delhi • Indiranagar, Bengaluru",
         },
         fields: [
@@ -658,20 +950,24 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
             label: "Selected Sub-Service",
             required: true,
             options: [
-                "1. Mezzanine Debt",
-                "2. Convertible Structured Notes",
-                "3. Venture Debt", // TODO — add real options
+                "1. Customized Debt Solutions",
+                "2. High-Ticket Business Funding",
+                "3. Debt Consolidation",
+                "4. Multiple-Lender / Syndicated Debt",
+                "5. Bridge Financing",
+                "6. Acquisition Financing",
             ],
         },
         capitalRequirement: {
             label: "Capital Requirement Scale",
             required: true,
-            options: ["₹10 Cr – ₹25 Cr", "₹25 Cr – ₹50 Cr", "₹50 Cr – ₹100 Cr", "₹100 Cr+"],
+            options: ["₹5 Cr – ₹25 Cr", "₹25 Cr – ₹75 Cr", "₹75 Cr – ₹150 Cr", "₹150 Cr+"],
         },
         overview: {
-            label: "Situation & Business Overview",
+            label: "Existing Debt Profile & Business Overview",
             required: false,
-            placeholder: "Placeholder textarea prompt — replace with real content.",
+            placeholder:
+                "Share existing loan facilities, current lenders, annual turnover, and the specific outcome you're structuring for (new capital, consolidation, bridge, or acquisition financing).",
         },
         submitButton: "Submit Mandate for Appraisal",
         disclaimer: "Zero commitment • Strict institutional confidentiality guaranteed.",
@@ -680,58 +976,235 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
 
 const EQUITY_FUNDRAISING_DATA: ServiceData = {
     eyebrow: "COMPANY PROFILE",
-    title: "Equity Fundraising for Ambitious Growth.", // TODO
+    title: "Equity Capital for Ambitious Growth.",
     description:
-        "End-to-end equity capital raising — from seed rounds to pre-IPO placements — backed by a curated investor network.", // TODO
-    image: "/smefunding.jpg", // TODO: replace image
+        "End-to-end equity fundraising — from seed and venture capital to private equity, strategic investors, pre-IPO placements, and growth capital — backed by a curated network of institutional and family office investors.",
+    image: "/smefunding.jpg",
 
     heroMetrics: [
         { label: "Capital Raised", value: "₹1,800", suffix: "+", unit: "Cr" },
         { label: "Investor Network", value: "150", suffix: "+" },
         { label: "Rounds Closed", value: "60", suffix: "+" },
-        { label: "Avg. Close Time", value: "12", suffix: "", unit: "Wks" },
+        { label: "Avg. Close Time", value: "10", suffix: "", unit: "Wks" },
     ],
 
     subServices: {
-        eyebrow: "dedicated equity fundraising tracks",
-        title: "Capital Partners for Every Growth Stage.", // TODO
-        description: "Placeholder description — replace with real content.",
+        eyebrow: "6 dedicated equity fundraising tracks",
+        title: "Capital Partners for Every Stage of Growth.",
+        description:
+            "From seed and early-stage venture capital to late-stage pre-IPO placement — we match your enterprise with investors aligned to your sector, scale, and growth timeline.",
     },
 
     detailCards: [
         {
-            key: "series-round",
-            eyebrow: "GROWTH CAPITAL",
-            title: "Series A / B / C Fundraising", // TODO
-            description: "Placeholder description — replace with real content.",
+            key: "seed-angel",
+            eyebrow: "EARLY-STAGE CAPITAL",
+            title: "Seed / Angel Funding",
+            description:
+                "First institutional or angel capital for early-stage ventures with a validated idea or early traction — structured to get founders to their next meaningful milestone without excessive early dilution.",
             features: [
-                { icon: "sparkles", title: "Investor Targeting & Outreach", description: "Placeholder feature copy." },
-                { icon: "file", title: "Data Room & Deck Preparation", description: "Placeholder feature copy." },
-                { icon: "check", title: "Term Sheet Negotiation Support", description: "Placeholder feature copy." },
-                { icon: "shield", title: "Confidential Process Management", description: "Placeholder feature copy." },
+                {
+                    icon: "sparkles",
+                    title: "Angel & Micro-VC Access",
+                    description:
+                        "Introductions to angel networks and micro-VC funds actively writing early-stage checks.",
+                },
+                {
+                    icon: "shield",
+                    title: "Founder-Friendly Dilution",
+                    description:
+                        "Round sizing and valuation guidance structured to protect founder equity at the earliest stage.",
+                },
+                {
+                    icon: "file",
+                    title: "Lightweight Diligence Process",
+                    description:
+                        "Streamlined documentation suited to early-stage companies without lengthy audit histories.",
+                },
+                {
+                    icon: "clock",
+                    title: "Fast-Track Closings",
+                    description:
+                        "Process designed to close seed rounds quickly so founders can get back to building.",
+                },
+            ],
+            metrics: [
+                { label: "Round Size", value: "₹50 L to ₹8 Cr" },
+                { label: "Stage", value: "Idea / Early Traction" },
+                { label: "Investor Type", value: "Angels / Micro-VCs" },
+                { label: "Avg. Timeline", value: "6 – 10 Weeks", highlight: true },
+            ],
+            image: "/service1-1.webp",
+            imageEyebrow: "EARLY-STAGE DESK",
+            imageTitle: "First Institutional Capital for Validated Early Ventures",
+            ctaText: "Discuss Your Seed Funding Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "venture-capital",
+            eyebrow: "EARLY & GROWTH STAGE CAPITAL",
+            title: "Venture Capital",
+            description:
+                "Seed through Series C fundraising support for high-growth ventures, connecting founders with venture capital funds aligned to their sector, stage, and growth trajectory.",
+            features: [
+                {
+                    icon: "sparkles",
+                    title: "Stage-Matched VC Targeting",
+                    description:
+                        "Investor shortlists built around your exact stage, sector focus, and check-size fit — not generic mass outreach.",
+                },
+                {
+                    icon: "file",
+                    title: "Pitch Deck & Data Room Prep",
+                    description:
+                        "Investor-ready materials structured to institutional fundraising standards.",
+                },
+                {
+                    icon: "check",
+                    title: "Term Sheet Negotiation Support",
+                    description:
+                        "Guidance through valuation, liquidation preference, and board composition negotiations.",
+                },
+                {
+                    icon: "clock",
+                    title: "Structured Fundraise Timelines",
+                    description:
+                        "Process management to keep multi-investor conversations moving toward a defined close date.",
+                },
+            ],
+            metrics: [
+                { label: "Round Size", value: "₹5 Cr to ₹150 Cr" },
+                { label: "Stage", value: "Seed to Series C" },
+                { label: "Investor Type", value: "VC Funds" },
+                { label: "Avg. Timeline", value: "10 – 14 Weeks", highlight: true },
+            ],
+            image: "/unsecured-business.jpg",
+            imageEyebrow: "VENTURE CAPITAL DESK",
+            imageTitle: "Founder-Aligned Fundraising From Seed to Series C",
+            ctaText: "Discuss Your Venture Capital Requirement",
+            ctaHref: "/contact",
+            imagePosition: "left",
+        },
+        {
+            key: "private-equity",
+            eyebrow: "CONTROL & GROWTH CAPITAL",
+            title: "Private Equity",
+            description:
+                "Growth and control-stage equity capital from institutional private equity funds, structured for enterprises with proven unit economics seeking scale capital, buyouts, or ownership consolidation.",
+            features: [
+                {
+                    icon: "sparkles",
+                    title: "Curated PE Fund Access",
+                    description:
+                        "Direct introductions to sector-focused private equity funds actively deploying growth and buyout capital.",
+                },
+                {
+                    icon: "file",
+                    title: "Valuation & Deal Structuring",
+                    description:
+                        "Independent valuation benchmarking and term sheet structuring aligned to your negotiating position.",
+                },
+                {
+                    icon: "check",
+                    title: "Due Diligence Coordination",
+                    description:
+                        "End-to-end coordination of financial, legal, and commercial due diligence through to closing.",
+                },
+                {
+                    icon: "shield",
+                    title: "Confidential Process Management",
+                    description:
+                        "Investor outreach run under strict NDA to protect competitive and employee sensitivities.",
+                },
+            ],
+            metrics: [
+                { label: "Round Size", value: "₹25 Cr to ₹300 Cr" },
+                { label: "Stage", value: "Growth / Buyout" },
+                { label: "Investor Type", value: "PE Funds" },
+                { label: "Avg. Timeline", value: "12 – 16 Weeks", highlight: true },
+            ],
+            image: "/service1-2.png",
+            imageEyebrow: "GROWTH & BUYOUT DESK",
+            imageTitle: "Institutional Private Equity for Proven, Scalable Businesses",
+            ctaText: "Discuss Your Private Equity Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "strategic-investors",
+            eyebrow: "SECTOR-ALIGNED CAPITAL",
+            title: "Strategic Investors",
+            description:
+                "Capital and partnership from corporate and strategic investors seeking market access, technology alignment, or supply-chain integration — bringing more than just balance sheet to the table.",
+            features: [
+                {
+                    icon: "link",
+                    title: "Corporate Investor Mapping",
+                    description:
+                        "Identification of strategic investors with genuine commercial or sector alignment to your business.",
+                },
+                {
+                    icon: "shield",
+                    title: "Non-Compete Term Protection",
+                    description:
+                        "Structuring terms that protect your independence and prevent unwanted strategic lock-in.",
+                },
+                {
+                    icon: "file",
+                    title: "Partnership-Linked Structuring",
+                    description:
+                        "Capital raises structured alongside commercial partnerships, distribution tie-ups, or technology licensing.",
+                },
+                {
+                    icon: "check",
+                    title: "Board & Governance Alignment",
+                    description:
+                        "Governance terms negotiated to balance strategic investor influence with founder control.",
+                },
             ],
             metrics: [
                 { label: "Round Size", value: "₹10 Cr to ₹200 Cr" },
-                { label: "Stage", value: "Series A to C" },
-                { label: "Investor Type", value: "VC / Growth Funds" },
-                { label: "Avg. Timeline", value: "10 – 14 Weeks", highlight: true },
+                { label: "Stage", value: "Growth / Expansion" },
+                { label: "Investor Type", value: "Corporate / Strategic" },
+                { label: "Avg. Timeline", value: "10 – 16 Weeks", highlight: true },
             ],
-            image: "/service1-3.png", // TODO
-            imageEyebrow: "GROWTH CAPITAL DESK",
-            imageTitle: "Placeholder Image Title", // TODO
-            ctaText: "Discuss Your Fundraising Requirement",
+            image: "/service1-3.png",
+            imageEyebrow: "STRATEGIC PARTNERSHIP DESK",
+            imageTitle: "Capital Paired With Market Access & Commercial Alignment",
+            ctaText: "Discuss Your Strategic Investor Requirement",
             ctaHref: "/contact",
+            imagePosition: "left",
         },
         {
             key: "pre-ipo",
             eyebrow: "LATE-STAGE PLACEMENT",
-            title: "Pre-IPO & Family Office Syndication", // TODO
-            description: "Placeholder description — replace with real content.",
+            title: "Pre-IPO Funding",
+            description:
+                "Late-stage capital placement for enterprises on a defined path to public listing, sourced from family offices, AIFs, and pre-IPO specialist investors seeking pre-listing entry.",
             features: [
-                { icon: "dollar", title: "Family Office Access", description: "Placeholder feature copy." },
-                { icon: "file", title: "IPO-Readiness Advisory", description: "Placeholder feature copy." },
-                { icon: "clock", title: "Structured Lock-In Terms", description: "Placeholder feature copy." },
-                { icon: "sparkles", title: "Anchor Investor Sourcing", description: "Placeholder feature copy." },
+                {
+                    icon: "dollar",
+                    title: "Family Office & AIF Access",
+                    description:
+                        "Direct access to family offices and alternative investment funds active in pre-IPO placements.",
+                },
+                {
+                    icon: "file",
+                    title: "IPO-Readiness Advisory",
+                    description:
+                        "Guidance on governance, disclosure, and financial reporting standards expected ahead of a public listing.",
+                },
+                {
+                    icon: "clock",
+                    title: "Structured Lock-In Terms",
+                    description:
+                        "Lock-in and exit terms structured to align investor expectations with your listing timeline.",
+                },
+                {
+                    icon: "sparkles",
+                    title: "Anchor Investor Sourcing",
+                    description:
+                        "Support identifying anchor-quality investors ahead of a formal IPO process.",
+                },
             ],
             metrics: [
                 { label: "Round Size", value: "₹25 Cr to ₹300 Cr" },
@@ -739,24 +1212,97 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
                 { label: "Investor Type", value: "Family Offices / AIFs" },
                 { label: "Avg. Timeline", value: "8 – 12 Weeks", highlight: true },
             ],
-            image: "/service1-2.png", // TODO
+            image: "/pre-ipo.png",
             imageEyebrow: "LATE-STAGE CAPITAL DESK",
-            imageTitle: "Placeholder Image Title", // TODO
+            imageTitle: "Pre-Listing Capital From Family Offices & AIFs",
             ctaText: "Discuss Your Pre-IPO Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "growth-capital",
+            eyebrow: "EXPANSION-STAGE EQUITY",
+            title: "Growth Capital",
+            description:
+                "Minority-stake growth equity for profitable, expanding businesses that want to fund scale — new markets, capacity, or acquisitions — without taking on additional leverage.",
+            features: [
+                {
+                    icon: "percent",
+                    title: "Minority Stake Structuring",
+                    description:
+                        "Capital raised without ceding operational control, structured around minority-stake participation.",
+                },
+                {
+                    icon: "sparkles",
+                    title: "Expansion-Linked Deployment",
+                    description:
+                        "Funding structured against specific growth milestones — capacity addition, new geographies, or bolt-on acquisitions.",
+                },
+                {
+                    icon: "shield",
+                    title: "Founder-Friendly Terms",
+                    description:
+                        "Governance and exit terms negotiated to protect founder control and long-term flexibility.",
+                },
+                {
+                    icon: "clock",
+                    title: "Faster Close Than Traditional PE",
+                    description:
+                        "Streamlined process suited to growth-stage businesses that need capital on a shorter timeline.",
+                },
+            ],
+            metrics: [
+                { label: "Round Size", value: "₹10 Cr to ₹100 Cr" },
+                { label: "Stage", value: "Expansion / Scale-Up" },
+                { label: "Investor Type", value: "Growth Equity Funds" },
+                { label: "Avg. Timeline", value: "8 – 12 Weeks", highlight: true },
+            ],
+            image: "/growth.webp",
+            imageEyebrow: "EXPANSION CAPITAL DESK",
+            imageTitle: "Minority-Stake Growth Capital Without Ceding Control",
+            ctaText: "Discuss Your Growth Capital Requirement",
             ctaHref: "/contact",
             imagePosition: "left",
         },
     ],
 
     faqs: [
-        { question: "What stages of equity fundraising do you support?", answer: "Placeholder answer — replace with real content." }, // TODO
-        { question: "How do you select investors for a mandate?", answer: "Placeholder answer — replace with real content." }, // TODO
+        {
+            question: "What types of equity fundraising does Fund Astra support?",
+            answer:
+                "We support seed/angel rounds, venture capital, private equity, strategic investor placements, pre-IPO funding, and growth capital raises across early to late-stage enterprises.",
+        },
+        {
+            question: "How do you select investors for a mandate?",
+            answer:
+                "Investor shortlists are built around your sector, stage, check-size requirement, and any strategic or governance preferences you've specified, rather than a mass outreach approach.",
+        },
+        {
+            question: "What stage of business is suited to venture capital versus private equity?",
+            answer:
+                "Venture capital typically suits seed-to-Series-C businesses still scaling; private equity is generally suited to businesses with proven unit economics seeking growth or buyout capital.",
+        },
+        {
+            question: "What documentation is required to begin an equity fundraising mandate?",
+            answer:
+                "We typically require audited financials, a business overview or pitch deck, cap table details, and clarity on the intended use of funds and target round size.",
+        },
+        {
+            question: "How long does a typical equity fundraising process take?",
+            answer:
+                "Timelines vary by track — seed rounds can close in 6–10 weeks, venture capital rounds typically in 10–14 weeks, while private equity and pre-IPO placements can take 8–16 weeks depending on due diligence scope.",
+        },
+        {
+            question: "Is the fundraising process kept confidential?",
+            answer:
+                "Yes. All investor outreach and data room access is conducted under strict non-disclosure agreements to protect your commercial and competitive position.",
+        },
     ],
 
     facilityBenchmark: {
         eyebrow: "FACILITY SPECIFICATION BENCHMARKS",
-        title: "Equity Fundraising at a Glance", // TODO
-        description: "Placeholder benchmark description — replace with real content.",
+        title: "Equity Fundraising at a Glance",
+        description:
+            "Compare capital-raising tracks across round size, investor type, growth stage, and typical execution timelines.",
     },
 
     facilityBenchmarkColumns: [
@@ -771,35 +1317,85 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
 
     facilityBenchmarkRows: [
         {
-            icon: "◐",
-            title: "Series A / B / C Fundraising",
-            subtitle: "Institutional growth capital",
-            ticketSize: "₹10 Cr – ₹200 Cr",
-            collateral: "VC / Growth Funds",
+            icon: "◔",
+            title: "Seed / Angel Funding",
+            subtitle: "First institutional or angel capital",
+            ticketSize: "₹50 L – ₹8 Cr",
+            collateral: "Angels / Micro-VCs",
             collateralType: "green",
-            tenure: "N/A",
-            turnaround: "10–14 Weeks",
-            metric: "Growth Metrics & Unit Economics",
+            tenure: "Idea / Early Traction",
+            turnaround: "6–10 Weeks",
+            turnaroundHighlight: true,
+            metric: "Founding Team & Early Traction",
             action: "Inquire",
         },
         {
             icon: "◑",
-            title: "Pre-IPO & Family Office Syndication",
+            title: "Venture Capital",
+            subtitle: "Early to growth-stage capital",
+            ticketSize: "₹5 Cr – ₹150 Cr",
+            collateral: "Venture Capital Funds",
+            collateralType: "green",
+            tenure: "Seed to Series C",
+            turnaround: "10–14 Weeks",
+            metric: "Growth Metrics & Traction",
+            action: "Inquire",
+        },
+        {
+            icon: "◐",
+            title: "Private Equity",
+            subtitle: "Growth & buyout capital",
+            ticketSize: "₹25 Cr – ₹300 Cr",
+            collateral: "Private Equity Funds",
+            collateralType: "blue",
+            tenure: "Growth / Buyout",
+            turnaround: "12–16 Weeks",
+            metric: "Unit Economics & Valuation",
+            action: "Inquire",
+        },
+        {
+            icon: "◒",
+            title: "Strategic Investors",
+            subtitle: "Sector-aligned corporate capital",
+            ticketSize: "₹10 Cr – ₹200 Cr",
+            collateral: "Corporate / Strategic Investors",
+            collateralType: "orange",
+            tenure: "Growth / Expansion",
+            turnaround: "10–16 Weeks",
+            metric: "Strategic & Commercial Fit",
+            action: "Inquire",
+        },
+        {
+            icon: "◓",
+            title: "Pre-IPO Funding",
             subtitle: "Late-stage private placement",
             ticketSize: "₹25 Cr – ₹300 Cr",
             collateral: "Family Offices / AIFs",
-            collateralType: "orange",
-            tenure: "N/A",
+            collateralType: "gold",
+            tenure: "Pre-IPO",
             turnaround: "8–12 Weeks",
             metric: "IPO Readiness & Valuation",
+            action: "Inquire",
+        },
+        {
+            icon: "◕",
+            title: "Growth Capital",
+            subtitle: "Minority-stake expansion equity",
+            ticketSize: "₹10 Cr – ₹100 Cr",
+            collateral: "Growth Equity Funds",
+            collateralType: "green",
+            tenure: "Expansion / Scale-Up",
+            turnaround: "8–12 Weeks",
+            metric: "Milestone-Linked Deployment",
             action: "Inquire",
         },
     ],
 
     mandate: {
         eyebrow: "TRANSPARENT INSTITUTIONAL APPRAISAL",
-        title: "Structure Your Fundraising Mandate", // TODO
-        description: "Placeholder mandate description — replace with real content.",
+        title: "Structure Your Fundraising Mandate",
+        description:
+            "Submit your enterprise profile to Fund Astra's investor relations desk. We assess your growth stage, map against 150+ institutional investors, family offices, and strategic partners, and run a structured, confidential capital-raising process through to close.",
         benefits: [
             { title: "100% Non-Disclosure Guaranteed", description: "Protected under bilateral confidentiality." },
             { title: "No Upfront Processing Retainer", description: "Success-aligned institutional advisory." },
@@ -807,7 +1403,7 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
         ],
         contact: {
             eyebrow: "DIRECT INVESTOR LEADS",
-            email: "equity.fundraising@fundastra.com", // TODO
+            email: "equity.fundraising@fundastra.com",
             locations: "Mumbai BKC • Connaught Place, New Delhi • Indiranagar, Bengaluru",
         },
         fields: [
@@ -820,20 +1416,24 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
             label: "Selected Sub-Service",
             required: true,
             options: [
-                "1. Seed / Angel Round",
-                "2. Series A / B / C Fundraising",
-                "3. Pre-IPO & Family Office Syndication", // TODO — add real options
+                "1. Seed / Angel Funding",
+                "2. Venture Capital",
+                "3. Private Equity",
+                "4. Strategic Investors",
+                "5. Pre-IPO Funding",
+                "6. Growth Capital",
             ],
         },
         capitalRequirement: {
             label: "Capital Requirement Scale",
             required: true,
-            options: ["₹5 Cr – ₹10 Cr", "₹10 Cr – ₹25 Cr", "₹25 Cr – ₹100 Cr", "₹100 Cr+"],
+            options: ["₹5 Cr – ₹25 Cr", "₹25 Cr – ₹75 Cr", "₹75 Cr – ₹150 Cr", "₹150 Cr+"],
         },
         overview: {
             label: "Business Overview & Use of Funds",
             required: false,
-            placeholder: "Placeholder textarea prompt — replace with real content.",
+            placeholder:
+                "Share your current annual revenue/ARR, growth trajectory, cap table structure, and the intended use of the capital being raised.",
         },
         submitButton: "Submit Mandate for Appraisal",
         disclaimer: "Zero commitment • Strict institutional confidentiality guaranteed.",
@@ -1005,7 +1605,7 @@ export default function ServicePage() {
                 </motion.div>
 
                 {/* STATS */}
-                        <div className="relative z-10 mx-auto -mt-20 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px]">
+                <div className="relative z-10 mx-auto -mt-20 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px]">
                     <motion.div
                         variants={staggerContainer}
                         initial="hidden"
@@ -1054,7 +1654,7 @@ export default function ServicePage() {
                     className="mb-0 bg-white px-4 pb-5 pt-10 text-center sm:mb-4 sm:px-6 sm:pb-[30px] sm:pt-[60px]"
                 >
                     <div className="mx-auto max-w-[1000px]">
-                        <p className="mx-auto w-full max-w-[320px] rounded-[8px] bg-[#052E26] px-3 py-1.5 font-sans text-[10px] font-[700] uppercase leading-[1.15] tracking-[0.08em] text-[#FBF9F6] sm:max-w-[420px] sm:py-1 sm:text-[18px] sm:tracking-[1px]">
+                        <p className="mx-auto w-fit max-w-full whitespace-nowrap rounded-[8px] bg-[#052E26] px-4 py-1.5 font-sans text-[10px] font-[700] uppercase leading-[1.15] tracking-[0.08em] text-[#FBF9F6] sm:py-1 sm:text-[18px] sm:tracking-[1px]">
                             {data.subServices.eyebrow}
                         </p>
 
@@ -1108,7 +1708,7 @@ export default function ServicePage() {
             <Reveal>
                 <section className="bg-white px-4 py-7 sm:px-6 sm:py-[45px]">
                     <div className="mx-auto max-w-[1000px] text-center">
-                            <div className="inline-flex max-w-full items-center justify-center rounded-[7px] bg-[#052E26] px-3 py-2 text-center sm:px-[14px] sm:py-[5px]">
+                        <div className="inline-flex max-w-full items-center justify-center rounded-[7px] bg-[#052E26] px-3 py-2 text-center sm:px-[14px] sm:py-[5px]">
                             <span className="font-sans text-[10px] font-[700] uppercase leading-[1.15] tracking-[0.04em] text-white sm:text-[16px] sm:leading-none">
                                 {data.facilityBenchmark.eyebrow}
                             </span>
@@ -1126,7 +1726,7 @@ export default function ServicePage() {
             </Reveal>
 
             {/* FACILITY SPECIFICATION TABLE */}
-            <section className="bg-[#FBF9F6] px-4 py-6 sm:px-6 sm:py-[58px] lg:px-[110px]">
+            <section className="overflow-x-hidden bg-[#FBF9F6] px-4 py-6 sm:px-6 sm:py-[58px] lg:px-[110px]">
                 <div className="mx-auto w-full max-w-[1200px]">
                     <motion.div
                         initial="hidden"
@@ -1157,9 +1757,9 @@ export default function ServicePage() {
                             <motion.div
                                 key={row.title}
                                 variants={smallBoxVariants}
-                                className={`grid min-w-[900px] grid-cols-[1.65fr_1fr_1.05fr_1fr_1fr_1.55fr_.48fr] text-2xl ${index !== data.facilityBenchmarkRows.length - 1
-                                    ? "border-b border-[#E5E1DB]"
-                                    : ""
+                                className={`grid min-w-[900px] grid-cols-[1.65fr_1fr_1.05fr_1fr_1fr_1.55fr_.48fr] ${index !== data.facilityBenchmarkRows.length - 1
+                                        ? "border-b border-[#E5E1DB]"
+                                        : ""
                                     }`}
                             >
                                 <div className="flex min-h-[78px] items-center gap-[10px] px-[16px]">
@@ -1187,12 +1787,12 @@ export default function ServicePage() {
                                 <div className="flex items-center px-[20px]">
                                     <span
                                         className={`inline-flex max-w-full rounded-[2px] border px-[8px] py-[4px] font-sans text-[9px] font-[500] leading-[1.26] ${row.collateralType === "green"
-                                            ? "border-[#9BDCC5] bg-[#EEFAF5] text-[#14785A]"
-                                            : row.collateralType === "blue"
-                                                ? "border-[#BDD3F6] bg-[#F1F6FE] text-[#315E9D]"
-                                                : row.collateralType === "orange"
-                                                    ? "border-[#E7B984] bg-[#FFF7EC] text-[#9A5A16]"
-                                                    : "border-[#EBCF78] bg-[#FFF9E8] text-[#9A711C]"
+                                                ? "border-[#9BDCC5] bg-[#EEFAF5] text-[#14785A]"
+                                                : row.collateralType === "blue"
+                                                    ? "border-[#BDD3F6] bg-[#F1F6FE] text-[#315E9D]"
+                                                    : row.collateralType === "orange"
+                                                        ? "border-[#E7B984] bg-[#FFF7EC] text-[#9A5A16]"
+                                                        : "border-[#EBCF78] bg-[#FFF9E8] text-[#9A711C]"
                                             }`}
                                     >
                                         {row.collateral}
@@ -1208,8 +1808,8 @@ export default function ServicePage() {
                                 <div className="flex items-center px-[16px]">
                                     <span
                                         className={`font-sans text-[12px] leading-[1.35] ${row.turnaroundHighlight
-                                            ? "font-[700] text-[#087C5A]"
-                                            : "font-[500] text-[#1B1C1A]"
+                                                ? "font-[700] text-[#087C5A]"
+                                                : "font-[500] text-[#1B1C1A]"
                                             }`}
                                     >
                                         {row.turnaround}
