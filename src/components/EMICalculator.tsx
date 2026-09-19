@@ -132,7 +132,7 @@ export default function EMICalculator() {
 
       {/* MAIN WHITE CARD */}
       <div className="mx-auto max-w-[1216px] rounded-[18px] border border-[#E8E7E3] bg-white p-4 shadow-[0_10px_35px_rgba(0,0,0,0.05)] sm:p-[34px]">
-        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_420px]">
+        <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_420px] lg:gap-[38px]">
           {/* LEFT */}
           <div className="space-y-[22px]">
             {/* INVESTMENT PRINCIPAL */}
@@ -339,167 +339,169 @@ export default function EMICalculator() {
             </div>
           </div>
 
-          {/* RESULT CARD */}
-          <div className="rounded-[12px] bg-[#003D33] p-5 text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] sm:p-[30px]">
-            <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
-              <span className="font-sans text-[9px] font-[700] leading-[1.2] tracking-[0.08em] text-[#F3D596] sm:text-[11px] sm:tracking-[0.1em]">
-                CAPITAL ADVISORY PROJECTION
-              </span>
+          {/* RIGHT */}
+          <div>
+            {/* RESULT CARD */}
+            <div className="rounded-[12px] bg-[#003D33] p-5 text-white shadow-[0_15px_30px_rgba(0,0,0,0.15)] sm:p-[30px]">
+              <div className="flex flex-col items-start justify-between gap-2 sm:flex-row sm:items-center">
+                <span className="font-sans text-[9px] font-[700] leading-[1.2] tracking-[0.08em] text-[#F3D596] sm:text-[11px] sm:tracking-[0.1em]">
+                  CAPITAL ADVISORY PROJECTION
+                </span>
 
-              <span className="font-sans text-[9px] font-[500] text-[#34D399] sm:text-[10px]">
-                ● Live Formula
-              </span>
-            </div>
+                <span className="font-sans text-[9px] font-[500] text-[#34D399] sm:text-[10px]">
+                  ● Live Formula
+                </span>
+              </div>
 
-            <div className="mt-3 border-t border-white/10 pt-3 sm:mt-[13px] sm:pt-[15px]">
-              <p className="font-sans text-[9px] font-[700] text-[#FFDEA8CC] sm:text-[11px]">
-                ESTIMATED PERIODIC OUTFLOW
-              </p>
+              <div className="mt-3 border-t border-white/10 pt-3 sm:mt-[13px] sm:pt-[15px]">
+                <p className="font-sans text-[9px] font-[700] text-[#FFDEA8CC] sm:text-[11px]">
+                  ESTIMATED PERIODIC OUTFLOW
+                </p>
 
-              <h2 className="mt-2 font-display text-[34px] font-[600] leading-none tracking-[-0.02em] sm:mt-[8px] sm:text-[44px] sm:tracking-normal">
-                {formatCurrency(calculation.emi)}
-              </h2>
-            </div>
+                <h2 className="mt-2 font-display text-[34px] font-[600] leading-none tracking-[-0.02em] sm:mt-[8px] sm:text-[44px] sm:tracking-normal">
+                  {formatCurrency(calculation.emi)}
+                </h2>
+              </div>
 
-            <div className="mt-4 flex items-start justify-between gap-3 font-sans text-[10px] leading-[1.25] sm:mt-[18px] sm:text-[12px] sm:leading-normal">
-              <span className="min-w-0 text-white">
-                <span className="mr-[4px] text-[#FFDEA8]">●</span>
-                Principal: {formatLakhs(principal)}
-              </span>
+              <div className="mt-4 flex items-start justify-between gap-3 font-sans text-[10px] leading-[1.25] sm:mt-[18px] sm:text-[12px] sm:leading-normal">
+                <span className="min-w-0 text-white">
+                  <span className="mr-[4px] text-[#FFDEA8]">●</span>
+                  Principal: {formatLakhs(principal)}
+                </span>
 
-              <span className="min-w-0 text-[#D2D8D4]">
-                <span className="mr-[4px] text-[#FBF9F6]">●</span>
-                Interest: {formatLakhs(calculation.totalInterest)}
-              </span>
-            </div>
+                <span className="min-w-0 text-[#D2D8D4]">
+                  <span className="mr-[4px] text-[#FBF9F6]">●</span>
+                  Interest: {formatLakhs(calculation.totalInterest)}
+                </span>
+              </div>
 
-            {/* THICKER BAR */}
-            <div className="mt-[8px] h-[7px] overflow-hidden rounded-full bg-[#71827C]">
-              <div
-                className="h-full bg-[#F3D596]"
-                style={{
-                  width: `${(principal / calculation.totalPayout) * 100}%`,
-                }}
-              />
-            </div>
+              <div className="mt-[8px] h-[7px] overflow-hidden rounded-full bg-[#71827C]">
+                <div
+                  className="h-full bg-[#F3D596]"
+                  style={{
+                    width: `${(principal / calculation.totalPayout) * 100}%`,
+                  }}
+                />
+              </div>
 
-            <div className="mt-5 border-t border-white/10 pt-3 sm:mt-[28px] sm:pt-[15px]">
-              <div className="flex items-start justify-between">
-                <div>
-                  <p className="font-sans text-[9px] font-[700] text-[#FFDEA8B2] sm:text-[10px]">
-                    TOTAL COMMITTED PAYOUT
-                  </p>
+              <div className="mt-5 border-t border-white/10 pt-3 sm:mt-[28px] sm:pt-[15px]">
+                <div className="flex items-start justify-between">
+                  <div>
+                    <p className="font-sans text-[9px] font-[700] text-[#FFDEA8B2] sm:text-[10px]">
+                      TOTAL COMMITTED PAYOUT
+                    </p>
 
-                  <p className="mt-1 font-display text-[22px] font-[500] leading-none text-[#FBF9F6] sm:mt-[5px] sm:text-[28px]">
-                    {formatCurrency(calculation.totalPayout)}
-                  </p>
-                </div>
+                    <p className="mt-1 font-display text-[22px] font-[500] leading-none text-[#FBF9F6] sm:mt-[5px] sm:text-[28px]">
+                      {formatCurrency(calculation.totalPayout)}
+                    </p>
+                  </div>
 
-                <div className="hidden text-right sm:block">
-                  <p className="font-sans text-[9px] font-[500] text-[#F3D596]">
-                    TAX ADVANTAGE
-                  </p>
+                  <div className="hidden text-right sm:block">
+                    <p className="font-sans text-[9px] font-[500] text-[#F3D596]">
+                      TAX ADVANTAGE
+                    </p>
 
-                  <p className="mt-1 font-sans text-[11px] font-[600] leading-[1.2] text-[#34D399] sm:mt-[8px] sm:text-[13px]">
-                    Eligible 100%
-                  </p>
+                    <p className="mt-1 font-sans text-[11px] font-[600] leading-[1.2] text-[#34D399] sm:mt-[8px] sm:text-[13px]">
+                      Eligible 100%
+                    </p>
+                  </div>
                 </div>
               </div>
+
+              <button
+                type="button"
+                onClick={() => router.push("/contact")}
+                className="mt-4 flex min-h-[44px] w-full items-center justify-center gap-1 rounded-[6px] bg-[#F4D79B] px-2 text-center font-sans text-[12px] font-[700] leading-[1.15] text-[#271900] transition-opacity hover:opacity-90 sm:mt-[16px] sm:h-[48px] sm:gap-[8px] sm:px-0 sm:text-[15px] sm:leading-normal"
+              >
+                Discuss Terms with Advisory Desk
+                <ArrowRight
+                  className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
+                  strokeWidth={1.8}
+                />
+              </button>
             </div>
 
-            <button
-              type="button"
-              onClick={() => router.push("/contact")}
-              className="mt-4 flex min-h-[44px] w-full items-center justify-center gap-1 rounded-[6px] bg-[#F4D79B] px-2 text-center font-sans text-[12px] font-[700] leading-[1.15] text-[#271900] transition-opacity hover:opacity-90 sm:mt-[16px] sm:h-[48px] sm:gap-[8px] sm:px-0 sm:text-[15px] sm:leading-normal"
-            >
-              Discuss Terms with Advisory Desk
-              <ArrowRight
-                className="h-4 w-4 shrink-0 sm:h-5 sm:w-5"
-                strokeWidth={1.8}
-              />
-            </button>
-          </div>
-        </div>
+            {/* AMORTIZATION TABLE — RIGHT SIDE */}
+            <div className="mt-[18px] rounded-[11px] border border-[#E9E7E2] bg-[#FBFAF8] p-[14px]">
+              <div className="flex items-center justify-between">
+                <h3 className="font-sans text-[14px] font-[600] text-[#000F09]">
+                  ▣ Initial Amortization Schedule
+                </h3>
 
-        {/* AMORTIZATION TABLE */}
-        <div className="mt-[18px] rounded-[11px] border border-[#E9E7E2] bg-[#FBFAF8] p-[14px]">
-          <div className="flex items-center justify-between">
-            <h3 className="font-sans text-[14px] font-[600] text-[#000F09]">
-              ▣ Initial Amortization Schedule
-            </h3>
+                <span className="font-sans text-[10px] font-[700] text-[#424845]">
+                  INR (₹) SCHEDULE
+                </span>
+              </div>
 
-            <span className="font-sans text-[10px] font-[700] text-[#424845]">
-              INR (₹) SCHEDULE
-            </span>
-          </div>
+              <div className="mt-[15px] overflow-x-auto rounded-[6px] border border-[#E8E7E2] bg-white">
+                <table className="w-full min-w-[480px] border-collapse sm:min-w-0 sm:table-fixed">
+                  <colgroup>
+                    <col className="w-[18%]" />
+                    <col className="w-[27%]" />
+                    <col className="w-[27%]" />
+                    <col className="w-[28%]" />
+                  </colgroup>
 
-          <div className="mt-[15px] overflow-x-auto rounded-[6px] border border-[#E8E7E2] bg-white">
-            <table className="w-full min-w-[480px] border-collapse sm:min-w-0 sm:table-fixed">
-              <colgroup>
-                <col className="w-[18%]" />
-                <col className="w-[27%]" />
-                <col className="w-[27%]" />
-                <col className="w-[28%]" />
-              </colgroup>
+                  <thead>
+                    <tr className="border-b border-[#E8E7E2]">
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
+                        PERIOD
+                      </th>
 
-              <thead>
-                <tr className="border-b border-[#E8E7E2]">
-                  <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
-                    PERIOD
-                  </th>
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
+                        PAYMENT
+                      </th>
 
-                  <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
-                    PAYMENT
-                  </th>
+                      <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
+                        INTEREST
+                      </th>
 
-                  <th className="px-[10px] py-[12px] text-left font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
-                    INTEREST
-                  </th>
+                      <th className="px-[10px] py-[12px] text-right font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
+                        REMAINING BALANCE
+                      </th>
+                    </tr>
+                  </thead>
 
-                  <th className="px-[10px] py-[12px] text-right font-sans text-[10px] font-[700] text-[#424845] sm:px-1 sm:py-2 sm:text-[9px]">
-                    REMAINING BALANCE
-                  </th>
-                </tr>
-              </thead>
+                  <tbody>
+                    {calculation.schedule.map((row) => (
+                      <tr
+                        key={row.period}
+                        className="border-b border-[#EEEDEA] last:border-0"
+                      >
+                        <td className="px-[8px] py-[8px] font-sans text-[12px] font-[500] text-[#000F09] sm:px-1 sm:py-2 sm:text-[10px]">
+                          {row.period}
+                        </td>
 
-              <tbody>
-                {calculation.schedule.map((row) => (
-                  <tr
-                    key={row.period}
-                    className="border-b border-[#EEEDEA] last:border-0"
-                  >
-                    <td className="px-[8px] py-[8px] font-sans text-[12px] font-[500] text-[#000F09] sm:px-1 sm:py-2 sm:text-[10px]">
-                      {row.period}
-                    </td>
+                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#765A23] sm:px-1 sm:py-2 sm:text-[10px]">
+                          {formatCurrency(row.payment)}
+                        </td>
 
-                    <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#765A23] sm:px-1 sm:py-2 sm:text-[10px]">
-                      {formatCurrency(row.payment)}
-                    </td>
+                        <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#424845] sm:px-1 sm:py-2 sm:text-[10px]">
+                          {formatCurrency(row.interest)}
+                        </td>
 
-                    <td className="px-[8px] py-[8px] font-mono text-[12px] font-[500] text-[#424845] sm:px-1 sm:py-2 sm:text-[10px]">
-                      {formatCurrency(row.interest)}
-                    </td>
+                        <td className="whitespace-nowrap px-[8px] py-[8px] text-right font-mono text-[12px] font-[500] text-[#000F09] sm:whitespace-normal sm:px-1 sm:py-2 sm:text-[10px]">
+                          {formatCurrency(row.balance)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
 
-                    <td className="whitespace-nowrap px-[8px] py-[8px] text-right font-mono text-[12px] font-[500] text-[#000F09] sm:whitespace-normal sm:px-1 sm:py-2 sm:text-[10px]">
-                      {formatCurrency(row.balance)}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+              <div className="mt-[10px] flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <span className="font-sans text-[11px] font-[400] text-[#424845]">
+                  ◉ First 6 amortization periods displayed
+                </span>
 
-          <div className="mt-[10px] flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">
-            <span className="font-sans text-[11px] font-[400] text-[#424845]">
-              ◉ First 6 amortization periods displayed
-            </span>
-
-            <button
-              type="button"
-              className="font-sans text-[12px] font-[600] text-[#765A23] hover:underline"
-            >
-              Download Full Schedule ↓
-            </button>
+                <button
+                  type="button"
+                  className="font-sans text-[12px] font-[600] text-[#765A23] hover:underline"
+                >
+                  Download Full Schedule ↓
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

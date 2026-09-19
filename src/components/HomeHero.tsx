@@ -1059,17 +1059,9 @@ export default function HomeHero() {
           </Reveal>
         </div>
       </section>
-
-      <Reveal>
-        <GrowthCapitalSection />
-      </Reveal>
-
+      <GrowthCapitalSection />
       <TestimonialsSection />
-
-      <Reveal>
-        <ContactAdvisorySection />
-      </Reveal>
-
+      <ContactAdvisorySection />
       <Footer />
     </>
   );

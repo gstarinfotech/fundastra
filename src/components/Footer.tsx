@@ -3,11 +3,11 @@
 import Link from "next/link";
 
 const ADVISORY_LINKS = [
-  { label: "SME Funding & Credit Lines", href: "/services#sme-funding" },
-  { label: "Structured Debt & Mezzanine", href: "/services#structured-debt" },
+  { label: "SME Funding & Credit Lines", href: "/services/sme-funding" },
+  { label: "Structured Debt & Mezzanine", href: "/services/structured-debt" },
   {
     label: "Institutional Equity Syndicate",
-    href: "/services#equity-fundraising",
+    href: "/services/equity-fundraising",
   },
 ];
 
@@ -19,16 +19,9 @@ const FIRM_LINKS = [
 ];
 
 const LEGAL_LINKS = [
-  {
-    label: "Mandate Execution Protocol",
-    href: "/mandate-execution-protocol",
-  },
-  {
-    label: "Confidentiality Charter",
-    href: "/confidentiality-charter",
-  },
   { label: "Privacy Policy", href: "/privacy-policy" },
   { label: "Terms of Engagement", href: "/terms-of-engagement" },
+  { label: "Disclaimer", href: "/disclaimer", },
 ];
 
 export default function Footer() {

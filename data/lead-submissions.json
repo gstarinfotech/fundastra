@@ -1,0 +1,87 @@
+[
+    {
+        "id": "lead_6aabe290d89a69.94989633",
+        "source": "cloudways_test",
+        "fullName": "Test User",
+        "email": "test@example.com",
+        "phone": "9999999999",
+        "message": "Testing Cloudways",
+        "submitted_at": "2026-09-17T12:52:32+00:00"
+    },
+    {
+        "id": "lead_6aabe30cf298a0.74028675",
+        "source": "home_triage",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "",
+        "message": "",
+        "submitted_at": "2026-09-17T12:54:36+00:00",
+        "capitalRoute": "Structured Debt",
+        "targetTicket": "₹5 Cr – ₹25 Cr"
+    },
+    {
+        "id": "lead_6aabe63ed3b484.68294727",
+        "source": "home_triage",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "",
+        "message": "",
+        "submitted_at": "2026-09-17T13:08:14+00:00",
+        "capitalRoute": "Structured Debt",
+        "targetTicket": "₹25 Cr – ₹100 Cr"
+    },
+    {
+        "id": "lead_6aabe6ee02f281.54336671",
+        "source": "home_triage",
+        "fullName": "testing",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "",
+        "message": "",
+        "submitted_at": "2026-09-17T13:11:10+00:00",
+        "capitalRoute": "Structured Debt",
+        "targetTicket": "₹25 Cr – ₹100 Cr"
+    },
+    {
+        "id": "lead_6aabe6fd7a0927.93297012",
+        "source": "contact_us",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "+916397106698",
+        "message": "tested",
+        "submitted_at": "2026-09-17T13:11:25+00:00",
+        "company": "GstarInfotech"
+    },
+    {
+        "id": "lead_6aabe70ae99e75.99906031",
+        "source": "contact_inquiry",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "+916397106698",
+        "message": "tested",
+        "submitted_at": "2026-09-17T13:11:38+00:00",
+        "capitalRequirementType": "SME Working Capital",
+        "facilityQuantum": "₹5 Cr – ₹25 Cr"
+    },
+    {
+        "id": "lead_6aaceedab1a831.57441402",
+        "source": "home_triage",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "",
+        "message": "",
+        "submitted_at": "2026-09-18T07:57:14+00:00",
+        "capitalRoute": "SME Funding",
+        "targetTicket": "₹5 Cr – ₹25 Cr"
+    },
+    {
+        "id": "lead_6aaceeece6cff8.63068408",
+        "source": "contact_inquiry",
+        "fullName": "Sneha Agrawal",
+        "email": "agrawalsneha601@gmail.com",
+        "phone": "+916397106698",
+        "message": "Testing contact",
+        "submitted_at": "2026-09-18T07:57:32+00:00",
+        "capitalRequirementType": "SME Working Capital",
+        "facilityQuantum": "₹5 Cr – ₹25 Cr"
+    }
+]
