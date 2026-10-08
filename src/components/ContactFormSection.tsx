@@ -19,22 +19,21 @@ const INFO_CARDS = [
   {
     icon: Phone,
     label: "Direct Advisory Desk",
-    line1: "+91 98990 37555",
+    line1: "+91 9220962555",
     line2: "Mon – Sat, 9:30 AM – 6:30 PM IST",
     withDot: true,
   },
   {
     icon: Mail,
     label: "Mandate & Official Inquiries",
-    line1: "mandates@fundastra.com",
+    line1: "hello@fundastra.in",
     line2: "Confidential encrypted inbox • info@fundastra.com",
   },
   {
     icon: MapPin,
-    label: "Corporate Headquarters",
+    label: "Corporate Office",
     line1:
-      "Sovereign Tower, Level 14, Barakhamba Road, Connaught Place, New Delhi – 110001",
-    line2: "Regional desks: Mumbai (BKC) & Bengaluru (UB City)",
+      "Office no 4, Second Floor, C-17, Sector -3, Noida",
   },
   {
     icon: Clock,
@@ -183,7 +182,7 @@ export default function ContactFormSection() {
               </div>
 
               <a
-                href="https://wa.me/919899037555"
+                href="https://wa.me/9220962555"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full rounded-full bg-[#C5A059] px-5 py-2.5 text-center font-sans text-[11px] font-bold uppercase tracking-wide text-brand-green hover:opacity-90 sm:w-auto sm:shrink-0 sm:whitespace-nowrap sm:text-[12px]"

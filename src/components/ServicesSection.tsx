@@ -57,6 +57,23 @@ const SERVICES = [
     href: "/services/equity-fundraising",
     image: "/equity-fundraising.jpeg",
   },
+  {
+    id: "asset-purchase",
+    tab: "Asset Purchase",
+    label: "PROPERTY & ASSET FINANCE",
+    title: "Funds for Asset Purchase",
+    description:
+      "Dedicated funding for residential and commercial property acquisition, structured around your income profile, property valuation, and long-term repayment capacity. We connect you with banks and housing finance partners to secure the best-fit facility.",
+    facilities: [
+      "Home Loan",
+      "Commercial Property Purchase",
+      "Balance Transfer & Top-Up",
+      "Office, Retail & Industrial Units",
+    ],
+    button: "Explore Asset Purchase",
+    href: "/services/asset-purchase",
+    image: "/asset-purchase-v2.png",
+  },
 ];
 
 export default function ServicesSection() {
@@ -167,7 +184,7 @@ export default function ServicesSection() {
 
       {/* TABS */}
       <div className="mx-auto mb-6 grid w-full max-w-full rounded-[15px] border-2 border-[#e4e7e5] bg-white p-[5px] sm:mb-[60px] lg:mb-[80px] lg:flex lg:w-fit lg:overflow-x-auto">
-        <div className="grid w-full grid-cols-3 items-center lg:flex lg:w-max">
+        <div className="grid w-full grid-cols-4 items-center lg:flex lg:w-max">
           {SERVICES.map((service, index) => (
             <button
               key={service.id}
@@ -211,8 +228,8 @@ export default function ServicesSection() {
           {isAnimating && (
             <div
               className={`absolute inset-0 grid min-h-0 w-full grid-cols-1 bg-white lg:min-h-[650px] lg:grid-cols-[1fr_1fr] ${slideDirection === "right"
-                  ? "services-card-out-left"
-                  : "services-card-out-right"
+                ? "services-card-out-left"
+                : "services-card-out-right"
                 }`}
             >
               {/* LEFT CONTENT */}
@@ -288,10 +305,10 @@ export default function ServicesSection() {
           <div
             key={`${currentService.id}-${activeIndex}`}
             className={`relative grid min-h-0 w-full grid-cols-1 bg-white lg:min-h-[650px] lg:grid-cols-[1fr_1fr] ${isAnimating
-                ? slideDirection === "right"
-                  ? "services-card-in-right"
-                  : "services-card-in-left"
-                : ""
+              ? slideDirection === "right"
+                ? "services-card-in-right"
+                : "services-card-in-left"
+              : ""
               }`}
           >
             {/* LEFT CONTENT */}

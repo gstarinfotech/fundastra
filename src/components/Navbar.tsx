@@ -23,6 +23,10 @@ const SERVICES_LINKS = [
     label: "Equity Fundraising",
     href: "/services/equity-fundraising",
   },
+  {
+    label: "Funds for Asset Purchase",
+    href: "/services/asset-purchase",
+  },
 ];
 
 const TRAILING_LINKS = [
@@ -647,7 +651,7 @@ export default function Navbar() {
                     duration-300
 
                     ${mobileServicesOpen
-                      ? "max-h-[220px] pb-2 opacity-100"
+                      ? "max-h-[280px] pb-2 opacity-100"
                       : "max-h-0 opacity-0"
                     }
                   `}

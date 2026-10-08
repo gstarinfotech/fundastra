@@ -106,7 +106,7 @@ type ServiceData = {
     mandate: MandateSection;
 };
 
-type ServiceKey = "sme" | "structured-debt" | "equity-fundraising";
+type ServiceKey = "sme" | "structured-debt" | "equity-fundraising" | "asset-purchase";
 
 const PARTNER_TYPES = [
     "Tier-1 PSU Banks",
@@ -132,7 +132,7 @@ const SME_DATA: ServiceData = {
     ],
 
     subServices: {
-        eyebrow: "7 dedicated sme capital facilities",
+        eyebrow: "6 dedicated sme capital facilities",
         title: "Capital Solutions for Every Stage of Growth.",
         description:
             "Structured funding designed to support expansion, strengthen liquidity, and unlock your next opportunity.",
@@ -315,8 +315,7 @@ const SME_DATA: ServiceData = {
             imageEyebrow: "CAPEX ACCELERATION",
             imageTitle: "Capital Equipment & High-Tech Operational Plant Loans",
             ctaText: "Discuss Your Funding Requirement for Asset Purchase",
-            ctaHref: "/contact",
-            extraAfter: "property-purchase",
+            ctaHref: "/contact"
         },
     ],
 
@@ -443,19 +442,7 @@ const SME_DATA: ServiceData = {
             turnaround: "12–18 Business Days",
             metric: "Machinery Quotation & ROI Projections",
             action: "Inquire",
-        },
-        {
-            icon: "⌂",
-            title: "Home Loan & Property Loans",
-            subtitle: "Promoter residences & corporate offices",
-            ticketSize: "₹2 Cr – ₹30 Cr+",
-            collateral: "Primary Property Mortgage",
-            collateralType: "orange",
-            tenure: "Up to 25 Years",
-            turnaround: "14–20 Business Days",
-            metric: "Combined Promoter Cash Accruals",
-            action: "Inquire",
-        },
+        }
     ],
 
     mandate: {
@@ -470,8 +457,8 @@ const SME_DATA: ServiceData = {
         ],
         contact: {
             eyebrow: "DIRECT SYNDICATE LEADS",
-            email: "sme.mandates@fundastra.com",
-            locations: "Mumbai BKC • Connaught Place, New Delhi • Indiranagar, Bengaluru",
+            email: "hello@fundastra.in",
+            locations: "Office no 4, Second Floor, C-17, Sector -3, Noida",
         },
         fields: [
             { id: "companyName", label: "Company / Entity Name", required: true, type: "text", placeholder: "e.g. Apex Precision Forge Ltd" },
@@ -488,8 +475,7 @@ const SME_DATA: ServiceData = {
                 "3. Working Capital Finance",
                 "4. Funding for Asset Purchase",
                 "5. CGTMSE Backed Limits",
-                "6. Cash Credit & Overdraft Facilities",
-                "7. Home Loan & Property Purchase Loans",
+                "6. Cash Credit & Overdraft Facilities"
             ],
         },
         capitalRequirement: {
@@ -937,8 +923,8 @@ const STRUCTURED_DEBT_DATA: ServiceData = {
         ],
         contact: {
             eyebrow: "DIRECT SYNDICATE LEADS",
-            email: "debt.mandates@fundastra.com",
-            locations: "Mumbai BKC • Connaught Place, New Delhi • Indiranagar, Bengaluru",
+            email: "hello@fundastra.in",
+            locations: "Office no 4, Second Floor, C-17, Sector -3, Noida",
         },
         fields: [
             { id: "companyName", label: "Company / Entity Name", required: true, type: "text", placeholder: "e.g. Apex Precision Forge Ltd" },
@@ -1403,8 +1389,8 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
         ],
         contact: {
             eyebrow: "DIRECT INVESTOR LEADS",
-            email: "equity.fundraising@fundastra.com",
-            locations: "Mumbai BKC • Connaught Place, New Delhi • Indiranagar, Bengaluru",
+            email: "hello@fundastra.in",
+            locations: "Office no 4, Second Floor, C-17, Sector -3, Noida",
         },
         fields: [
             { id: "companyName", label: "Company / Entity Name", required: true, type: "text", placeholder: "e.g. Apex Precision Forge Ltd" },
@@ -1440,13 +1426,248 @@ const EQUITY_FUNDRAISING_DATA: ServiceData = {
     },
 };
 
+const ASSET_PURCHASE_DATA: ServiceData = {
+    eyebrow: "COMPANY PROFILE",
+    title: "Funds for Asset Purchase, Structured Right.",
+    description:
+        "Dedicated funding for residential and commercial property acquisition — structured around your income profile, property valuation, and long-term repayment capacity.",
+    image: "/smefunding.jpg",
+
+    heroMetrics: [
+        { label: "Property Funding Arranged", value: "₹900", suffix: "+", unit: "Cr" },
+        { label: "Lender Network", value: "60", suffix: "+" },
+        { label: "Cases Closed", value: "150", suffix: "+" },
+        { label: "Avg. Turnaround", value: "15", suffix: "", unit: "Days" },
+    ],
+
+    subServices: {
+        eyebrow: "2 dedicated asset purchase facilities",
+        title: "Funding for Homes and Commercial Properties.",
+        description:
+            "Whether you are buying a residence or acquiring commercial space for your business, we structure the right facility with the right lender.",
+    },
+
+    detailCards: [
+        {
+            key: "home-loan",
+            eyebrow: "RESIDENTIAL PROPERTY FINANCE",
+            title: "Home Loan",
+            description:
+                "Home financing for promoters, directors, and salaried or self-employed individuals purchasing residential property — structured on income, cash accruals, and property valuation with competitive institutional pricing.",
+            features: [
+                {
+                    icon: "percent",
+                    title: "Competitive Interest Rates",
+                    description:
+                        "Pricing benchmarked across banks and housing finance companies to secure the best available rate.",
+                },
+                {
+                    icon: "clock",
+                    title: "Extended Tenures",
+                    description:
+                        "Repayment tenors up to 25–30 years to keep monthly EMI manageable.",
+                },
+                {
+                    icon: "check",
+                    title: "Balance Transfer & Top-Up",
+                    description:
+                        "Move an existing home loan to a lower rate and unlock additional top-up funds.",
+                },
+                {
+                    icon: "file",
+                    title: "Income-Based Assessment",
+                    description:
+                        "Eligibility structured on salary, business income, or combined promoter cash accruals.",
+                },
+            ],
+            metrics: [
+                { label: "Loan Ticket", value: "₹50 L to ₹30 Cr+" },
+                { label: "Repayment Tenor", value: "Up to 25–30 Years" },
+                { label: "Security", value: "Property Mortgage" },
+                { label: "Turnaround Cycle", value: "14 – 20 Business Days", highlight: true },
+            ],
+            image: "/service1-1.webp",
+            imageEyebrow: "RESIDENTIAL FINANCE DESK",
+            imageTitle: "Home Financing Structured Around Your Income Profile",
+            ctaText: "Discuss Your Home Loan Requirement",
+            ctaHref: "/contact",
+        },
+        {
+            key: "commercial-property",
+            eyebrow: "COMMERCIAL REAL ESTATE ACQUISITION",
+            title: "Commercial Property Purchase",
+            description:
+                "Funding for acquiring office spaces, shops, showrooms, warehouses, and industrial units — structured to let your business own its premises instead of paying rent.",
+            features: [
+                {
+                    icon: "warehouse",
+                    title: "Office, Retail & Industrial",
+                    description:
+                        "Finance for offices, showrooms, warehouses, and industrial sheds across major markets.",
+                },
+                {
+                    icon: "percent-circle",
+                    title: "High LTV Funding",
+                    description:
+                        "Funding up to 70–75% of the property value, subject to valuation and lender norms.",
+                },
+                {
+                    icon: "clock",
+                    title: "Long Repayment Horizon",
+                    description:
+                        "Tenors up to 15–20 years, structured so EMI stays comparable to current rental outgo.",
+                },
+                {
+                    icon: "shield",
+                    title: "Legal & Title Coordination",
+                    description:
+                        "Support with title verification, valuation, and documentation through to disbursal.",
+                },
+            ],
+            metrics: [
+                { label: "Loan Ticket", value: "₹2 Cr to ₹50 Cr+" },
+                { label: "Funding Margin", value: "Up to 70% – 75%" },
+                { label: "Loan Tenor", value: "Up to 15–20 Years" },
+                { label: "Turnaround Cycle", value: "15 – 25 Business Days", highlight: true },
+            ],
+            image: "/service1-3.png",
+            imageEyebrow: "COMMERCIAL REAL ESTATE DESK",
+            imageTitle: "Own Your Business Premises Instead of Renting",
+            ctaText: "Discuss Your Commercial Property Requirement",
+            ctaHref: "/contact",
+            imagePosition: "left",
+            extraAfter: "property-purchase", // existing PropertyPurchaseCard yahin dikhega; agar redundant lage toh hata dena
+        },
+    ],
+
+    faqs: [
+        {
+            question: "What asset purchase funding does Fund Astra arrange?",
+            answer:
+                "We arrange home loans for residential property purchase and commercial property purchase loans for offices, shops, warehouses, and industrial units.",
+        },
+        {
+            question: "Can I transfer my existing home loan?",
+            answer:
+                "Yes. Balance transfer with an optional top-up is available, subject to lender assessment of your repayment track record and property.",
+        },
+        {
+            question: "What documents are required?",
+            answer:
+                "Typically KYC, income proof or financial statements, bank statements, existing loan details, and property documents such as the sale agreement and title papers.",
+        },
+        {
+            question: "How much of the property value can be financed?",
+            answer:
+                "Funding is a percentage of the assessed property value, which varies by lender, property type, and your profile.",
+        },
+        {
+            question: "Can a company or firm buy a commercial property with this funding?",
+            answer:
+                "Yes. Commercial property loans can be structured in the name of a company, firm, or promoter, depending on the lender's norms.",
+        },
+        {
+            question: "How long does the process take?",
+            answer:
+                "Home loans typically take 14–20 business days and commercial property loans 15–25 business days, depending on valuation and legal verification.",
+        },
+    ],
+
+    facilityBenchmark: {
+        eyebrow: "FACILITY SPECIFICATION BENCHMARKS",
+        title: "Asset Purchase Funding at a Glance",
+        description:
+            "Compare property purchase facilities across ticket size, security, tenure, and typical turnaround.",
+    },
+
+    facilityBenchmarkColumns: [
+        "ASSET PURCHASE FACILITY",
+        "TICKET SIZE CORRIDOR",
+        "COLLATERAL REQUIREMENT",
+        "TENURE SPECTRUM",
+        "TURNAROUND SPEED",
+        "PRIMARY ASSESSMENT METRIC",
+        "ACTION",
+    ],
+
+    facilityBenchmarkRows: [
+        {
+            icon: "⌂",
+            title: "Home Loan",
+            subtitle: "Residential property purchase",
+            ticketSize: "₹50 L – ₹30 Cr+",
+            collateral: "Primary Property Mortgage",
+            collateralType: "orange",
+            tenure: "Up to 25–30 Years",
+            turnaround: "14–20 Business Days",
+            metric: "Income / Cash Accruals & Valuation",
+            action: "Inquire",
+        },
+        {
+            icon: "▦",
+            title: "Commercial Property Purchase",
+            subtitle: "Office, retail & industrial acquisition",
+            ticketSize: "₹2 Cr – ₹50 Cr+",
+            collateral: "Secured (Up to 75% LTV)",
+            collateralType: "gold",
+            tenure: "Up to 15–20 Years",
+            turnaround: "15–25 Business Days",
+            metric: "Property Valuation & DSCR",
+            action: "Inquire",
+        },
+    ],
+
+    mandate: {
+        eyebrow: "TRANSPARENT INSTITUTIONAL APPRAISAL",
+        title: "Structure Your Property Funding",
+        description:
+            "Share your property and income details with Fund Astra's credit desk. We evaluate your profile, map it against our banks and housing finance partners, and structure the best-fit facility.",
+        benefits: [
+            { title: "100% Non-Disclosure Guaranteed", description: "Protected under bilateral confidentiality." },
+            { title: "No Upfront Processing Retainer", description: "Success-aligned institutional advisory." },
+            { title: "Direct Lender Desk Access", description: "Avoid multiple bureau scoring hits." },
+        ],
+        contact: {
+            eyebrow: "DIRECT PROPERTY FUNDING LEADS",
+            email: "hello@fundastra.in",
+            locations: "Office no 4, Second Floor, C-17, Sector -3, Noida",
+        },
+        fields: [
+            { id: "companyName", label: "Applicant / Entity Name", required: true, type: "text", placeholder: "e.g. Apex Precision Forge Ltd" },
+            { id: "promoterName", label: "Promoter / Director Name", required: true, type: "text", placeholder: "e.g. Rajesh Singhania" },
+            { id: "email", label: "Email Address", required: true, type: "email", placeholder: "rajesh@apexforge.in" },
+            { id: "phone", label: "Contact Phone Number", required: true, type: "tel", placeholder: "+91 98200 XXXXX" },
+        ],
+        subService: {
+            label: "Selected Sub-Service",
+            required: true,
+            options: ["1. Home Loan", "2. Commercial Property Purchase"],
+        },
+        capitalRequirement: {
+            label: "Funding Requirement Scale",
+            required: true,
+            options: ["₹50 L – ₹2 Cr", "₹2 Cr – ₹5 Cr", "₹5 Cr – ₹15 Cr", "₹15 Cr – ₹50 Cr", "₹50 Cr+"],
+        },
+        overview: {
+            label: "Property Details & Income Overview",
+            required: false,
+            placeholder:
+                "Share the property type and location, approximate value, your income or annual turnover, and any existing loans.",
+        },
+        submitButton: "Submit Mandate for Appraisal",
+        disclaimer: "Zero commitment • Strict institutional confidentiality guaranteed.",
+    },
+};
+
 const SERVICE_DATA: Record<ServiceKey, ServiceData> = {
     sme: SME_DATA,
     "structured-debt": STRUCTURED_DEBT_DATA,
     "equity-fundraising": EQUITY_FUNDRAISING_DATA,
+    "asset-purchase": ASSET_PURCHASE_DATA,
 };
 
 function resolveServiceKey(pathname: string): ServiceKey {
+    if (pathname.includes("asset-purchase")) return "asset-purchase"; // sabse upar
     if (pathname.includes("structured-debt")) return "structured-debt";
     if (pathname.includes("equity")) return "equity-fundraising";
     return "sme";
@@ -2076,7 +2297,7 @@ export default function ServicePage() {
                     </div>
                 </Reveal>
             </section>
-            
+
             {/* FAQ */}
             <Reveal>
                 <FaqSection faqs={data.faqs} />

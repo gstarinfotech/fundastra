@@ -5,8 +5,8 @@ import { CheckCircle2, Landmark } from "lucide-react";
 import { motion } from "framer-motion";
 
 const STATS = [
-  { icon: CheckCircle2, value: "20+ Years", label: "Combined Track Record" },
-  { icon: Landmark, value: "₹2,400+ Cr", label: "Closed Transactions" },
+  { icon: CheckCircle2, value: "14+ Years", label: "Industry Experience" },
+  { icon: Landmark, value: "Corporate Finance", label: "Core Expertise" },
 ];
 
 const headingVariants = {
@@ -75,6 +75,7 @@ export default function AboutFounderSection() {
   return (
     <section className="bg-[#052E26] px-4 py-9 sm:px-6 sm:py-20 lg:px-[76px]">
       <div className="mx-auto max-w-[1216px]">
+
         {/* HEADING */}
         <motion.div
           className="text-center"
@@ -102,20 +103,22 @@ export default function AboutFounderSection() {
         </motion.div>
 
         {/* MAIN CARD */}
-        <div className="mt-7 grid grid-cols-1 overflow-hidden rounded-[20px] bg-white shadow-2xl sm:mt-12 lg:grid-cols-2">
+        <div className="mt-7 grid grid-cols-1 overflow-hidden rounded-[20px] bg-white shadow-2xl sm:mt-12 lg:grid-cols-[43%_57%]">
           {/* LEFT IMAGE */}
           <motion.div
-            className="relative min-h-[340px] lg:min-h-0"
+            className="relative min-h-[500px] overflow-hidden lg:min-h-[635px]"
             variants={imageVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
             <Image
-              src="/about-founder.png"
-              alt="FUND ASTRA founding partners closing a mandate"
+              src="/about-founder.jpeg"
+              alt="CA Amit Sindhi - Founder, Fund Astra"
               fill
-              className="object-cover"
+              priority
+              sizes="(max-width: 1024px) 100vw, 43vw"
+              className="object-cover object-[center_20%]"
             />
           </motion.div>
 
@@ -130,41 +133,34 @@ export default function AboutFounderSection() {
             <div className="mb-2.5 flex items-center gap-1.5 sm:mb-3 sm:gap-2">
               <span className="h-[2px] w-[15px] bg-[#B08316] sm:w-[18px]" />
               <span className="font-sans text-[9px] font-[600] uppercase tracking-[0.1em] text-[#B08316] sm:text-[11px] sm:tracking-[0.12em]">
-                Founding Partners & Managing Directors
+                Founder & Managing Director
               </span>
             </div>
 
             <h3 className="font-display text-[27px] font-[600] leading-[1.15] text-[#052E26] sm:text-[30px] sm:leading-[1.15]">
-              Amit Sindhi
+              CA Amit Sindhi
             </h3>
 
             <p className="mt-1.5 font-sans text-[10px] font-[600] uppercase tracking-[0.07em] text-[#765A23] sm:mt-2 sm:text-[12px] sm:tracking-[0.08em]">
-              Founders, Fund Astra
+              Founder, Fund Astra
             </p>
 
             <p className="mt-4 font-sans text-[12px] leading-[1.6] text-[#424845] sm:mt-5 sm:text-[14px] sm:leading-[1.75]">
-              With more than 20 years of combined experience across corporate
-              finance, structured debt, and institutional capital, the
-              leadership team brings a disciplined approach to complex funding
-              mandates. Fund Astra works closely with promoters, management
-              teams, and capital partners to structure practical solutions
-              aligned with business objectives.
+              With more than 14 years of experience across corporate finance,
+              structured debt, valuations, and M&A, the founder brings a
+              disciplined approach to complex funding mandates. Fund Astra
+              works closely with promoters, management teams, and capital
+              partners to structure practical solutions aligned with business
+              objectives.
             </p>
 
             <p className="mt-3 font-sans text-[12px] leading-[1.6] text-[#424845] sm:mt-4 sm:text-[14px] sm:leading-[1.75]">
-              Prior to establishing Fund Astra, the team built experience
-              across banking, private credit, and corporate finance, developing
-              strong relationships across lenders, investors, and strategic
-              capital providers.
+              Prior to establishing Fund Astra, CA Amit Sindhi handled
+              leadership and decision-maker roles at Tata Capital, EY, and
+              other leading organizations, building deep experience across
+              corporate finance, capital structuring, and strategic
+              transactions.
             </p>
-
-            <blockquote className="mt-4 border-l-[2px] border-[#B08316] pl-3 font-display text-[14px] italic leading-[1.45] text-[#052E26] sm:mt-5 sm:pl-4 sm:text-[16px] sm:leading-[1.55]">
-              “Capital is not merely balance sheet fuel. It is a strategic
-              decision that shapes the next stage of a business.”
-              <span className="mt-1.5 block font-sans text-[9px] font-[600] uppercase tracking-[0.07em] text-[#765A23] sm:mt-2 sm:text-[11px] sm:tracking-[0.08em]">
-                — Vikram Singh & Rahul Mehra
-              </span>
-            </blockquote>
 
             {/* STATS */}
             <motion.div
@@ -190,6 +186,7 @@ export default function AboutFounderSection() {
                     <p className="font-display text-[16px] font-[600] leading-none text-[#052E26] sm:text-[18px]">
                       {value}
                     </p>
+
                     <p className="mt-1 font-sans text-[9px] font-[600] uppercase tracking-[0.05em] text-[#6B716E] sm:text-[10px] sm:tracking-[0.06em]">
                       {label}
                     </p>

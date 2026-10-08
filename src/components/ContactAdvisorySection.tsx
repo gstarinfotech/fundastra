@@ -64,7 +64,7 @@ export default function ContactAdvisorySection() {
               </span>
 
               <span className="font-sans text-[14px] font-[600] leading-[1.25] text-[#FBF9F6] sm:text-[17px] sm:leading-normal">
-                advisory@fundastra.com
+                hello@fundastra.in
               </span>
             </div>
 
@@ -74,7 +74,7 @@ export default function ContactAdvisorySection() {
               </span>
 
               <span className="font-sans text-[14px] font-[600] leading-[1.25] text-[#FBF9F6] sm:text-[17px] sm:leading-normal">
-                Mumbai • New Delhi • Bengaluru
+                Noida
               </span>
             </div>
 
