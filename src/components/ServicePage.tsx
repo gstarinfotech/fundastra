@@ -1746,7 +1746,7 @@ export default function ServicePage() {
         <main className="service-page-motion bg-[#FBF9F6]">
 
             {/* HERO */}
-            <section className="relative min-h-[620px] overflow-hidden sm:min-h-[802px] 2xl:min-h-[960px]">
+            <section className="relative min-h-[620px] overflow-hidden sm:min-h-[802px] xl:min-h-[850px] 2xl:min-h-[900px]">
                 <div className="absolute inset-0">
                     <Image
                         src={data.image}
@@ -1764,18 +1764,21 @@ export default function ServicePage() {
                 <Navbar />
 
                 <motion.div
-                    className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px] xl:max-w-[1400px] 2xl:max-w-[1700px] 2xl:pb-[220px] 2xl:pt-[230px]"
+                    className="relative z-10 mx-auto flex min-h-[620px] w-full max-w-[1200px] flex-col items-center justify-center px-4 pb-16 pt-24 text-center sm:min-h-screen sm:px-5 sm:pb-[170px] sm:pt-[190px] xl:max-w-[1350px] xl:px-8 xl:pt-[200px] 2xl:max-w-[1500px] 2xl:pt-[220px]"
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, amount: 0.25 }}
+                    viewport={{
+                        once: true,
+                        amount: 0.25,
+                    }}
                     variants={staggerContainer}
                 >
                     {/* EYEBROW */}
                     <motion.div
                         variants={smallBoxVariants}
-                        className="mb-3 inline-flex items-center rounded-full bg-white px-[19px] sm:mb-[26px] 2xl:mb-[34px] 2xl:px-[26px] 2xl:py-1"
+                        className="mb-3 inline-flex items-center rounded-full bg-white px-[19px] sm:mb-[26px] xl:mb-7"
                     >
-                        <span className="font-sans text-[17px] font-[800] tracking-[0.06em] text-[#052E26] xl:text-[19px] 2xl:text-[24px]">
+                        <span className="font-sans text-[17px] font-[800] tracking-[0.06em] text-[#052E26]">
                             {data.eyebrow}
                         </span>
                     </motion.div>
@@ -1783,7 +1786,7 @@ export default function ServicePage() {
                     {/* TITLE */}
                     <motion.h1
                         variants={smallBoxVariants}
-                        className="max-w-[636px] font-display text-[36px] font-[600] leading-[1.05] tracking-[-0.025em] text-[#FBF9F6] sm:text-[58px] lg:text-[64px] xl:max-w-[780px] xl:text-[76px] 2xl:max-w-[980px] 2xl:text-[96px]"
+                        className="max-w-[636px] font-display text-[36px] font-[600] leading-[1.05] tracking-[-0.025em] text-[#FBF9F6] sm:text-[58px] lg:text-[64px] xl:max-w-[850px] xl:text-[72px] 2xl:max-w-[1000px] 2xl:text-[82px]"
                     >
                         {data.title}
                     </motion.h1>
@@ -1791,7 +1794,7 @@ export default function ServicePage() {
                     {/* DESCRIPTION */}
                     <motion.p
                         variants={smallBoxVariants}
-                        className="mt-2 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-[28px] sm:text-[20px] xl:max-w-[1050px] xl:text-[22px] 2xl:mt-[36px] 2xl:max-w-[1250px] 2xl:text-[28px]"
+                        className="mt-2 max-w-[897px] font-sans text-[14px] font-[500] leading-[1.5] text-white sm:mt-[28px] sm:text-[20px] xl:mt-8 xl:max-w-[1050px] xl:text-[22px] 2xl:max-w-[1150px] 2xl:text-[24px]"
                     >
                         {data.description}
                     </motion.p>
@@ -1799,12 +1802,12 @@ export default function ServicePage() {
                     {/* BUTTONS */}
                     <motion.div
                         variants={staggerContainer}
-                        className="mt-4 flex w-full flex-col items-stretch justify-center gap-2 sm:mt-[38px] sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-[12px] 2xl:mt-[50px] 2xl:gap-[16px]"
+                        className="mt-4 flex w-full flex-col items-stretch justify-center gap-2 sm:mt-[38px] sm:w-auto sm:flex-row sm:flex-wrap sm:items-center sm:gap-[12px] xl:mt-10 xl:gap-4"
                     >
                         <motion.div variants={smallBoxVariants}>
                             <Link
                                 href="/contact"
-                                className="inline-flex h-[50px] items-center justify-center rounded-[7px] bg-white px-5 font-sans text-[14px] font-[600] text-[#0A271E] transition-opacity duration-200 hover:opacity-90 sm:px-[25px] sm:text-[17px] xl:h-[56px] xl:text-[19px] 2xl:h-[68px] 2xl:rounded-[9px] 2xl:px-[36px] 2xl:text-[23px]"
+                                className="inline-flex h-[50px] items-center justify-center rounded-[7px] bg-white px-5 font-sans text-[14px] font-[600] text-[#0A271E] transition-opacity duration-200 hover:opacity-90 sm:px-[25px] sm:text-[17px] xl:h-[56px] xl:px-8 xl:text-[18px]"
                             >
                                 Discuss Your Funding Requirement
                             </Link>
@@ -1813,45 +1816,48 @@ export default function ServicePage() {
                         <motion.div variants={smallBoxVariants}>
                             <Link
                                 href="#sub-services"
-                                className="inline-flex h-[50px] items-center justify-center gap-[7px] rounded-[7px] border border-white/20 bg-[#173329] px-5 font-sans text-[14px] font-[600] text-[#FBF9F6] backdrop-blur-sm transition-colors duration-200 hover:bg-[#3d625a] sm:px-[24px] sm:text-[17px] xl:h-[56px] xl:text-[19px] 2xl:h-[68px] 2xl:rounded-[9px] 2xl:px-[34px] 2xl:text-[23px]"
+                                className="inline-flex h-[50px] items-center justify-center gap-[7px] rounded-[7px] border border-white/20 bg-[#173329] px-5 font-sans text-[14px] font-[600] text-[#FBF9F6] backdrop-blur-sm transition-colors duration-200 hover:bg-[#3d625a] sm:px-[24px] sm:text-[17px] xl:h-[56px] xl:px-8 xl:text-[18px]"
                             >
                                 Explore Sub Services
-                                <span className="text-[15px] xl:text-[17px] 2xl:text-[21px]">↓</span>
+                                <span className="text-[15px]">↓</span>
                             </Link>
                         </motion.div>
                     </motion.div>
                 </motion.div>
 
                 {/* STATS */}
-                <div className="relative z-10 mx-auto -mt-12 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px] xl:max-w-[1360px] 2xl:-mt-[170px] 2xl:h-[220px] 2xl:max-w-[1640px]">
+                <div className="relative z-10 mx-auto -mt-12 h-auto max-w-[1184px] px-4 sm:-mt-[130px] sm:h-[170px] sm:px-5 xl:-mt-[140px] xl:max-w-[1350px] xl:px-8 2xl:-mt-[150px] 2xl:max-w-[1500px]">
                     <motion.div
                         variants={staggerContainer}
                         initial="hidden"
                         whileInView="visible"
-                        viewport={{ once: true, amount: 0.25 }}
-                        className="relative -top-4 grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:top-0 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4 2xl:rounded-[28px]"
+                        viewport={{
+                            once: true,
+                            amount: 0.25,
+                        }}
+                        className="relative -top-4 grid divide-y divide-white overflow-hidden rounded-[20px] border border-white bg-[#F5F2EC] shadow-[0_18px_24px_-12px_rgba(0,0,0,0.22)] sm:top-0 sm:grid-cols-2 sm:divide-y-0 sm:divide-x sm:divide-white lg:grid-cols-4"
                     >
                         {data.heroMetrics.map((m) => (
                             <motion.div
                                 key={m.label}
                                 variants={smallBoxVariants}
-                                className="min-h-[105px] w-full px-4 py-4 sm:h-[154px] sm:min-h-0 sm:px-[27px] sm:py-[32px] xl:h-[170px] xl:px-[32px] xl:py-[36px] 2xl:h-[210px] 2xl:px-[40px] 2xl:py-[44px]"
+                                className="min-h-[105px] w-full px-4 py-4 sm:h-[154px] sm:min-h-0 sm:px-[27px] sm:py-[32px] xl:px-8 xl:py-9 2xl:px-10"
                             >
-                                <p className="font-sans text-[11px] font-[700] uppercase tracking-[0.11em] text-[#8C9791] xl:text-[12px] 2xl:text-[15px]">
+                                <p className="font-sans text-[11px] font-[700] uppercase tracking-[0.11em] text-[#8C9791] xl:text-[12px]">
                                     {m.label}
                                 </p>
 
-                                <div className="mt-2 flex items-baseline font-display text-[36px] font-[700] leading-none text-brand-green sm:mt-[14px] sm:text-[50px] xl:text-[58px] 2xl:mt-[18px] 2xl:text-[72px]">
+                                <div className="mt-2 flex items-baseline font-display text-[36px] font-[700] leading-none text-brand-green sm:mt-[14px] sm:text-[50px] xl:mt-4 xl:text-[56px] 2xl:text-[62px]">
                                     {m.value}
 
                                     {m.suffix && (
-                                        <span className="relative -top-1 ml-0.5 text-[25px] font-[500] text-[#e8b43a] sm:-top-[6px] sm:ml-[2px] sm:text-[35px] xl:text-[40px] 2xl:text-[50px]">
+                                        <span className="relative -top-1 ml-0.5 text-[25px] font-[500] text-[#e8b43a] sm:-top-[6px] sm:ml-[2px] sm:text-[35px] xl:text-[39px] 2xl:text-[42px]">
                                             {m.suffix}
                                         </span>
                                     )}
 
                                     {m.unit && (
-                                        <span className="ml-1 font-display text-[21px] font-[500] text-[#5F6863] sm:ml-[6px] sm:text-[27px] xl:text-[31px] 2xl:ml-[8px] 2xl:text-[38px]">
+                                        <span className="ml-1 font-display text-[21px] font-[500] text-[#5F6863] sm:ml-[6px] sm:text-[27px] xl:text-[30px] 2xl:text-[34px]">
                                             {m.unit}
                                         </span>
                                     )}
@@ -1861,6 +1867,7 @@ export default function ServicePage() {
                     </motion.div>
                 </div>
             </section>
+
             {/* SUB-SERVICES HEADING */}
             <Reveal>
                 <section
