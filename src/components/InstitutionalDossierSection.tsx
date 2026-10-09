@@ -237,7 +237,7 @@ export default function InstitutionalDossierSection() {
 
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-xl lg:h-[542px] lg:aspect-auto">
             <Image
-              src="/contact-us.png"
+              src="/institutional.jpeg"
               alt="FUND ASTRA institutional advisory council"
               fill
               className="object-cover"

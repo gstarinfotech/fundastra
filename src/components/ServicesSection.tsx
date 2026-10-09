@@ -61,7 +61,7 @@ const SERVICES = [
     id: "asset-purchase",
     tab: "Asset Purchase",
     label: "PROPERTY & ASSET FINANCE",
-    title: "Funds for Asset Purchase",
+    title: "Asset Purchase",
     description:
       "Dedicated funding for residential and commercial property acquisition, structured around your income profile, property valuation, and long-term repayment capacity. We connect you with banks and housing finance partners to secure the best-fit facility.",
     facilities: [
@@ -72,7 +72,7 @@ const SERVICES = [
     ],
     button: "Explore Asset Purchase",
     href: "/services/asset-purchase",
-    image: "/asset-purchase-v2.png",
+    image: "/asset-purchase-new.png",
   },
 ];
 
