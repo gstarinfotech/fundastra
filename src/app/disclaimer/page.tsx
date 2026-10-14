@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ArrowLeft } from "lucide-react";
+import Footer from "@/components/Footer";
 
 const sections = [
     {
@@ -390,7 +391,7 @@ export default function DisclaimerPage() {
                     </div>
                 </div>
             </section>
-            <section className="border-t border-[#DCDAD5] bg-[#052E26] px-4 py-9 sm:px-6 sm:py-12 lg:px-[76px]">
+            {/* <section className="border-t border-[#DCDAD5] bg-[#052E26] px-4 py-9 sm:px-6 sm:py-12 lg:px-[76px]">
                 <div className="mx-auto flex max-w-[1216px] flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
                     <div>
                         <p className="font-sans text-[10px] font-[700] uppercase tracking-[0.14em] text-[#F3D596]">
@@ -415,7 +416,8 @@ export default function DisclaimerPage() {
                         Contact Us
                     </Link>
                 </div>
-            </section>
+            </section> */}
+            <Footer />
         </main>
     );
 }

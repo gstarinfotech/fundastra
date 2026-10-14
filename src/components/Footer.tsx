@@ -108,24 +108,24 @@ export default function Footer() {
             Advisory Partner.
           </p>
 
-          <div className="flex flex-wrap items-center gap-x-[20px] gap-y-[8px]">
+          <div className="flex flex-nowrap items-center gap-x-[12px] sm:flex-wrap sm:gap-x-[20px] gap-y-[8px]">
             <Link
               href="/privacy-policy"
-              className="font-sans text-[13px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100"
+              className="whitespace-nowrap font-sans text-[11px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100 sm:text-[13px]"
             >
               Privacy Policy
             </Link>
 
             <Link
               href="/terms-of-engagement"
-              className="font-sans text-[13px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100"
+              className="whitespace-nowrap font-sans text-[11px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100 sm:text-[13px]"
             >
               Terms of Engagement
             </Link>
 
             <Link
               href="/disclaimer"
-              className="font-sans text-[13px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100"
+              className="whitespace-nowrap font-sans text-[11px] font-[400] text-[#F6F4F1] transition-opacity hover:opacity-100 sm:text-[13px]"
             >
               Disclaimer
             </Link>
