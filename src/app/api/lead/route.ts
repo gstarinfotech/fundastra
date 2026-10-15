@@ -64,9 +64,20 @@ export async function POST(req: Request) {
         );
     }
 
-    // 2. Send the email only after PHP confirms the save.
+    // 2. Send email after PHP confirms that the lead was saved.
     try {
+        const smtpUser = process.env.SMTP_USER;
+        const smtpPass = process.env.SMTP_PASS;
+        const recipient = process.env.LEAD_TO;
         const port = Number(process.env.SMTP_PORT || 465);
+
+        if (!smtpUser || !smtpPass || !recipient || !process.env.SMTP_HOST) {
+            throw new Error("SMTP environment variables are missing");
+        }
+
+        console.log("System CA in Next.js:", process.env.NODE_USE_SYSTEM_CA);
+        console.log("SMTP host:", process.env.SMTP_HOST);
+        console.log("SMTP port:", process.env.SMTP_PORT);
 
         const transporter = nodemailer.createTransport({
             host: process.env.SMTP_HOST,
@@ -124,9 +135,9 @@ export async function POST(req: Request) {
         await transporter.sendMail({
             from: {
                 name: "Fundastra Website",
-                address: process.env.SMTP_USER!,
+                address: smtpUser,
             },
-            to: process.env.LEAD_TO,
+            to: recipient,
             replyTo: validEmail ? email : undefined,
             subject: `New Enquiry: ${safeSource} - ${name || "Website Visitor"}`,
             html: `
@@ -139,19 +150,34 @@ export async function POST(req: Request) {
         </div>`,
         });
 
-        return NextResponse.json({
-            ok: true,
-            message: "Lead saved and email sent successfully",
-            id: savedLead.id,
-        });
-    } catch (error) {
-        console.error("Lead email failed:", error);
+        console.log("Lead email sent successfully");
+
         return NextResponse.json({
             ok: true,
             saved: true,
-            emailSent: false,
-            message: "Lead saved, but email could not be sent",
+            emailSent: true,
+            message: "Lead saved and email sent successfully",
             id: savedLead.id,
         });
+    } catch (error: unknown) {
+        const err = error as Error & {
+            cause?: {
+                code?: string;
+                message?: string;
+            };
+        };
+
+        console.error("PHP API request failed:", {
+            message: err.message,
+            causeCode: err.cause?.code,
+            causeMessage: err.cause?.message,
+            apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
+            systemCA: process.env.NODE_USE_SYSTEM_CA,
+        });
+
+        return NextResponse.json(
+            { ok: false, error: "Could not connect to PHP API" },
+            { status: 502 }
+        );
     }
 }
