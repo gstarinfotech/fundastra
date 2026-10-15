@@ -82,7 +82,7 @@ export default function ContactHero() {
         <Navbar />
 
         <motion.div
-          className="relative z-10 max-w-[720px] px-4 pb-6 pt-32 sm:pb-20 sm:pt-55 lg:ml-[93px] lg:px-0"
+          className="relative z-10 max-w-[720px] px-4 pb-6 pt-26 sm:pb-20 sm:pt-45 lg:ml-[93px] lg:px-0"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

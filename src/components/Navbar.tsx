@@ -139,16 +139,16 @@ export default function Navbar() {
           fixed
           left-3
           right-3
-          top-4
+          top-[calc(1rem_+_var(--banner-offset,0px))]
           z-[9999]
 
           sm:left-5
           sm:right-5
-          sm:top-5
+          sm:top-[calc(1.25rem_+_var(--banner-offset,0px))]
 
           lg:left-1/2
           lg:right-auto
-          lg:top-7
+          lg:top-[calc(1.75rem_+_var(--banner-offset,0px))]
           lg:w-full
           lg:max-w-[1440px]
           lg:-translate-x-1/2

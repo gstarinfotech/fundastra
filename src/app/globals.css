@@ -5,6 +5,14 @@
   --foreground: #052e26;
   --color-brand-green: #052e26;
   --color-brand-cream: #fbf9f6;
+  --banner-h: 52px;
+  --banner-offset: var(--banner-h);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --banner-h: 54px;
+  }
 }
 
 @theme inline {
