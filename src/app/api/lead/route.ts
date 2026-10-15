@@ -1,8 +1,36 @@
-
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 export const runtime = "nodejs";
+
+type ErrWithCause = Error & {
+    cause?: { code?: string; message?: string };
+};
+
+function describeError(error: unknown) {
+    const err = error as ErrWithCause;
+    return {
+        message: err?.message,
+        causeCode: err?.cause?.code,
+        causeMessage: err?.cause?.message,
+    };
+}
+
+const escapeHtml = (value: unknown) =>
+    String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;")
+        .replace(/\r?\n/g, "<br>");
+
+const pretty = (key: string) =>
+    key
+        .replace(/_/g, " ")
+        .replace(/([A-Z])/g, " $1")
+        .replace(/^./, (c) => c.toUpperCase())
+        .trim();
 
 export async function POST(req: Request) {
     let input: Record<string, unknown>;
@@ -25,89 +53,90 @@ export async function POST(req: Request) {
         );
     }
 
-    // 1. Save the lead through the existing PHP endpoint.
+    // ------------------------------------------------------------
+    // 1. Save the lead through the PHP endpoint (best effort).
+    //    If PHP is down, we still try to send the email so the lead is not lost.
+    // ------------------------------------------------------------
+    let saved = false;
+    let phpMailSent = false;
+    let leadId: unknown = undefined;
+
     const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL?.replace(/\/+$/, "");
 
     if (!baseUrl) {
-        return NextResponse.json(
-            { ok: false, error: "PHP API URL is not configured" },
-            { status: 500 }
-        );
-    }
+        console.error("[lead] NEXT_PUBLIC_API_BASE_URL is missing (set it in .env and rebuild)");
+    } else {
+        try {
+            const response = await fetch(`${baseUrl}/submit-lead.php`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(input),
+                cache: "no-store",
+                signal: AbortSignal.timeout(15000),
+            });
 
-    let savedLead: Record<string, unknown>;
+            const text = await response.text();
+            let data: { ok?: boolean; id?: unknown; mailSent?: boolean } | null = null;
 
-    try {
-        const response = await fetch(`${baseUrl}/submit-lead.php`, {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(input),
-            cache: "no-store",
-        });
+            try {
+                data = JSON.parse(text);
+            } catch {
+                data = null;
+            }
 
-        savedLead = await response.json();
-
-        if (!response.ok || savedLead.ok !== true) {
-            console.error("PHP lead save failed:", savedLead);
-
-            return NextResponse.json(
-                { ok: false, error: "Could not save lead" },
-                { status: 502 }
-            );
+            if (response.ok && data?.ok === true) {
+                saved = true;
+                leadId = data.id;
+                phpMailSent = data.mailSent === true;
+            } else {
+                console.error("[lead] PHP save failed", {
+                    url: `${baseUrl}/submit-lead.php`,
+                    status: response.status,
+                    body: text.slice(0, 300),
+                });
+            }
+        } catch (error) {
+            console.error("[lead] PHP request failed", {
+                url: `${baseUrl}/submit-lead.php`,
+                ...describeError(error),
+            });
         }
-    } catch (error) {
-        console.error("PHP API request failed:", error);
-
-        return NextResponse.json(
-            { ok: false, error: "Could not connect to PHP API" },
-            { status: 502 }
-        );
     }
 
-    // 2. Send email after PHP confirms that the lead was saved.
-    try {
+    // ------------------------------------------------------------
+    // 2. Send the notification email.
+    // ------------------------------------------------------------
+    // If the PHP server already sent the email, skip Nodemailer.
+    let emailSent = phpMailSent;
+
+    if (!emailSent) try {
         const smtpUser = process.env.SMTP_USER;
         const smtpPass = process.env.SMTP_PASS;
+        const smtpHost = process.env.SMTP_HOST;
         const recipient = process.env.LEAD_TO;
         const port = Number(process.env.SMTP_PORT || 465);
 
-        if (!smtpUser || !smtpPass || !recipient || !process.env.SMTP_HOST) {
+        if (!smtpUser || !smtpPass || !smtpHost || !recipient) {
             throw new Error("SMTP environment variables are missing");
         }
 
-        console.log("System CA in Next.js:", process.env.NODE_USE_SYSTEM_CA);
-        console.log("SMTP host:", process.env.SMTP_HOST);
-        console.log("SMTP port:", process.env.SMTP_PORT);
-
         const transporter = nodemailer.createTransport({
-            host: process.env.SMTP_HOST,
+            host: smtpHost,
             port,
             secure: port === 465,
-            auth: {
-                user: process.env.SMTP_USER,
-                pass: process.env.SMTP_PASS,
-            },
+            auth: { user: smtpUser, pass: smtpPass },
+            tls: { servername: smtpHost },
+            connectionTimeout: 15000,
+            greetingTimeout: 15000,
+            socketTimeout: 20000,
         });
 
-        const name = String(input.fullName ?? input.name ?? "").trim();
+        const name = String(input.fullName ?? input.name ?? "")
+            .replace(/[\r\n]/g, " ")
+            .trim();
         const email = String(input.email ?? "").trim();
         const safeSource = source.replace(/[\r\n]/g, "");
-
-        const escapeHtml = (value: unknown) =>
-            String(value ?? "")
-                .replace(/&/g, "&amp;")
-                .replace(/</g, "&lt;")
-                .replace(/>/g, "&gt;")
-                .replace(/"/g, "&quot;")
-                .replace(/'/g, "&#39;")
-                .replace(/\r?\n/g, "<br>");
-
-        const pretty = (key: string) =>
-            key
-                .replace(/_/g, " ")
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (c) => c.toUpperCase())
-                .trim();
+        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
         const rows = Object.entries(input)
             .filter(([key]) => key !== "submittedAt")
@@ -130,8 +159,6 @@ export async function POST(req: Request) {
             })
             .join("");
 
-        const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-
         await transporter.sendMail({
             from: {
                 name: "Fundastra Website",
@@ -150,34 +177,36 @@ export async function POST(req: Request) {
         </div>`,
         });
 
-        console.log("Lead email sent successfully");
-
-        return NextResponse.json({
-            ok: true,
-            saved: true,
-            emailSent: true,
-            message: "Lead saved and email sent successfully",
-            id: savedLead.id,
+        emailSent = true;
+    } catch (error) {
+        console.error("[lead] Email failed", {
+            smtpHost: process.env.SMTP_HOST,
+            smtpPort: process.env.SMTP_PORT,
+            ...describeError(error),
         });
-    } catch (error: unknown) {
-        const err = error as Error & {
-            cause?: {
-                code?: string;
-                message?: string;
-            };
-        };
+    }
 
-        console.error("PHP API request failed:", {
-            message: err.message,
-            causeCode: err.cause?.code,
-            causeMessage: err.cause?.message,
-            apiBaseUrl: process.env.NEXT_PUBLIC_API_BASE_URL,
-            systemCA: process.env.NODE_USE_SYSTEM_CA,
-        });
-
+    // ------------------------------------------------------------
+    // 3. Respond
+    // ------------------------------------------------------------
+    if (!saved && !emailSent) {
         return NextResponse.json(
-            { ok: false, error: "Could not connect to PHP API" },
+            {
+                ok: false,
+                error:
+                    "We could not submit your enquiry right now. Please try again or email us at hello@fundastra.in.",
+            },
             { status: 502 }
         );
     }
+
+    return NextResponse.json({
+        ok: true,
+        saved,
+        emailSent,
+        id: leadId,
+        message: emailSent
+            ? "Lead received and email sent"
+            : "Lead saved, but email could not be sent",
+    });
 }
