@@ -34,10 +34,10 @@ const TRAILING_LINKS = [
     label: "OUR PARTNERS",
     href: "/partners",
   },
-  // {
-  //   label: "BLOGS",
-  //   href: "/blogs",
-  // },
+  {
+    label: "BLOGS",
+    href: "/blogs",
+  },
 ];
 
 export default function Navbar() {
