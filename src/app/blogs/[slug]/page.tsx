@@ -21,6 +21,11 @@ type BlogPost = {
     metaTitle: string;
     metaDescription: string;
     canonicalUrl: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    robotsIndex?: boolean;
+    robotsFollow?: boolean;
 };
 
 function toBlogPost(blog: PublicBlog): BlogPost {
@@ -39,6 +44,11 @@ function toBlogPost(blog: PublicBlog): BlogPost {
         metaTitle: blog.metaTitle,
         metaDescription: blog.metaDescription,
         canonicalUrl: blog.canonicalUrl,
+        ogTitle: blog.ogTitle,
+        ogDescription: blog.ogDescription,
+        ogImage: blog.ogImage,
+        robotsIndex: blog.robotsIndex,
+        robotsFollow: blog.robotsFollow,
     };
 }
 
@@ -56,10 +66,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         title: blog.metaTitle || `${blog.title} | Fund Astra`,
         description: blog.metaDescription || blog.description,
         alternates: { canonical: blog.canonicalUrl || `https://fundastra.in/blogs/${blog.slug}` },
+        robots: {
+            index: blog.robotsIndex !== false,
+            follow: blog.robotsFollow !== false,
+        },
         openGraph: {
-            title: blog.metaTitle || blog.title,
-            description: blog.metaDescription || blog.description,
-            images: blog.image ? [blog.image] : undefined,
+            title: blog.ogTitle || blog.metaTitle || blog.title,
+            description: blog.ogDescription || blog.metaDescription || blog.description,
+            images: blog.ogImage ? [blog.ogImage] : blog.image ? [blog.image] : undefined,
             type: "article",
         },
     };

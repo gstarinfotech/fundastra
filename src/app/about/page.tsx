@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+import { getManagedMetadata } from "@/lib/admin-api";
 import AboutFounderSection from "@/components/AboutFounderSection";
 import AboutHero from "@/components/AboutHero";
 import ContactAdvisorySection from "@/components/ContactAdvisorySection";
@@ -36,6 +38,14 @@ const ABOUT_FAQS = [
       "We typically structure mandates ranging from ₹5 Cr working capital lines to ₹100 Cr+ institutional syndications, spanning SME funding, structured debt, and growth equity.",
   },
 ];
+
+export async function generateMetadata(): Promise<Metadata> {
+  return getManagedMetadata("/about", {
+    title: "About Fund Astra | Capital Advisory",
+    description: "Learn about Fund Astra, its capital advisory approach and institutional funding expertise.",
+    metadataBase: new URL("https://fundastra.in"),
+  });
+}
 
 export default function AboutPage() {
   return (
