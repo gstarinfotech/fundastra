@@ -44,11 +44,11 @@ function toBlogPost(blog: PublicBlog): BlogPost {
         metaTitle: blog.metaTitle,
         metaDescription: blog.metaDescription,
         canonicalUrl: blog.canonicalUrl,
-        ogTitle: blog.ogTitle,
-        ogDescription: blog.ogDescription,
-        ogImage: blog.ogImage,
-        robotsIndex: blog.robotsIndex,
-        robotsFollow: blog.robotsFollow,
+        ogTitle?: string;
+        ogDescription?: string;
+        ogImage?: string;
+        robotsIndex?: boolean;
+        robotsFollow?: boolean;
     };
 }
 
