@@ -2,7 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Fragment } from "react";
+import { Fragment, useState, type FormEvent } from "react";
 import Navbar from "@/components/Navbar";
 import ContactAdvisorySection from "./ContactAdvisorySection";
 import Footer from "./Footer";
@@ -12,6 +12,7 @@ import CreditFacilitiesSection from "./CreditFacilitiesSection";
 import PropertyPurchaseCard from "./PropertyPurchaseCard";
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { submitLead } from "@/lib/leads";
 
 type IconName =
     | "percent"
@@ -1741,6 +1742,33 @@ export default function ServicePage() {
     const pathname = usePathname() || "";
     const serviceKey = resolveServiceKey(pathname);
     const data = SERVICE_DATA[serviceKey];
+    const [leadStatus, setLeadStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+    const [leadError, setLeadError] = useState("");
+
+    const handleMandateSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const formData = new FormData(form);
+        const fields = Object.fromEntries(
+            Array.from(formData.entries()).map(([key, value]) => [key, String(value)])
+        );
+
+        setLeadStatus("loading");
+        setLeadError("");
+
+        try {
+            await submitLead(`service_mandate_${serviceKey}`, {
+                servicePath: pathname,
+                serviceName: data.title,
+                ...fields,
+            });
+            setLeadStatus("success");
+            form.reset();
+        } catch (error) {
+            setLeadStatus("error");
+            setLeadError(error instanceof Error ? error.message : "Something went wrong. Please try again.");
+        }
+    };
 
     return (
         <main className="service-page-motion bg-[#FBF9F6]">
@@ -2168,130 +2196,148 @@ export default function ServicePage() {
                                 variants={staggerContainer}
                                 className="min-w-0"
                             >
-                                <motion.div
-                                    variants={staggerContainer}
-                                    className="grid w-full grid-cols-1 gap-x-[14px] gap-y-[14px] sm:grid-cols-2"
-                                >
-                                    {data.mandate.fields.map((field) => (
+                                <form onSubmit={handleMandateSubmit}>
+                                    <motion.div
+                                        variants={staggerContainer}
+                                        className="grid w-full grid-cols-1 gap-x-[14px] gap-y-[14px] sm:grid-cols-2"
+                                    >
+                                        {data.mandate.fields.map((field) => (
+                                            <motion.div
+                                                key={field.id}
+                                                variants={smallBoxVariants}
+                                                className="min-w-0"
+                                            >
+                                                <label
+                                                    htmlFor={field.id}
+                                                    className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
+                                                >
+                                                    {field.label}
+                                                    {field.required && " *"}
+                                                </label>
+
+                                                <input
+                                                    id={field.id}
+                                                    name={field.id}
+                                                    type={field.type}
+                                                    required={field.required}
+                                                    placeholder={field.placeholder}
+                                                    className="h-[46px] w-full rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
+                                                />
+                                            </motion.div>
+                                        ))}
+
                                         <motion.div
-                                            key={field.id}
                                             variants={smallBoxVariants}
                                             className="min-w-0"
                                         >
                                             <label
-                                                htmlFor={field.id}
+                                                htmlFor="selectedSubService"
                                                 className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
                                             >
-                                                {field.label}
-                                                {field.required && " *"}
+                                                {data.mandate.subService.label}
+                                                {data.mandate.subService.required && " *"}
                                             </label>
 
-                                            <input
-                                                id={field.id}
-                                                name={field.id}
-                                                type={field.type}
-                                                placeholder={field.placeholder}
-                                                className="h-[46px] w-full rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
-                                            />
-                                        </motion.div>
-                                    ))}
-
-                                    <motion.div
-                                        variants={smallBoxVariants}
-                                        className="min-w-0"
-                                    >
-                                        <label
-                                            htmlFor="selectedSubService"
-                                            className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
-                                        >
-                                            {data.mandate.subService.label}
-                                            {data.mandate.subService.required && " *"}
-                                        </label>
-
-                                        <select
-                                            id="selectedSubService"
-                                            name="selectedSubService"
-                                            defaultValue={data.mandate.subService.options[0]}
-                                            className="h-[46px] w-full appearance-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none focus:border-[#A88954]"
-                                        >
-                                            {data.mandate.subService.options.map((option) => (
-                                                <option key={option} value={option}>
-                                                    {option}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </motion.div>
-
-                                    <motion.div
-                                        variants={smallBoxVariants}
-                                        className="min-w-0"
-                                    >
-                                        <label
-                                            htmlFor="capitalRequirement"
-                                            className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
-                                        >
-                                            {data.mandate.capitalRequirement.label}
-                                            {data.mandate.capitalRequirement.required && " *"}
-                                        </label>
-
-                                        <select
-                                            id="capitalRequirement"
-                                            name="capitalRequirement"
-                                            defaultValue={
-                                                data.mandate.capitalRequirement.options[0]
-                                            }
-                                            className="h-[46px] w-full appearance-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none focus:border-[#A88954]"
-                                        >
-                                            {data.mandate.capitalRequirement.options.map(
-                                                (option) => (
+                                            <select
+                                                id="selectedSubService"
+                                                name="selectedSubService"
+                                                defaultValue={data.mandate.subService.options[0]}
+                                                required={data.mandate.subService.required}
+                                                className="h-[46px] w-full appearance-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none focus:border-[#A88954]"
+                                            >
+                                                {data.mandate.subService.options.map((option) => (
                                                     <option key={option} value={option}>
                                                         {option}
                                                     </option>
-                                                ),
-                                            )}
-                                        </select>
+                                                ))}
+                                            </select>
+                                        </motion.div>
+
+                                        <motion.div
+                                            variants={smallBoxVariants}
+                                            className="min-w-0"
+                                        >
+                                            <label
+                                                htmlFor="capitalRequirement"
+                                                className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
+                                            >
+                                                {data.mandate.capitalRequirement.label}
+                                                {data.mandate.capitalRequirement.required && " *"}
+                                            </label>
+
+                                            <select
+                                                id="capitalRequirement"
+                                                name="capitalRequirement"
+                                                defaultValue={
+                                                    data.mandate.capitalRequirement.options[0]
+                                                }
+                                                required={data.mandate.capitalRequirement.required}
+                                                className="h-[46px] w-full appearance-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] font-sans text-[12px] text-[#061812] outline-none focus:border-[#A88954]"
+                                            >
+                                                {data.mandate.capitalRequirement.options.map(
+                                                    (option) => (
+                                                        <option key={option} value={option}>
+                                                            {option}
+                                                        </option>
+                                                    ),
+                                                )}
+                                            </select>
+                                        </motion.div>
                                     </motion.div>
-                                </motion.div>
 
-                                <motion.div
-                                    variants={smallBoxVariants}
-                                    className="mt-3 w-full sm:mt-[14px]"
-                                >
-                                    <label
-                                        htmlFor="businessOverview"
-                                        className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
+                                    <motion.div
+                                        variants={smallBoxVariants}
+                                        className="mt-3 w-full sm:mt-[14px]"
                                     >
-                                        {data.mandate.overview.label}
-                                        {data.mandate.overview.required && " *"}
-                                        {!data.mandate.overview.required && " (Optional)"}
-                                    </label>
+                                        <label
+                                            htmlFor="businessOverview"
+                                            className="mb-[8px] block font-sans text-[12px] font-[600] text-[#061812]"
+                                        >
+                                            {data.mandate.overview.label}
+                                            {data.mandate.overview.required && " *"}
+                                            {!data.mandate.overview.required && " (Optional)"}
+                                        </label>
 
-                                    <textarea
-                                        id="businessOverview"
-                                        name="businessOverview"
-                                        placeholder={data.mandate.overview.placeholder}
-                                        className="h-[94px] w-full resize-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] py-[10px] font-sans text-[14px] leading-[1.4] text-[#27483d] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
-                                    />
-                                </motion.div>
+                                        <textarea
+                                            id="businessOverview"
+                                            name="businessOverview"
+                                            required={data.mandate.overview.required}
+                                            placeholder={data.mandate.overview.placeholder}
+                                            className="h-[94px] w-full resize-none rounded-[8px] border border-[#DEDAD3] bg-[#F1EFEB] px-[12px] py-[10px] font-sans text-[14px] leading-[1.4] text-[#27483d] outline-none placeholder:text-[#A8AAA6] focus:border-[#A88954]"
+                                        />
+                                    </motion.div>
 
-                                <motion.button
-                                    variants={smallBoxVariants}
-                                    type="button"
-                                    className="mt-5 flex h-[45px] w-full items-center justify-center rounded-[8px] border border-[#A88954] bg-[#052E26] font-sans text-[14px] font-[600] text-white shadow-[0_6px_12px_rgba(0,0,0,0.12)] transition-opacity duration-200 hover:opacity-90 sm:mt-[25px]"
-                                >
-                                    {data.mandate.submitButton}
+                                    <motion.button
+                                        variants={smallBoxVariants}
+                                        type="submit"
+                                        disabled={leadStatus === "loading"}
+                                        className="mt-5 flex h-[45px] w-full items-center justify-center rounded-[8px] border border-[#A88954] bg-[#052E26] font-sans text-[14px] font-[600] text-white shadow-[0_6px_12px_rgba(0,0,0,0.12)] transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60 sm:mt-[25px]"
+                                    >
+                                        {leadStatus === "loading" ? "Submitting..." : data.mandate.submitButton}
 
-                                    <span className="ml-[7px] text-[#D4AF37]">
-                                        ♧
-                                    </span>
-                                </motion.button>
+                                        <span className="ml-[7px] text-[#D4AF37]">
+                                            ♧
+                                        </span>
+                                    </motion.button>
 
-                                <motion.p
-                                    variants={smallBoxVariants}
-                                    className="mt-[10px] text-center font-sans text-[11px] font-[400] text-[#424845] sm:mt-[12px]"
-                                >
-                                    {data.mandate.disclaimer}
-                                </motion.p>
+                                    {leadStatus === "success" && (
+                                        <p className="mt-3 text-center font-sans text-[12px] font-medium text-emerald-700">
+                                            Thank you. Your mandate enquiry has been submitted successfully.
+                                        </p>
+                                    )}
+                                    {leadStatus === "error" && (
+                                        <p className="mt-3 text-center font-sans text-[12px] font-medium text-red-600">
+                                            {leadError}
+                                        </p>
+                                    )}
+
+                                    <motion.p
+                                        variants={smallBoxVariants}
+                                        className="mt-[10px] text-center font-sans text-[11px] font-[400] text-[#424845] sm:mt-[12px]"
+                                    >
+                                        {data.mandate.disclaimer}
+                                    </motion.p>
+                                </form>
                             </motion.div>
 
                         </div>

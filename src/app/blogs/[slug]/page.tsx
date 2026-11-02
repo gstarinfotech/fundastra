@@ -4,12 +4,9 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { notFound } from "next/navigation";
+import { blogContentBlocks, getPublishedBlog, type PublicBlog } from "@/lib/admin-api";
 
-type BlogContentBlock =
-    | { type: "heading"; text: string; level?: 2 | 3 }
-    | { type: "paragraph"; text: string }
-    | { type: "image"; src: string; alt: string; caption?: string }
-    | { type: "list"; items: string[] };
+type Props = { params: Promise<{ slug: string }> };
 
 type BlogPost = {
     slug: string;
@@ -18,137 +15,51 @@ type BlogPost = {
     readTime: string;
     title: string;
     description: string;
-    image: string; // One main featured image for the listing card and article hero
+    image: string;
     imageAlt: string;
-    content: BlogContentBlock[]; // Add as many content blocks as needed, in any order
+    content: ReturnType<typeof blogContentBlocks>;
+    metaTitle: string;
+    metaDescription: string;
+    canonicalUrl: string;
 };
 
-const blogs: BlogPost[] = [
-    {
-        slug: "sme-funding",
-        category: "SME FUNDING",
-        date: "October 30, 2026",
-        readTime: "5 min read",
-        title: "SME Funding: A Practical Guide to Financing Business Growth",
-        description:
-            "Understand the funding options available to growing businesses and how to choose the right financing structure.",
-        image: "/smefunding.jpg",
-        imageAlt: "SME funding and business growth",
-        content: [
-            {
-                type: "paragraph",
-                text: "Small and medium-sized enterprises play an important role in economic growth. As businesses expand, their financial requirements also evolve. Whether it is managing working capital, purchasing equipment or entering new markets, having access to the right funding can make a significant difference.",
-            },
-            {
-                type: "heading",
-                text: "Understanding SME Funding",
-            },
-            {
-                type: "paragraph",
-                text: "SME funding refers to financial assistance provided to small and medium-sized businesses to support their operational requirements, expansion plans and long-term growth.",
-            },
-            {
-                type: "paragraph",
-                text: "Businesses can explore different financing options depending on their requirements, financial performance, repayment capacity and available security.",
-            },
+function toBlogPost(blog: PublicBlog): BlogPost {
+    const blocks = blogContentBlocks(blog);
+    const words = `${blog.content || ""} ${JSON.stringify(blocks)}`.trim().split(/\s+/).filter(Boolean).length;
+    return {
+        slug: blog.slug,
+        category: "FINANCIAL INSIGHTS",
+        date: blog.publishedAt ? new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "long", year: "numeric" }).format(new Date(blog.publishedAt)) : "Recently published",
+        readTime: `${Math.max(1, Math.ceil(words / 200))} min read`,
+        title: blog.title,
+        description: blog.excerpt,
+        image: blog.featuredImage,
+        imageAlt: blog.title,
+        content: blocks,
+        metaTitle: blog.metaTitle,
+        metaDescription: blog.metaDescription,
+        canonicalUrl: blog.canonicalUrl,
+    };
+}
 
-            {
-                type: "image",
-                src: "/service1-2.png",
-                alt: "Business financial planning",
-                caption:
-                    "Planning the right financial structure for sustainable business growth.",
-            },
-
-            {
-                type: "heading",
-                text: "Types of SME Funding Options",
-            },
-            {
-                type: "paragraph",
-                text: "There are several financing options available to businesses. Selecting the right option depends on the purpose of funding and the financial position of the business.",
-            },
-            {
-                type: "list",
-                items: [
-                    "Working Capital Finance – To manage daily operational expenses.",
-                    "Term Loans – To purchase machinery, equipment and business assets.",
-                    "Loan Against Property – To access secured business financing.",
-                    "Structured Debt – For specific and customised financing requirements.",
-                    "Equity Funding – To raise capital by bringing in investors.",
-                ],
-            },
-            {
-                type: "heading",
-                text: "Factors to Consider Before Choosing Funding",
-            },
-            {
-                type: "paragraph",
-                text: "Before selecting a financing option, businesses should evaluate their financial requirements and repayment capacity. Interest rates, repayment tenure, processing fees, collateral requirements and other applicable terms should be carefully reviewed.",
-            },
-            {
-                type: "list",
-                items: [
-                    "Clearly define the purpose of funding.",
-                    "Evaluate existing financial obligations.",
-                    "Compare available financing structures.",
-                    "Understand repayment terms and associated costs.",
-                ],
-            },
-            {
-                type: "heading",
-                text: "Preparing Your Business for Funding",
-            },
-            {
-                type: "paragraph",
-                text: "A well-organised financial profile can help businesses prepare for discussions with lenders and financing partners. Financial statements, bank statements, GST records, business projections and details of existing borrowings may be required during the assessment process.",
-            },
-
-            {
-                type: "image",
-                src: "/smefunding.jpg",
-                alt: "Business funding discussion",
-                caption: "A clear funding plan can support informed business decisions.",
-            },
-
-            {
-                type: "heading",
-                text: "Conclusion",
-            },
-            {
-                type: "paragraph",
-                text: "Choosing the right funding structure is an important step towards sustainable business growth. Understanding the available options and evaluating them against business requirements can help owners make informed financial decisions.",
-            },
-            {
-                type: "paragraph",
-                text: "With the right financial guidance, businesses can explore suitable funding opportunities and plan their next stage of growth.",
-            },
-        ],
-    },
-];
-
-type Props = {
-    params: Promise<{ slug: string }>;
-};
+async function loadBlog(slug: string) {
+    const record = await getPublishedBlog(slug);
+    return record ? toBlogPost(record) : null;
+}
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
-    const blog = blogs.find((item) => item.slug === slug);
-
-    if (!blog) {
-        return { title: "Article Not Found | Fund Astra" };
-    }
+    const blog = await loadBlog(slug);
+    if (!blog) return { title: "Article Not Found | Fund Astra", robots: { index: false, follow: false } };
 
     return {
-        title: `${blog.title} | Fund Astra`,
-        description: blog.description,
-        alternates: {
-            canonical: `https://fundastra.in/blogs/${blog.slug}`,
-        },
+        title: blog.metaTitle || `${blog.title} | Fund Astra`,
+        description: blog.metaDescription || blog.description,
+        alternates: { canonical: blog.canonicalUrl || `https://fundastra.in/blogs/${blog.slug}` },
         openGraph: {
-            title: blog.title,
-            description: blog.description,
-            images: [blog.image],
+            title: blog.metaTitle || blog.title,
+            description: blog.metaDescription || blog.description,
+            images: blog.image ? [blog.image] : undefined,
             type: "article",
         },
     };
@@ -156,8 +67,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function SingleBlogPage({ params }: Props) {
     const { slug } = await params;
-    const blog = blogs.find((item) => item.slug === slug);
-
+    const blog = await loadBlog(slug);
     if (!blog) notFound();
 
     return (
@@ -190,18 +100,21 @@ export default async function SingleBlogPage({ params }: Props) {
             </section>
 
             {/* ONE MAIN FEATURED IMAGE */}
-            <section className="px-5 sm:px-8 lg:px-12">
-                <div className="relative mx-auto aspect-[16/8] max-w-[1100px] overflow-hidden rounded-[8px] bg-[#E8EAE5]">
-                    <Image
-                        src={blog.image}
-                        alt={blog.imageAlt}
-                        fill
-                        priority
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 1100px"
-                    />
-                </div>
-            </section>
+            {blog.image && (
+                <section className="px-5 sm:px-8 lg:px-12">
+                    <div className="relative mx-auto aspect-[16/8] max-w-[1100px] overflow-hidden rounded-[8px] bg-[#E8EAE5]">
+                        <Image
+                            src={blog.image}
+                            alt={blog.imageAlt}
+                            fill
+                            priority
+                            unoptimized
+                            className="object-cover"
+                            sizes="(max-width: 768px) 100vw, 1100px"
+                        />
+                    </div>
+                </section>
+            )}
 
             {/* FLEXIBLE ARTICLE CONTENT: paragraphs, headings, lists and any number of images */}
             <article className="px-5 pb-16 pt-12 sm:px-8 sm:pt-16 lg:px-12">
@@ -251,24 +164,18 @@ export default async function SingleBlogPage({ params }: Props) {
                             );
                         }
 
-                        return (
-                            <figure key={index} className="my-8">
-                                <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[8px] bg-[#E8EAE5]">
-                                    <Image
-                                        src={block.src}
-                                        alt={block.alt}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 780px) 100vw, 780px"
-                                    />
-                                </div>
-                                {block.caption && (
-                                    <figcaption className="mt-3 text-center font-sans text-[13px] leading-relaxed text-[#718078]">
-                                        {block.caption}
-                                    </figcaption>
-                                )}
-                            </figure>
-                        );
+                        if (block.type === "image") {
+                            if (!block.src) return null;
+                            return (
+                                <figure key={index} className="my-8">
+                                    <div className="relative aspect-[16/9] w-full overflow-hidden rounded-[8px] bg-[#E8EAE5]">
+                                        <Image src={block.src} alt={block.alt} fill unoptimized className="object-cover" sizes="(max-width: 780px) 100vw, 780px" />
+                                    </div>
+                                    {block.caption && <figcaption className="mt-3 text-center font-sans text-[13px] leading-relaxed text-[#718078]">{block.caption}</figcaption>}
+                                </figure>
+                            );
+                        }
+                        return null;
                     })}
 
                     {/* CONTACT CTA */}
