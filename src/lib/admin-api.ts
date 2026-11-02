@@ -69,6 +69,41 @@ export function getPageSeo(path: string) {
     );
 }
 
+export type TrackingSettings = {
+    enabled: boolean;
+    headCode: string;
+    bodyStartCode: string;
+    bodyEndCode: string;
+};
+
+const DEFAULT_TRACKING_SETTINGS: TrackingSettings = {
+    enabled: true,
+    headCode: `<script async src="https://www.googletagmanager.com/gtag/js?id=G-Y560F8W6VL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){window.dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-Y560F8W6VL');
+</script>`,
+    bodyStartCode: "",
+    bodyEndCode: "",
+};
+
+export async function getTrackingSettings(): Promise<TrackingSettings> {
+    const settings = await publicGet<TrackingSettings>("/tracking");
+
+    if (!settings) {
+        return DEFAULT_TRACKING_SETTINGS;
+    }
+
+    return {
+        enabled: settings.enabled ?? true,
+        headCode: settings.headCode ?? "",
+        bodyStartCode: settings.bodyStartCode ?? "",
+        bodyEndCode: settings.bodyEndCode ?? "",
+    };
+}
+
 export function getPublishedBlogs() {
     return publicGet<PublicBlog[]>("/blogs").then(
         (rows) => rows ?? []
