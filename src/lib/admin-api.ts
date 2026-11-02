@@ -32,6 +32,11 @@ export type PublicBlog = {
     metaTitle: string;
     metaDescription: string;
     canonicalUrl: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    robotsIndex?: boolean;
+    robotsFollow?: boolean;
     publishedAt: string | null;
 };
 

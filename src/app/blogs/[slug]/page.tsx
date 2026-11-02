@@ -30,11 +30,21 @@ type BlogPost = {
 
 function toBlogPost(blog: PublicBlog): BlogPost {
     const blocks = blogContentBlocks(blog);
-    const words = `${blog.content || ""} ${JSON.stringify(blocks)}`.trim().split(/\s+/).filter(Boolean).length;
+    const words = `${blog.content || ""} ${JSON.stringify(blocks)}`
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean).length;
+
     return {
         slug: blog.slug,
         category: "FINANCIAL INSIGHTS",
-        date: blog.publishedAt ? new Intl.DateTimeFormat("en-IN", { day: "2-digit", month: "long", year: "numeric" }).format(new Date(blog.publishedAt)) : "Recently published",
+        date: blog.publishedAt
+            ? new Intl.DateTimeFormat("en-IN", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+            }).format(new Date(blog.publishedAt))
+            : "Recently published",
         readTime: `${Math.max(1, Math.ceil(words / 200))} min read`,
         title: blog.title,
         description: blog.excerpt,
@@ -44,11 +54,11 @@ function toBlogPost(blog: PublicBlog): BlogPost {
         metaTitle: blog.metaTitle,
         metaDescription: blog.metaDescription,
         canonicalUrl: blog.canonicalUrl,
-        ogTitle?: string;
-        ogDescription?: string;
-        ogImage?: string;
-        robotsIndex?: boolean;
-        robotsFollow?: boolean;
+        ogTitle: blog.ogTitle || blog.metaTitle || blog.title,
+        ogDescription: blog.ogDescription || blog.metaDescription || blog.excerpt,
+        ogImage: blog.ogImage || blog.featuredImage,
+        robotsIndex: blog.robotsIndex ?? true,
+        robotsFollow: blog.robotsFollow ?? true,
     };
 }
 
