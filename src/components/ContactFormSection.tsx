@@ -11,6 +11,7 @@ import {
   Lock,
 } from "lucide-react";
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/leads";
 
 type Status = "idle" | "loading" | "success" | "error";
@@ -44,6 +45,7 @@ const INFO_CARDS = [
 ];
 
 export default function ContactFormSection() {
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -85,8 +87,8 @@ export default function ContactFormSection() {
         ),
       });
 
-      setStatus("success");
-      form.reset();
+      router.push("/thank-you");
+      return;
     } catch (error) {
       setStatus("error");
 
@@ -307,15 +309,15 @@ export default function ContactFormSection() {
                       name="capitalRequirementType"
                       required
                       defaultValue=""
-                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
+                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/40 valid:text-[#052E26] outline-none focus:border-brand-green"
                     >
                       <option value="" disabled>
                         Select facility type...
                       </option>
 
-                      <option>SME Working Capital</option>
-                      <option>Structured Debt</option>
-                      <option>Equity Fundraising</option>
+                      <option className="text-[#052E26]">SME Working Capital</option>
+                      <option className="text-[#052E26]">Structured Debt</option>
+                      <option className="text-[#052E26]">Equity Fundraising</option>
                     </select>
                   </div>
 
@@ -330,15 +332,15 @@ export default function ContactFormSection() {
                       name="facilityQuantum"
                       required
                       defaultValue=""
-                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/70 outline-none focus:border-brand-green"
+                      className="w-full rounded-lg border border-black/10 bg-[#FBF9F6] px-3.5 py-2.5 font-sans text-[13px] text-brand-green/40 valid:text-[#052E26] outline-none focus:border-brand-green"
                     >
                       <option value="" disabled>
                         Select expected quantum...
                       </option>
 
-                      <option>₹5 Cr – ₹25 Cr</option>
-                      <option>₹25 Cr – ₹100 Cr</option>
-                      <option>₹100 Cr+</option>
+                      <option className="text-[#052E26]">₹5 Cr – ₹25 Cr</option>
+                      <option className="text-[#052E26]">₹25 Cr – ₹100 Cr</option>
+                      <option className="text-[#052E26]">₹100 Cr+</option>
                     </select>
                   </div>
                 </div>

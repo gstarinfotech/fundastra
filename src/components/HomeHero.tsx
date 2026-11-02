@@ -10,6 +10,7 @@ import ContactAdvisorySection from "./ContactAdvisorySection";
 import Footer from "./Footer";
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/leads";
 
 type TriageStatus = "idle" | "loading" | "success" | "error";
@@ -68,6 +69,7 @@ const heroItem = {
 };
 
 export default function HomeHero() {
+  const router = useRouter();
   const [triageStatus, setTriageStatus] = useState<TriageStatus>("idle");
   const [triageError, setTriageError] = useState("");
 
@@ -86,8 +88,8 @@ export default function HomeHero() {
         capitalRoute: String(formData.get("capitalRoute") ?? ""),
         targetTicket: String(formData.get("targetTicket") ?? ""),
       });
-      setTriageStatus("success");
-      form.reset();
+      router.push("/thank-you");
+      return;
     } catch (error) {
       setTriageStatus("error");
       setTriageError(error instanceof Error ? error.message : "Something went wrong.");

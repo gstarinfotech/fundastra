@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { submitLead } from "@/lib/leads";
 
 const fadeUp = {
@@ -30,6 +31,7 @@ const cardContainer = {
 type Status = "idle" | "loading" | "success" | "error";
 
 export default function ContactSection() {
+  const router = useRouter();
   const [status, setStatus] = useState<Status>("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -67,8 +69,8 @@ export default function ContactSection() {
         ),
       });
 
-      setStatus("success");
-      form.reset();
+      router.push("/thank-you");
+      return;
     } catch (error) {
       setStatus("error");
 
